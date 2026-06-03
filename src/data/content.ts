@@ -24,6 +24,13 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
       current: true,
       projects: [
         {
+          title: '크래시 AI 분석 시스템 구축 (진행 중)',
+          bullets: [
+            '게임 크래시 로그를 AI로 자동 분석하여 원인 파악과 대응 속도를 높이는 시스템 구축 중',
+            '반복적인 크래시 분류·분석 업무를 자동화해 개발팀의 운영 비용 절감 목표',
+          ],
+        },
+        {
           title: '사내 AX(AI) 인프라 구성',
           bullets: [
             '사내 AI 전환(AX) 이니셔티브를 위한 내부 AI 인프라 설계 및 구성',
@@ -156,6 +163,13 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
       description: 'Internal tooling and workflow systems to enhance developer productivity',
       current: true,
       projects: [
+        {
+          title: 'Crash AI Analysis System (In Progress)',
+          bullets: [
+            'Building an AI-powered system to automatically analyze game crash logs and accelerate root cause identification',
+            'Automating repetitive crash classification to reduce operational overhead for the engineering team',
+          ],
+        },
         {
           title: 'Internal AX (AI Transformation) Infrastructure',
           bullets: [
