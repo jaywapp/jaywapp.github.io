@@ -56,7 +56,13 @@ export default function Experience() {
                             {project.bullets.map((bullet, bIdx) => (
                               <li key={bIdx} className="flex gap-2 text-zinc-500 text-xs leading-relaxed">
                                 <span className="text-blue-500 mt-1 shrink-0">—</span>
-                                <span>{bullet}</span>
+                                <span className="break-keep">
+                                  {bullet.split('. ').map((sentence, i, arr) => (
+                                    <span key={i} className="block">
+                                      {sentence}{i < arr.length - 1 ? '.' : ''}
+                                    </span>
+                                  ))}
+                                </span>
                               </li>
                             ))}
                           </ul>
