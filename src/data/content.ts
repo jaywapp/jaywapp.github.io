@@ -17,12 +17,19 @@ export interface ExperienceItem {
 export const experienceData: Record<Locale, ExperienceItem[]> = {
   ko: [
     {
-      company: '스마일게이트 캠퍼스',
+      company: '스마일게이트',
       role: 'Windows Client Software Developer',
-      period: '2025.12 ~ 현재',
-      description: '데이터 편집 생산성 향상을 위한 내부 도구 개발',
+      period: '2023.07 ~ 현재',
+      description: '개발자 생산성 향상을 위한 내부 도구 및 워크플로우 시스템 개발',
       current: true,
       projects: [
+        {
+          title: '사내 AX(AI) 인프라 구성',
+          bullets: [
+            '사내 AI 전환(AX) 이니셔티브를 위한 내부 AI 인프라 설계 및 구성',
+            '개발 조직이 AI 도구를 실무에 접목할 수 있는 기반 환경 마련',
+          ],
+        },
         {
           title: 'Excel 유사 데이터 편집 도구 개발',
           bullets: [
@@ -31,15 +38,6 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
             '복잡한 데이터를 다루는 업무에서 생산성과 사용성을 동시에 확보',
           ],
         },
-      ],
-    },
-    {
-      company: '스마일게이트 RPG',
-      role: 'Windows Client Software Developer',
-      period: '2023.07 ~ 2025.12',
-      description: '개발자 생산성 향상을 위한 내부 도구 및 워크플로우 시스템 개발',
-      current: false,
-      projects: [
         {
           title: 'CI/CD 파이프라인 구축 및 운영 체계 개선',
           bullets: [
@@ -131,29 +129,26 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
   ],
   en: [
     {
-      company: 'Smilegate Campus',
+      company: 'Smilegate',
       role: 'Windows Client Software Developer',
-      period: '2025.12 ~ Present',
-      description: 'Internal tooling for data editing productivity',
+      period: '2023.07 ~ Present',
+      description: 'Internal tooling and workflow systems to enhance developer productivity',
       current: true,
       projects: [
+        {
+          title: 'Internal AX (AI Transformation) Infrastructure',
+          bullets: [
+            'Designing and building internal AI infrastructure for the company-wide AX initiative',
+            'Creating a foundation that enables the engineering org to integrate AI tools into real workflows',
+          ],
+        },
         {
           title: 'Excel-like Data Editing Tool',
           bullets: [
             'Built an Excel-like data editing tool using DevExpress SpreadsheetControl',
             'Reduced learning curve for end users while enforcing domain logic and input rules internally',
-            'Achieved both productivity and usability for complex data workflows',
           ],
         },
-      ],
-    },
-    {
-      company: 'Smilegate RPG',
-      role: 'Windows Client Software Developer',
-      period: '2023.07 ~ 2025.12',
-      description: 'Internal tooling and workflow systems to enhance developer productivity',
-      current: false,
-      projects: [
         {
           title: 'CI/CD Pipeline & Deployment Automation',
           bullets: [
