@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "github": "GitHub",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Junyoung Park",
+    "suffix": "",
+    "title": "Windows Client Software Developer",
+    "description": "Software developer focused on algorithm performance, software architecture, and code readability.",
+    "viewWork": "View My Work",
+    "contact": "Get in Touch"
+  },
+  "about": {
+    "title": "About",
+    "description": "Software developer based in South Korea, specializing in Windows client development with C# and .NET. Currently working at Smilegate RPG, with a deep focus on algorithm performance, software architecture, and code readability.",
+    "skills": "Skills",
+    "major": "Major",
+    "minor": "Minor",
+    "education": "Education"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewAll": "View All on GitHub",
+    "stars": "stars",
+    "forks": "forks",
+    "loading": "Loading...",
+    "noDescription": "No description"
+  },
+  "github": {
+    "title": "GitHub Activity",
+    "contributions": "Contributions",
+    "topRepos": "Top Repositories"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Open to new opportunities and collaborations. Feel free to reach out."
+  }
+}
