@@ -67,6 +67,27 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
+          title: '조직 내 업무용 위젯 개발',
+          bullets: [
+            '개발 조직 구성원의 반복 업무를 줄이기 위한 사내 전용 위젯 개발',
+            '실제 업무 흐름에 맞는 인터페이스로 접근성과 활용도를 높임',
+          ],
+        },
+        {
+          title: 'Perforce·Hansoft MCP 플러그인 개발',
+          bullets: [
+            'Perforce(Helix Core) 및 Hansoft와 연동하는 MCP(Model Context Protocol) 플러그인 개발',
+            'AI 에이전트가 소스 관리·작업 관리 시스템과 직접 상호작용할 수 있는 인터페이스 구축',
+          ],
+        },
+        {
+          title: 'UnSync 기반 사내 Cook 빌드·배포 체계 구성',
+          bullets: [
+            'Unreal Engine UnSync를 활용해 사내 Cook 빌드 배포 파이프라인 구성',
+            '빌드 산출물의 효율적인 동기화·배포 흐름을 자동화하여 팀 생산성 향상',
+          ],
+        },
+        {
           title: 'Perforce + Hansoft 연동 워크플로우 개선',
           bullets: [
             'Perforce(Helix Core) 기반 워크플로우 제어 도구 개발로 소스 관리 반복 작업 감소',
@@ -175,6 +196,27 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           bullets: [
             'Delivered tools as WPF desktop apps, CLI tools, and VSIX extensions based on usage context',
             'Reduced friction across workflows, contributing to organizational productivity gains',
+          ],
+        },
+        {
+          title: 'Internal Work Widgets',
+          bullets: [
+            'Developed internal widgets to reduce repetitive tasks for engineering team members',
+            'Improved accessibility and adoption by fitting naturally into existing work patterns',
+          ],
+        },
+        {
+          title: 'Perforce & Hansoft MCP Plugin Development',
+          bullets: [
+            'Built MCP (Model Context Protocol) plugins for Perforce and Hansoft integration',
+            'Enabled AI agents to directly interact with source control and task management systems',
+          ],
+        },
+        {
+          title: 'UnSync-based Cook Build & Deploy Pipeline',
+          bullets: [
+            'Designed and built an internal Cook build distribution pipeline using Unreal Engine UnSync',
+            'Automated build artifact sync and deployment flow, improving team productivity',
           ],
         },
         {
