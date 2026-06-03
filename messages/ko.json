@@ -7,9 +7,10 @@
     "contact": "연락처"
   },
   "hero": {
-    "greeting": "안녕하세요, 저는",
+    "greeting": "안녕하세요 👋",
+    "subGreeting": "저는",
     "name": "박준영",
-    "suffix": "입니다",
+    "suffix": "입니다.",
     "title": "Dev Productivity / Tooling Engineer",
     "description": "개발 조직과 실무 사용자의 생산성을 높이는 도구와 시스템을 설계하고 구현합니다. 업무 흐름 안의 비효율을 발견하고, 이를 도구·자동화·플랫폼으로 바꾸는 일을 9년간 해왔습니다.",
     "viewWork": "경력 보기",

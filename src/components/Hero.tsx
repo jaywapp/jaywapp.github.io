@@ -24,11 +24,14 @@ export default function Hero() {
 
         {/* Name */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-          {t('greeting')}{' '}
-          <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-            {t('name')}
+          <span className="block">{t('greeting')}</span>
+          <span className="block">
+            {t('subGreeting')}{' '}
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              {t('name')}
+            </span>
+            {t('suffix')}
           </span>
-          {t('suffix')}
         </h1>
 
         {/* Title */}

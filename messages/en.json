@@ -7,9 +7,10 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hi, I'm",
+    "greeting": "Hi there 👋",
+    "subGreeting": "I'm",
     "name": "Junyoung Park",
-    "suffix": "",
+    "suffix": ".",
     "title": "Dev Productivity / Tooling Engineer",
     "description": "I design and build tools and systems that improve the productivity of engineering teams and end users. For 9+ years, I've been identifying inefficiencies in workflows and turning them into tools, automation, and platforms.",
     "viewWork": "View Experience",
