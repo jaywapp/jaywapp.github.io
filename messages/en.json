@@ -10,22 +10,24 @@
     "greeting": "Hi, I'm",
     "name": "Junyoung Park",
     "suffix": "",
-    "title": "Windows Client Software Developer",
-    "description": "Software developer focused on algorithm performance, software architecture, and code readability.",
-    "viewWork": "View My Work",
+    "title": "Dev Productivity / Tooling Engineer",
+    "description": "I design and build tools and systems that improve the productivity of engineering teams and end users. For 9+ years, I've been identifying inefficiencies in workflows and turning them into tools, automation, and platforms.",
+    "viewWork": "View Experience",
     "contact": "Get in Touch"
   },
   "about": {
     "title": "About",
-    "description": "Software developer based in South Korea, specializing in Windows client development with C# and .NET. Currently working at Smilegate RPG, with a deep focus on algorithm performance, software architecture, and code readability.",
+    "description": "Rather than a feature developer in a specific domain, I'm an engineer who designs and implements tools and systems that enhance productivity for development teams and end users. From DRC systems in the EDA/PCB domain to CI/CD pipelines, AI code review PoCs, and onboarding automation — I design tools that fit real usage flows and complete them at production-ready quality.",
     "skills": "Skills",
     "major": "Major",
     "minor": "Minor",
-    "education": "Education"
+    "education": "Education",
+    "certifications": "Certifications"
   },
   "experience": {
     "title": "Experience",
-    "present": "Present"
+    "present": "Present",
+    "totalCareer": "9 years 4 months total"
   },
   "projects": {
     "title": "Projects",
