@@ -45,7 +45,7 @@ export default function Hero() {
         {/* CTA buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
           <a
-            href="#projects"
+            href="#experience"
             className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg text-sm font-medium transition-colors"
           >
             {t('viewWork')}
