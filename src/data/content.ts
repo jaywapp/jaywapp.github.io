@@ -26,15 +26,15 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         {
           title: '크래시 AI 분석 시스템 구축 (진행 중)',
           bullets: [
-            '게임 크래시 로그를 AI로 자동 분석하여 원인 파악과 대응 속도를 높이는 시스템 구축 중',
-            '반복적인 크래시 분류·분석 업무를 자동화해 개발팀의 운영 비용 절감 목표',
+            'Claude API 기반 로컬 에이전트 서버를 구축·운영 중이며 현재 550건의 크래시 분석 데이터 생성 완료',
+            '실 운영 과정에서 API 비용 최적화 필요성을 경험하고, MCP 활용과 서브에이전트 레이어 도입으로 토큰 효율을 고려한 AI 파이프라인 구조 설계',
           ],
         },
         {
           title: '사내 AX(AI) 인프라 구성',
           bullets: [
-            '사내 AI 전환(AX) 이니셔티브를 위한 내부 AI 인프라 설계 및 구성',
-            '개발 조직이 AI 도구를 실무에 접목할 수 있는 기반 환경 마련',
+            '사내 태스크 관리 시스템과 Perforce MCP를 직접 구성해 AI 에이전트가 내부 시스템과 직접 상호작용하는 인터페이스 구축',
+            'Gitea 기반 내부 AI 도구 마켓플레이스 구성·배포로 70명 규모 조직에 AI 도구 셀프서비스 접근 체계 제공',
           ],
         },
         {
@@ -48,15 +48,15 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         {
           title: 'CI/CD 파이프라인 구축 및 운영 체계 개선',
           bullets: [
-            'TeamCity 기반 CI/CD 파이프라인 구축, 빌드·배포 반복 과정 자동화',
-            '재현 가능하고 신뢰할 수 있는 배포 흐름 구성으로 수작업 의존도 제거',
+            '이전 부서: 조직 전반에 분산된 빌드 작업을 분석·재구성하여 TeamCity 기반 빌드 체인 체계화',
+            '현재 부서: 운영 프로그램 배포 프로세스 전체를 처음부터 설계하고 자동화 배포 체계 구축',
           ],
         },
         {
           title: 'AI 기반 코드 리뷰 PoC',
           bullets: [
-            '멀티 모델 선택이 가능한 AI 코드 리뷰 시스템 PoC 개발',
-            '실무 생산성 향상에 유의미한 방식 검토 및 내부 AI 접목 가능성 검증',
+            'OpenAI·Claude·Gemini 등 다중 AI 모델을 손쉽게 전환할 수 있는 코드 리뷰 애플리케이션 개발',
+            'PoC 결과가 Perforce Swarm 코드 리뷰 도구 도입 의사결정의 실질적 근거 자료로 활용됨',
           ],
         },
         {
@@ -83,8 +83,9 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         {
           title: 'Perforce·Hansoft MCP 플러그인 개발',
           bullets: [
-            'Perforce(Helix Core) 및 Hansoft와 연동하는 MCP(Model Context Protocol) 플러그인 개발',
-            'AI 에이전트가 소스 관리·작업 관리 시스템과 직접 상호작용할 수 있는 인터페이스 구축',
+            'Perforce 전 명령어를 지원하는 MCP 플러그인 개발로 AI 에이전트의 완전한 소스 관리 시스템 접근 가능',
+            'Hansoft 기반 웹 솔루션 MCP 구성으로 AI가 작업 관리 데이터를 직접 조회·처리하는 인터페이스 구현',
+            'Claude 기반 협업 환경에서 내부 시스템과 통합된 AI 워크플로우 지원',
           ],
         },
         {
@@ -113,15 +114,16 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         {
           title: 'CAD/PCB 데이터 처리 및 검증 시스템 (DRC)',
           bullets: [
-            'ODB++, Gerber, Neutral 등 다양한 포맷을 처리하는 CAD 데이터 파이프라인 설계',
-            '복잡한 설계 검증 문제를 소프트웨어로 구조화하고 후속 검증·활용까지 가능한 구조 구현',
+            'ODB++, Gerber, Neutral 등 다양한 PCB 포맷을 처리하는 CAD 데이터 파이프라인 설계',
+            '삼성전자 네트워크 사업부·SK하이닉스·현대모비스·현대자동차·경신 등 대형 고객사의 실 도면 기반 설계 검증 시스템 구축 및 납품',
+            '네트워크 장비 수준의 대규모 PCB 도면을 포함한 다양한 규모의 도면 처리 가능한 범용 구조로 설계',
           ],
         },
         {
           title: 'SMT 제조 솔루션 아키텍처 설계 및 Tech Lead',
           bullets: [
             'IoC(Prism), MVVM, Facade 기반 컨트롤러 설계로 유지보수성·확장성 확보',
-            '삼성전자 네트워크·무선·가전 사업부 실사용 솔루션 개발 주도',
+            '실 PCB 도면 기반의 사전 제조 검증 솔루션을 삼성전자·SK하이닉스 현장에 납품',
           ],
         },
         {
@@ -166,15 +168,15 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         {
           title: 'Crash AI Analysis System (In Progress)',
           bullets: [
-            'Building an AI-powered system to automatically analyze game crash logs and accelerate root cause identification',
-            'Automating repetitive crash classification to reduce operational overhead for the engineering team',
+            'Building and operating a local Claude agent server; generated 550+ crash analysis records to date',
+            'Identified API cost inefficiencies during production and redesigned the pipeline with MCP integration and sub-agent layering for token-efficient execution',
           ],
         },
         {
           title: 'Internal AX (AI Transformation) Infrastructure',
           bullets: [
-            'Designing and building internal AI infrastructure for the company-wide AX initiative',
-            'Creating a foundation that enables the engineering org to integrate AI tools into real workflows',
+            'Built internal task management and Perforce MCP integrations, enabling AI agents to interact directly with internal systems',
+            'Deployed a Gitea-based internal AI tool marketplace serving 70 engineers with a self-service AI tooling platform',
           ],
         },
         {
@@ -187,15 +189,15 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         {
           title: 'CI/CD Pipeline & Deployment Automation',
           bullets: [
-            'Built and operated TeamCity-based CI/CD pipeline, automating build and deployment cycles',
-            'Eliminated manual dependencies with reproducible, reliable deployment flows',
+            'Previous team: Analyzed and restructured scattered build jobs across the org into an organized TeamCity build chain',
+            'Current team: Designed and built the entire operational program deployment process from scratch, automating end-to-end delivery',
           ],
         },
         {
           title: 'AI-based Code Review PoC',
           bullets: [
-            'Developed a multi-model AI code review system PoC',
-            'Validated practical productivity improvement of AI integration in internal dev processes',
+            'Developed a multi-model code review app supporting OpenAI, Claude, and Gemini with easy model switching',
+            'PoC findings served as concrete evidence in the decision to adopt Perforce Swarm as the team\'s code review tool',
           ],
         },
         {
@@ -222,8 +224,9 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         {
           title: 'Perforce & Hansoft MCP Plugin Development',
           bullets: [
-            'Built MCP (Model Context Protocol) plugins for Perforce and Hansoft integration',
-            'Enabled AI agents to directly interact with source control and task management systems',
+            'Built a full-coverage Perforce MCP plugin supporting all P4 commands, giving AI agents complete access to source control',
+            'Implemented Hansoft web solution MCP integration enabling AI to directly query and process task management data',
+            'Supports AI-integrated workflows in Claude co-work environments with full internal system connectivity',
           ],
         },
         {
@@ -252,15 +255,16 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         {
           title: 'CAD/PCB Data Processing & Validation System (DRC)',
           bullets: [
-            'Designed CAD data pipeline handling ODB++, Gerber, Neutral formats',
-            'Structured complex design verification problems into maintainable software with downstream usability',
+            'Designed a CAD data pipeline handling ODB++, Gerber, and Neutral PCB formats',
+            'Built and delivered design rule verification systems for Samsung Electronics Network Division, SK hynix, Hyundai Mobis, Hyundai Motor, and Kyungshin',
+            'Architected for scale — handling complex network equipment PCB designs across a broad range of customer domains',
           ],
         },
         {
           title: 'SMT Manufacturing Solution Architecture & Tech Lead',
           bullets: [
-            'Applied IoC(Prism), MVVM, Facade patterns for maintainability and scalability',
-            'Led development of solutions used in Samsung Electronics Network, Wireless, and Home Appliance divisions',
+            'Led architecture using IoC(Prism), MVVM, and Facade patterns for maintainability and extensibility',
+            'Delivered a real PCB design-based pre-manufacturing verification solution deployed at Samsung Electronics and SK hynix',
           ],
         },
         {
