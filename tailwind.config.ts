@@ -10,14 +10,17 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       colors: {
         background: '#0a0a0a',
         surface: '#111111',
         'surface-2': '#1a1a1a',
+        'surface-hover': '#141414',
         border: '#2a2a2a',
+        'border-strong': '#3a3a3a',
+        divider: '#1e1e1e',
         muted: '#a1a1aa',
         accent: '#3b82f6',
       },

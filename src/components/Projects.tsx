@@ -30,23 +30,29 @@ export default function Projects() {
   const t = useTranslations('projects');
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    fetch('https://api.github.com/users/jaywapp/repos?sort=stars&per_page=100&type=public')
-      .then((r) => r.json())
+    fetch('https://api.github.com/users/jaywapp/repos?per_page=100&type=public')
+      .then((r) => {
+        if (!r.ok) throw new Error(`GitHub API ${r.status}`);
+        return r.json();
+      })
       .then((data: Repo[]) => {
+        // Rate-limited responses are objects, not arrays
+        if (!Array.isArray(data)) throw new Error('Unexpected response');
         const filtered = data
           .filter((r) => !r.name.startsWith('.') && r.name !== 'jaywapp')
           .sort((a, b) => b.stargazers_count - a.stargazers_count)
           .slice(0, 6);
         setRepos(filtered);
-        setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => setFailed(true))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
-    <section id="projects" className="py-24 px-6 border-t border-[#2a2a2a]">
+    <section id="projects" className="py-24 px-6 border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-2xl font-semibold text-white">{t('title')}</h2>
@@ -66,9 +72,22 @@ export default function Projects() {
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="bg-[#111111] border border-[#2a2a2a] rounded-xl p-5 animate-pulse h-40"
+                className="bg-surface border border-border rounded-xl p-5 animate-pulse h-40"
               />
             ))}
+          </div>
+        ) : failed || repos.length === 0 ? (
+          <div className="bg-surface border border-border rounded-xl p-8 text-center">
+            <p className="text-zinc-500 text-sm mb-4">{t('error')}</p>
+            <a
+              href="https://github.com/jaywapp?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              {t('viewAll')}
+              <ExternalLink size={14} />
+            </a>
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -78,7 +97,7 @@ export default function Projects() {
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#111111] border border-[#2a2a2a] rounded-xl p-5 hover:border-[#3a3a3a] hover:bg-[#141414] transition-all group"
+                className="bg-surface border border-border rounded-xl p-5 hover:border-border-strong hover:bg-surface-hover transition-all group"
               >
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-white font-medium text-sm group-hover:text-blue-400 transition-colors truncate pr-2">

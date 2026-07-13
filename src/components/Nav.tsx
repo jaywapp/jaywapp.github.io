@@ -35,7 +35,7 @@ export default function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#2a2a2a]'
+          ? 'bg-background/90 backdrop-blur-md border-b border-border'
           : 'bg-transparent'
       }`}
     >
@@ -63,7 +63,7 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           <button
             onClick={toggleLocale}
-            className="text-xs font-medium text-zinc-400 hover:text-white border border-[#2a2a2a] hover:border-zinc-500 rounded-full px-3 py-1.5 transition-all"
+            className="text-xs font-medium text-zinc-400 hover:text-white border border-border hover:border-zinc-500 rounded-full px-3 py-1.5 transition-all"
           >
             {locale === 'ko' ? 'EN' : '한국어'}
           </button>
@@ -72,6 +72,8 @@ export default function Nav() {
           <button
             className="md:hidden text-zinc-400 hover:text-white"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={t(menuOpen ? 'closeMenu' : 'openMenu')}
+            aria-expanded={menuOpen}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {menuOpen ? (
@@ -86,7 +88,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-surface border-b border-border px-6 py-4 flex flex-col gap-4">
           {navItems.map((item) => (
             <a
               key={item.key}

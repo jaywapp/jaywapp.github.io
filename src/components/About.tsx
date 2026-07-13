@@ -20,7 +20,7 @@ export default function About() {
   const certs = certifications[locale];
 
   return (
-    <section id="about" className="py-24 px-6 border-t border-[#2a2a2a]">
+    <section id="about" className="py-24 px-6 border-t border-border">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl font-semibold text-white mb-12">{t('title')}</h2>
 
@@ -38,7 +38,7 @@ export default function About() {
                 {education.map((edu) => (
                   <div
                     key={edu.school}
-                    className="flex items-start gap-3 bg-[#111111] border border-[#2a2a2a] rounded-lg p-4"
+                    className="flex items-start gap-3 bg-surface border border-border rounded-lg p-4"
                   >
                     <GraduationCap className="text-blue-400 mt-0.5 shrink-0" size={18} />
                     <div>
@@ -60,7 +60,7 @@ export default function About() {
                 {certs.map((cert) => (
                   <div
                     key={cert.name}
-                    className="flex items-start gap-3 bg-[#111111] border border-[#2a2a2a] rounded-lg p-4"
+                    className="flex items-start gap-3 bg-surface border border-border rounded-lg p-4"
                   >
                     <Award className="text-yellow-400 mt-0.5 shrink-0" size={18} />
                     <div>

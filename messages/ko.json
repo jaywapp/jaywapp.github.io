@@ -4,7 +4,9 @@
     "experience": "경력",
     "projects": "프로젝트",
     "github": "GitHub",
-    "contact": "연락처"
+    "contact": "연락처",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기"
   },
   "hero": {
     "greeting": "안녕하세요 👋",
@@ -33,15 +35,12 @@
   "projects": {
     "title": "프로젝트",
     "viewAll": "GitHub에서 모두 보기",
-    "stars": "스타",
-    "forks": "포크",
-    "loading": "불러오는 중...",
-    "noDescription": "설명 없음"
+    "noDescription": "설명 없음",
+    "error": "프로젝트를 불러오지 못했습니다. GitHub에서 직접 확인해 주세요."
   },
   "github": {
     "title": "GitHub 활동",
-    "contributions": "기여 현황",
-    "topRepos": "주요 저장소"
+    "contributions": "기여 현황"
   },
   "contact": {
     "title": "연락처",
