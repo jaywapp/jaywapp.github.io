@@ -16,7 +16,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   setRequestLocale(params.locale);
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white">
+    <main className="min-h-screen bg-background text-white">
       <Nav />
       <Hero />
       <About />
@@ -24,7 +24,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       <Projects />
       <GitHubActivity />
       <Contact />
-      <footer className="border-t border-[#2a2a2a] py-8 text-center text-zinc-500 text-sm">
+      <footer className="border-t border-border py-8 text-center text-zinc-500 text-sm">
         <p>© {new Date().getFullYear()} Junyoung Park. Built with Next.js & Tailwind CSS.</p>
       </footer>
     </main>

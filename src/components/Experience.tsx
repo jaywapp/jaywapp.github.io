@@ -7,7 +7,7 @@ export default function Experience() {
   const items = experienceData[locale];
 
   return (
-    <section id="experience" className="py-24 px-6 border-t border-[#2a2a2a]">
+    <section id="experience" className="py-24 px-6 border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-baseline gap-4 mb-12">
           <h2 className="text-2xl font-semibold text-white">{t('title')}</h2>
@@ -15,7 +15,7 @@ export default function Experience() {
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-[#2a2a2a] ml-[7px] hidden sm:block" />
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-border ml-[7px] hidden sm:block" />
 
           <div className="space-y-6">
             {items.map((item, idx) => (
@@ -24,11 +24,11 @@ export default function Experience() {
                   className={`absolute left-0 top-2 w-3.5 h-3.5 rounded-full border-2 hidden sm:block ${
                     item.current
                       ? 'bg-blue-500 border-blue-400'
-                      : 'bg-[#0a0a0a] border-[#2a2a2a]'
+                      : 'bg-background border-border'
                   }`}
                 />
 
-                <div className="bg-[#111111] border border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-colors">
+                <div className="bg-surface border border-border rounded-xl overflow-hidden hover:border-border-strong transition-colors">
                   {/* Company header */}
                   <div className="p-5 flex flex-wrap items-start justify-between gap-2">
                     <div>
@@ -48,7 +48,7 @@ export default function Experience() {
 
                   {/* Projects */}
                   {item.projects && item.projects.length > 0 && (
-                    <div className="border-t border-[#2a2a2a] divide-y divide-[#1e1e1e]">
+                    <div className="border-t border-border divide-y divide-divider">
                       {item.projects.map((project, pIdx) => (
                         <div key={pIdx} className="px-5 py-4">
                           <p className="text-zinc-300 text-sm font-medium mb-2">{project.title}</p>
@@ -57,9 +57,9 @@ export default function Experience() {
                               <li key={bIdx} className="flex gap-2 text-zinc-500 text-xs leading-relaxed">
                                 <span className="text-blue-500 mt-1 shrink-0">—</span>
                                 <span className="break-keep">
-                                  {bullet.split('. ').map((sentence, i, arr) => (
+                                  {bullet.split('\n').map((line, i) => (
                                     <span key={i} className="block">
-                                      {sentence}{i < arr.length - 1 ? '.' : ''}
+                                      {line}
                                     </span>
                                   ))}
                                 </span>
@@ -73,7 +73,7 @@ export default function Experience() {
 
                   {/* Simple description for no-project entries */}
                   {!item.projects && (
-                    <div className="border-t border-[#2a2a2a] px-5 py-3">
+                    <div className="border-t border-border px-5 py-3">
                       <p className="text-zinc-500 text-xs leading-relaxed">{item.description}</p>
                     </div>
                   )}

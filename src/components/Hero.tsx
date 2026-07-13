@@ -1,14 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Github, Linkedin, Mail, BookOpen } from 'lucide-react';
-
-const socialLinks = [
-  { icon: Github, href: 'https://github.com/jaywapp', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/jaywapp16/', label: 'LinkedIn' },
-  { icon: BookOpen, href: 'https://jaywapp.tistory.com/', label: 'Blog' },
-  { icon: Mail, href: 'mailto:jaywapp16@gmail.com', label: 'Email' },
-];
+import { socialLinks } from '@/data/content';
 
 export default function Hero() {
   const t = useTranslations('hero');
@@ -17,7 +10,7 @@ export default function Hero() {
     <section className="min-h-screen flex items-center justify-center px-6 pt-20">
       <div className="max-w-3xl mx-auto text-center animate-fade-in">
         {/* Subtle top badge */}
-        <div className="inline-flex items-center gap-2 bg-[#111111] border border-[#2a2a2a] rounded-full px-4 py-1.5 mb-8">
+        <div className="inline-flex items-center gap-2 bg-surface border border-border rounded-full px-4 py-1.5 mb-8">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           <span className="text-xs text-zinc-400">Smilegate RPG</span>
         </div>
@@ -52,7 +45,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="bg-[#111111] hover:bg-[#1a1a1a] border border-[#2a2a2a] text-white px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+            className="bg-surface hover:bg-surface-2 border border-border text-white px-6 py-3 rounded-lg text-sm font-medium transition-colors"
           >
             {t('contact')}
           </a>

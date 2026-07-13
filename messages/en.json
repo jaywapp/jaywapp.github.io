@@ -4,7 +4,9 @@
     "experience": "Experience",
     "projects": "Projects",
     "github": "GitHub",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "greeting": "Hi there 👋",
@@ -33,15 +35,12 @@
   "projects": {
     "title": "Projects",
     "viewAll": "View All on GitHub",
-    "stars": "stars",
-    "forks": "forks",
-    "loading": "Loading...",
-    "noDescription": "No description"
+    "noDescription": "No description",
+    "error": "Could not load projects. Please check them on GitHub directly."
   },
   "github": {
     "title": "GitHub Activity",
-    "contributions": "Contributions",
-    "topRepos": "Top Repositories"
+    "contributions": "Contributions"
   },
   "contact": {
     "title": "Contact",
