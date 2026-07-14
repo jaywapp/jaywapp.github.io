@@ -14,6 +14,15 @@ export interface ExperienceItem {
   projects?: Project[];
 }
 
+export interface FeaturedProject {
+  name: string;
+  category: string;
+  description: string;
+  highlight: string;
+  href: string;
+  technologies: string[];
+}
+
 export const experienceData: Record<Locale, ExperienceItem[]> = {
   ko: [
     {
@@ -303,6 +312,67 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
 export const educationData = {
   ko: [{ school: '아주대학교', major: '소프트웨어학과', period: '2010.03 ~ 2017.02' }],
   en: [{ school: 'Ajou University', major: 'Software Engineering', period: '2010.03 ~ 2017.02' }],
+};
+
+export const featuredProjects: Record<Locale, FeaturedProject[]> = {
+  ko: [
+    {
+      name: 'Claude Buffett',
+      category: 'AI Automation',
+      description:
+        'Claude를 활용해 종목 분석, 시장 동향, 포트폴리오 리뷰를 자동으로 작성하고 웹에서 탐색할 수 있게 만든 투자 분석 시스템입니다.',
+      highlight: '일간·주간·요청형 리포트 자동화',
+      href: 'https://github.com/jaywapp/claude-buffett',
+      technologies: ['Claude', 'Python', 'GitHub Pages'],
+    },
+    {
+      name: 'AI Debate',
+      category: 'Agent Workflow',
+      description:
+        'Claude와 Codex가 멀티라운드로 논쟁하고, 독립된 판정자가 결론을 내리는 과정을 재사용 가능한 워크플로우로 구성했습니다.',
+      highlight: '멀티모델 토론·판정 기록 체계',
+      href: 'https://github.com/jaywapp/ai-debate',
+      technologies: ['Claude', 'Codex', 'Markdown'],
+    },
+    {
+      name: 'CardRadar',
+      category: 'Mobile Product',
+      description:
+        '보유 카드와 결제 카테고리를 기준으로 혜택을 비교해, 결제 순간 가장 유리한 카드를 찾도록 돕는 모바일 앱입니다.',
+      highlight: '19개 카드·8개 소비 카테고리 지원',
+      href: 'https://github.com/jaywapp/card-radar',
+      technologies: ['Flutter', 'Riverpod', 'Hive'],
+    },
+  ],
+  en: [
+    {
+      name: 'Claude Buffett',
+      category: 'AI Automation',
+      description:
+        'An investment research system that uses Claude to generate stock analysis, market briefs, and portfolio reviews with a web-based report viewer.',
+      highlight: 'Automated daily, weekly, and on-demand reports',
+      href: 'https://github.com/jaywapp/claude-buffett',
+      technologies: ['Claude', 'Python', 'GitHub Pages'],
+    },
+    {
+      name: 'AI Debate',
+      category: 'Agent Workflow',
+      description:
+        'A reusable workflow where Claude and Codex debate across multiple rounds and an independent judge delivers a structured verdict.',
+      highlight: 'Multi-model debate and evaluation records',
+      href: 'https://github.com/jaywapp/ai-debate',
+      technologies: ['Claude', 'Codex', 'Markdown'],
+    },
+    {
+      name: 'CardRadar',
+      category: 'Mobile Product',
+      description:
+        'A mobile app that compares benefits across a user\'s cards and spending category to recommend the best card at checkout.',
+      highlight: '19 cards across 8 spending categories',
+      href: 'https://github.com/jaywapp/card-radar',
+      technologies: ['Flutter', 'Riverpod', 'Hive'],
+    },
+  ],
 };
 
 export const certifications = {

@@ -4,7 +4,10 @@
     "experience": "경력",
     "projects": "프로젝트",
     "github": "GitHub",
-    "contact": "연락처"
+    "contact": "연락처",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기",
+    "switchLanguage": "영어로 전환"
   },
   "hero": {
     "greeting": "안녕하세요 👋",
@@ -14,7 +17,13 @@
     "title": "Dev Productivity / Tooling Engineer",
     "description": "개발 조직과 실무 사용자의 생산성을 높이는 도구와 시스템을 설계하고 구현합니다. 업무 흐름 안의 비효율을 발견하고, 이를 도구·자동화·플랫폼으로 바꾸는 일을 9년간 해왔습니다.",
     "viewWork": "경력 보기",
-    "contact": "연락하기"
+    "contact": "연락하기",
+    "eyebrow": "업무의 마찰을 시스템으로 해결합니다",
+    "impact": {
+      "years": "개발 경력",
+      "engineers": "AI 도구 사용 조직",
+      "analyses": "크래시 분석 데이터"
+    }
   },
   "about": {
     "title": "소개",
@@ -28,7 +37,9 @@
   "experience": {
     "title": "경력",
     "present": "현재",
-    "totalCareer": "총 경력 9년 4개월"
+    "totalCareer": "총 경력 9년 4개월",
+    "selectedWork": "주요 성과",
+    "moreProjects": "추가 프로젝트 {count}개 보기"
   },
   "projects": {
     "title": "프로젝트",
@@ -36,7 +47,9 @@
     "stars": "스타",
     "forks": "포크",
     "loading": "불러오는 중...",
-    "noDescription": "설명 없음"
+    "noDescription": "설명 없음",
+    "featured": "대표 프로젝트",
+    "openProject": "프로젝트 열기"
   },
   "github": {
     "title": "GitHub 활동",

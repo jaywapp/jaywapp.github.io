@@ -1,5 +1,26 @@
-import { useTranslations, useLocale } from 'next-intl';
-import { experienceData, type Locale } from '@/data/content';
+import { useLocale, useTranslations } from 'next-intl';
+import { ChevronDown } from 'lucide-react';
+import { experienceData, type Locale, type Project } from '@/data/content';
+
+interface ProjectItemProps {
+  project: Project;
+}
+
+function ProjectItem({ project }: ProjectItemProps) {
+  return (
+    <article className="border-t border-[#242424] px-5 py-5 sm:px-6">
+      <h4 className="text-sm font-medium text-zinc-200">{project.title}</h4>
+      <ul className="mt-3 space-y-2">
+        {project.bullets.map((bullet) => (
+          <li key={bullet} className="flex gap-3 text-sm leading-relaxed text-zinc-500">
+            <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-blue-500" />
+            <span className="break-keep">{bullet}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
 
 export default function Experience() {
   const t = useTranslations('experience');
@@ -7,79 +28,91 @@ export default function Experience() {
   const items = experienceData[locale];
 
   return (
-    <section id="experience" className="py-24 px-6 border-t border-[#2a2a2a]">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-baseline gap-4 mb-12">
+    <section id="experience" className="border-t border-[#2a2a2a] px-6 py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-12 flex flex-wrap items-baseline gap-4">
           <h2 className="text-2xl font-semibold text-white">{t('title')}</h2>
-          <span className="text-sm text-zinc-500">{t('totalCareer')}</span>
+          <span className="font-mono text-sm text-zinc-500">{t('totalCareer')}</span>
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-[#2a2a2a] ml-[7px] hidden sm:block" />
+          <div className="absolute bottom-0 left-[7px] top-0 hidden w-px bg-[#2a2a2a] sm:block" />
 
           <div className="space-y-6">
-            {items.map((item, idx) => (
-              <div key={idx} className="sm:pl-8 relative">
-                <div
-                  className={`absolute left-0 top-2 w-3.5 h-3.5 rounded-full border-2 hidden sm:block ${
-                    item.current
-                      ? 'bg-blue-500 border-blue-400'
-                      : 'bg-[#0a0a0a] border-[#2a2a2a]'
-                  }`}
-                />
+            {items.map((item) => {
+              const visibleCount = item.current ? 3 : 2;
+              const selectedProjects = item.projects?.slice(0, visibleCount) ?? [];
+              const additionalProjects = item.projects?.slice(visibleCount) ?? [];
 
-                <div className="bg-[#111111] border border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#3a3a3a] transition-colors">
-                  {/* Company header */}
-                  <div className="p-5 flex flex-wrap items-start justify-between gap-2">
-                    <div>
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <h3 className="text-white font-semibold">{item.company}</h3>
-                        {item.current && (
-                          <span className="flex items-center gap-1.5 bg-green-500/10 text-green-400 text-xs px-2 py-0.5 rounded-full border border-green-500/20">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                            {t('present')}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-blue-400 text-sm">{item.role}</p>
-                    </div>
-                    <span className="text-zinc-500 text-xs shrink-0">{item.period}</span>
-                  </div>
+              return (
+                <article key={item.company} className="relative sm:pl-8">
+                  <div
+                    aria-hidden="true"
+                    className={`absolute left-0 top-7 hidden h-3.5 w-3.5 rounded-full border-2 sm:block ${
+                      item.current
+                        ? 'border-blue-400 bg-blue-500 shadow-[0_0_0_5px_rgba(59,130,246,0.08)]'
+                        : 'border-[#3a3a3a] bg-[#0a0a0a]'
+                    }`}
+                  />
 
-                  {/* Projects */}
-                  {item.projects && item.projects.length > 0 && (
-                    <div className="border-t border-[#2a2a2a] divide-y divide-[#1e1e1e]">
-                      {item.projects.map((project, pIdx) => (
-                        <div key={pIdx} className="px-5 py-4">
-                          <p className="text-zinc-300 text-sm font-medium mb-2">{project.title}</p>
-                          <ul className="space-y-1.5">
-                            {project.bullets.map((bullet, bIdx) => (
-                              <li key={bIdx} className="flex gap-2 text-zinc-500 text-xs leading-relaxed">
-                                <span className="text-blue-500 mt-1 shrink-0">—</span>
-                                <span className="break-keep">
-                                  {bullet.split('. ').map((sentence, i, arr) => (
-                                    <span key={i} className="block">
-                                      {sentence}{i < arr.length - 1 ? '.' : ''}
-                                    </span>
-                                  ))}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
+                  <div
+                    className={`overflow-hidden rounded-2xl border transition-colors ${
+                      item.current
+                        ? 'border-blue-500/25 bg-gradient-to-b from-blue-500/[0.06] to-[#111111]'
+                        : 'border-[#2a2a2a] bg-[#111111] hover:border-[#3a3a3a]'
+                    }`}
+                  >
+                    <header className="flex flex-wrap items-start justify-between gap-4 p-5 sm:p-6">
+                      <div>
+                        <div className="mb-1 flex flex-wrap items-center gap-2">
+                          <h3 className="text-lg font-semibold text-white">{item.company}</h3>
+                          {item.current && (
+                            <span className="flex items-center gap-1.5 rounded-full border border-green-500/20 bg-green-500/10 px-2 py-0.5 text-xs text-green-400">
+                              <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+                              {t('present')}
+                            </span>
+                          )}
                         </div>
-                      ))}
-                    </div>
-                  )}
+                        <p className="text-sm text-blue-400">{item.role}</p>
+                        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-500">
+                          {item.description}
+                        </p>
+                      </div>
+                      <span className="shrink-0 font-mono text-xs text-zinc-500">{item.period}</span>
+                    </header>
 
-                  {/* Simple description for no-project entries */}
-                  {!item.projects && (
-                    <div className="border-t border-[#2a2a2a] px-5 py-3">
-                      <p className="text-zinc-500 text-xs leading-relaxed">{item.description}</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
+                    {selectedProjects.length > 0 && (
+                      <div>
+                        <p className="border-t border-[#242424] px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-600 sm:px-6">
+                          {t('selectedWork')}
+                        </p>
+                        {selectedProjects.map((project) => (
+                          <ProjectItem key={project.title} project={project} />
+                        ))}
+                      </div>
+                    )}
+
+                    {additionalProjects.length > 0 && (
+                      <details className="group border-t border-[#242424]">
+                        <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between px-5 text-sm text-zinc-400 transition-colors hover:bg-white/[0.02] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-blue-400 sm:px-6">
+                          {t('moreProjects', { count: additionalProjects.length })}
+                          <ChevronDown
+                            aria-hidden="true"
+                            size={16}
+                            className="transition-transform group-open:rotate-180"
+                          />
+                        </summary>
+                        <div>
+                          {additionalProjects.map((project) => (
+                            <ProjectItem key={project.title} project={project} />
+                          ))}
+                        </div>
+                      </details>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>
