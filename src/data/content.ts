@@ -36,17 +36,17 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
       current: true,
       projects: [
         {
-          title: '크래시 AI 분석 시스템 구축 (진행 중)',
+          title: 'AX Dashboard 구축',
           bullets: [
-            'Claude API 기반 로컬 에이전트 서버를 구축·운영 중이며 현재 550건의 크래시 분석 데이터 생성 완료',
-            '실 운영 과정에서 API 비용 최적화 필요성을 경험하고, MCP 활용과 서브에이전트 레이어 도입으로 토큰 효율을 고려한 AI 파이프라인 구조 설계',
+            '조직 내 AI·AX 도입 현황, 사용 통계 및 관련 정보를 제공하는 대시보드 개발',
+            '분산된 AI 관련 지표와 자료를 시각화하여 활용 현황과 성과를 한눈에 파악할 수 있도록 구성',
           ],
         },
         {
-          title: '사내 AX(AI) 인프라 구성',
+          title: '사내 솔루션 통합 랜딩 페이지 구축',
           bullets: [
-            '사내 태스크 관리 시스템과 Perforce MCP를 직접 구성해 AI 에이전트가 내부 시스템과 직접 상호작용하는 인터페이스 구축',
-            'Gitea 기반 내부 AI 도구 마켓플레이스 구성·배포로 70명 규모 조직에 AI 도구 셀프서비스 접근 체계 제공',
+            '조직에서 사용하는 여러 내부 솔루션을 한곳에서 탐색하고 접근할 수 있는 메인 랜딩 페이지 구축',
+            '리버스 프록시를 적용해 개별 솔루션을 하나의 도메인 아래 통합하고 사용자 접근 경로 단순화',
           ],
         },
         {
@@ -54,6 +54,34 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           bullets: [
             'DevExpress SpreadsheetControl 기반의 독립형 데이터 편집 도구를 실제 Excel에서 동작하는 VSTO 플러그인으로 확장',
             'Excel의 친숙한 사용성을 유지하면서 입력 검증, 도메인 규칙 및 사내 데이터 연동 기능 제공',
+          ],
+        },
+        {
+          title: '업무 도구 통합 위젯 개발',
+          bullets: [
+            'Perforce, Hansoft, UnrealGameSync 등 사내 업무 도구를 연결하는 데스크톱 위젯 구현',
+            '여러 도구에 분산된 주요 기능과 정보를 하나의 인터페이스로 통합해 반복 작업과 도구 전환 비용 감소',
+          ],
+        },
+        {
+          title: 'UnSync 기반 Cook 빌드 다운로드 체계 구축',
+          bullets: [
+            'Unreal Engine UnSync를 활용해 배포된 Cook 빌드 버전을 선택하고 다운로드할 수 있는 내부 체계 구축',
+            '빌드 산출물의 배포·동기화 흐름을 표준화하여 개발팀의 빌드 접근성과 업무 효율 개선',
+          ],
+        },
+        {
+          title: '크래시 AI 분석 시스템 구축',
+          bullets: [
+            'Claude API 기반 로컬 에이전트 서버를 구축하고 550건의 크래시 분석 데이터 생성 완료',
+            '실 운영 과정에서 확인한 API 비용 최적화 과제를 바탕으로 MCP와 서브에이전트 레이어를 적용한 토큰 효율형 AI 파이프라인 설계',
+          ],
+        },
+        {
+          title: '사내 AX(AI) 인프라 구성',
+          bullets: [
+            '사내 태스크 관리 시스템과 Perforce MCP를 직접 구성해 AI 에이전트가 내부 시스템과 직접 상호작용하는 인터페이스 구축',
+            'Gitea 기반 내부 AI 도구 마켓플레이스 구성·배포로 70명 규모 조직에 AI 도구 셀프서비스 접근 체계 제공',
           ],
         },
         {
@@ -86,13 +114,6 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: '업무 도구 통합 위젯 개발',
-          bullets: [
-            'Perforce, Hansoft, UnrealGameSync 등 사내 업무 도구를 연결하는 데스크톱 위젯 구현',
-            '여러 도구에 분산된 주요 기능과 정보를 하나의 인터페이스로 통합해 반복 작업과 도구 전환 비용 감소',
-          ],
-        },
-        {
           title: 'Perforce·Hansoft MCP 플러그인 개발',
           bullets: [
             'Perforce 전 명령어를 지원하는 MCP 플러그인 개발로 AI 에이전트의 완전한 소스 관리 시스템 접근 가능',
@@ -101,31 +122,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'UnSync 기반 Cook 빌드 다운로드 체계 구축',
-          bullets: [
-            'Unreal Engine UnSync를 활용해 배포된 Cook 빌드 버전을 선택하고 다운로드할 수 있는 내부 체계 구축',
-            '빌드 산출물의 배포·동기화 흐름을 표준화하여 개발팀의 빌드 접근성과 업무 효율 개선',
-          ],
-        },
-        {
           title: 'Perforce + Hansoft 연동 워크플로우 개선',
           bullets: [
             'Perforce(Helix Core) 기반 워크플로우 제어 도구 개발로 소스 관리 반복 작업 감소',
             'Hansoft 연동으로 작업 관리 시스템과 개발 흐름을 자연스럽게 연결',
-          ],
-        },
-        {
-          title: '사내 솔루션 통합 랜딩 페이지 구축',
-          bullets: [
-            '조직에서 사용하는 여러 내부 솔루션을 한곳에서 탐색하고 접근할 수 있는 메인 랜딩 페이지 구축',
-            '리버스 프록시를 적용해 개별 솔루션을 하나의 도메인 아래 통합하고 사용자 접근 경로 단순화',
-          ],
-        },
-        {
-          title: 'AX Dashboard 구축',
-          bullets: [
-            '조직 내 AI·AX 도입 현황, 사용 통계 및 관련 정보를 제공하는 대시보드 개발',
-            '분산된 AI 관련 지표와 자료를 시각화하여 활용 현황과 성과를 한눈에 파악할 수 있도록 구성',
           ],
         },
         {
@@ -201,17 +201,17 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
       current: true,
       projects: [
         {
-          title: 'Crash AI Analysis System (In Progress)',
+          title: 'AX Dashboard',
           bullets: [
-            'Building and operating a local Claude agent server; generated 550+ crash analysis records to date',
-            'Identified API cost inefficiencies during production and redesigned the pipeline with MCP integration and sub-agent layering for token-efficient execution',
+            'Developed a dashboard presenting organizational AI/AX adoption, usage statistics, and related information',
+            'Visualized distributed AI metrics and resources so adoption and outcomes could be understood at a glance',
           ],
         },
         {
-          title: 'Internal AX (AI Transformation) Infrastructure',
+          title: 'Internal Solutions Landing Page',
           bullets: [
-            'Built internal task management and Perforce MCP integrations, enabling AI agents to interact directly with internal systems',
-            'Deployed a Gitea-based internal AI tool marketplace serving 70 engineers with a self-service AI tooling platform',
+            'Built a central landing page for discovering and accessing internal solutions across the organization',
+            'Used a reverse proxy to consolidate separate solutions under a single domain and simplify access paths',
           ],
         },
         {
@@ -219,6 +219,34 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           bullets: [
             'Extended a standalone DevExpress SpreadsheetControl-based editor into a VSTO plugin that runs directly in Excel',
             'Preserved the familiar Excel experience while adding input validation, domain rules, and internal data integration',
+          ],
+        },
+        {
+          title: 'Integrated Workflow Widget',
+          bullets: [
+            'Built a desktop widget connecting internal tools including Perforce, Hansoft, and UnrealGameSync',
+            'Unified key actions and information from separate tools in one interface, reducing repetitive work and context switching',
+          ],
+        },
+        {
+          title: 'UnSync-based Cook Build Download System',
+          bullets: [
+            'Built an internal system using Unreal Engine UnSync for selecting and downloading deployed Cook build versions',
+            'Standardized build artifact distribution and synchronization, improving build accessibility and team efficiency',
+          ],
+        },
+        {
+          title: 'Crash AI Analysis System',
+          bullets: [
+            'Built a local Claude agent server and generated 550+ crash analysis records',
+            'Designed a token-efficient AI pipeline using MCP integration and sub-agent layering based on API cost optimization needs identified in production',
+          ],
+        },
+        {
+          title: 'Internal AX (AI Transformation) Infrastructure',
+          bullets: [
+            'Built internal task management and Perforce MCP integrations, enabling AI agents to interact directly with internal systems',
+            'Deployed a Gitea-based internal AI tool marketplace serving 70 engineers with a self-service AI tooling platform',
           ],
         },
         {
@@ -251,13 +279,6 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'Integrated Workflow Widget',
-          bullets: [
-            'Built a desktop widget connecting internal tools including Perforce, Hansoft, and UnrealGameSync',
-            'Unified key actions and information from separate tools in one interface, reducing repetitive work and context switching',
-          ],
-        },
-        {
           title: 'Perforce & Hansoft MCP Plugin Development',
           bullets: [
             'Built a full-coverage Perforce MCP plugin supporting all P4 commands, giving AI agents complete access to source control',
@@ -266,31 +287,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'UnSync-based Cook Build Download System',
-          bullets: [
-            'Built an internal system using Unreal Engine UnSync for selecting and downloading deployed Cook build versions',
-            'Standardized build artifact distribution and synchronization, improving build accessibility and team efficiency',
-          ],
-        },
-        {
           title: 'Perforce + Hansoft Workflow Integration',
           bullets: [
             'Developed Perforce(Helix Core) workflow control tool to reduce repetitive source management tasks',
             'Integrated Hansoft to connect task management with actual development flow',
-          ],
-        },
-        {
-          title: 'Internal Solutions Landing Page',
-          bullets: [
-            'Built a central landing page for discovering and accessing internal solutions across the organization',
-            'Used a reverse proxy to consolidate separate solutions under a single domain and simplify access paths',
-          ],
-        },
-        {
-          title: 'AX Dashboard',
-          bullets: [
-            'Developed a dashboard presenting organizational AI/AX adoption, usage statistics, and related information',
-            'Visualized distributed AI metrics and resources so adoption and outcomes could be understood at a glance',
           ],
         },
         {
