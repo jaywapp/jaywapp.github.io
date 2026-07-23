@@ -4,7 +4,10 @@
     "experience": "Experience",
     "projects": "Projects",
     "github": "GitHub",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Switch to Korean"
   },
   "hero": {
     "greeting": "Hi there 👋",
@@ -14,7 +17,13 @@
     "title": "Dev Productivity / Tooling Engineer",
     "description": "I design and build tools and systems that improve the productivity of engineering teams and end users. For 9+ years, I've been identifying inefficiencies in workflows and turning them into tools, automation, and platforms.",
     "viewWork": "View Experience",
-    "contact": "Get in Touch"
+    "contact": "Get in Touch",
+    "eyebrow": "Turning workflow friction into systems",
+    "impact": {
+      "years": "Engineering experience",
+      "engineers": "Engineers using AI tools",
+      "analyses": "Crash analysis records"
+    }
   },
   "about": {
     "title": "About",
@@ -28,7 +37,9 @@
   "experience": {
     "title": "Experience",
     "present": "Present",
-    "totalCareer": "9 years 4 months total"
+    "totalCareer": "9 years 4 months total",
+    "selectedWork": "Selected impact",
+    "moreProjects": "View {count} more projects"
   },
   "projects": {
     "title": "Projects",
@@ -36,7 +47,9 @@
     "stars": "stars",
     "forks": "forks",
     "loading": "Loading...",
-    "noDescription": "No description"
+    "noDescription": "No description",
+    "featured": "Featured work",
+    "openProject": "Open project"
   },
   "github": {
     "title": "GitHub Activity",

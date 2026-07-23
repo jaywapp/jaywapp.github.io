@@ -14,13 +14,23 @@ export interface ExperienceItem {
   projects?: Project[];
 }
 
+export interface FeaturedProject {
+  name: string;
+  category: string;
+  description: string;
+  highlight: string;
+  href: string;
+  technologies: string[];
+}
+
 export const experienceData: Record<Locale, ExperienceItem[]> = {
   ko: [
     {
       company: '스마일게이트',
-      role: 'Windows Client Software Developer',
+      role: 'Developer Productivity & Tooling Engineer',
       period: '2023.07 ~ 현재',
-      description: '개발자 생산성 향상을 위한 내부 도구 및 워크플로우 시스템 개발',
+      description:
+        '개발 조직의 생산성을 높이는 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우 및 AI·AX 플랫폼 개발',
       current: true,
       projects: [
         {
@@ -38,11 +48,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'Excel 유사 데이터 편집 도구 개발',
+          title: 'VSTO 기반 Excel 데이터 편집 플러그인 개발',
           bullets: [
-            'DevExpress SpreadsheetControl을 활용해 Excel과 유사한 UX의 데이터 편집 도구 개발',
-            '현업 사용자의 학습 비용을 낮추면서 입력 규칙과 도메인 로직을 체계적으로 제어',
-            '복잡한 데이터를 다루는 업무에서 생산성과 사용성을 동시에 확보',
+            'DevExpress SpreadsheetControl 기반의 독립형 데이터 편집 도구를 실제 Excel에서 동작하는 VSTO 플러그인으로 확장',
+            'Excel의 친숙한 사용성을 유지하면서 입력 검증, 도메인 규칙 및 사내 데이터 연동 기능 제공',
           ],
         },
         {
@@ -60,10 +69,11 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: '온보딩·로깅·운영 공통 인프라 구축',
+          title: 'Slack 기반 신규 입사자 온보딩 자동화',
           bullets: [
-            '설치 마법사 형태의 온보딩 자동화 도구로 신규 구성원 환경 세팅 부담 제거',
-            '중앙 집중형 로깅 시스템 설계·구축으로 내부 도구 생태계 운영 체계화',
+            'Slack Workflow와 사내 시스템을 연동해 신규 입사자 안내, 초기 개발 환경 구성 및 Perforce 계정 생성을 자동화',
+            '담당자가 신규 입사자를 지정 채널에 초대하면 전체 온보딩 절차가 시작되는 단일 액션 워크플로우 구축',
+            '수동으로 진행하던 계정·환경 설정 절차를 표준화하여 반복 작업과 설정 누락 가능성 감소',
           ],
         },
         {
@@ -74,10 +84,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: '조직 내 업무용 위젯 개발',
+          title: '업무 도구 통합 위젯 개발',
           bullets: [
-            '개발 조직 구성원의 반복 업무를 줄이기 위한 사내 전용 위젯 개발',
-            '실제 업무 흐름에 맞는 인터페이스로 접근성과 활용도를 높임',
+            'Perforce, Hansoft, UnrealGameSync 등 사내 업무 도구를 연결하는 데스크톱 위젯 구현',
+            '여러 도구에 분산된 주요 기능과 정보를 하나의 인터페이스로 통합해 반복 작업과 도구 전환 비용 감소',
           ],
         },
         {
@@ -89,10 +99,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'UnSync 기반 사내 Cook 빌드·배포 체계 구성',
+          title: 'UnSync 기반 Cook 빌드 다운로드 체계 구축',
           bullets: [
-            'Unreal Engine UnSync를 활용해 사내 Cook 빌드 배포 파이프라인 구성',
-            '빌드 산출물의 효율적인 동기화·배포 흐름을 자동화하여 팀 생산성 향상',
+            'Unreal Engine UnSync를 활용해 배포된 Cook 빌드 버전을 선택하고 다운로드할 수 있는 내부 체계 구축',
+            '빌드 산출물의 배포·동기화 흐름을 표준화하여 개발팀의 빌드 접근성과 업무 효율 개선',
           ],
         },
         {
@@ -102,13 +112,35 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
             'Hansoft 연동으로 작업 관리 시스템과 개발 흐름을 자연스럽게 연결',
           ],
         },
+        {
+          title: '사내 솔루션 통합 랜딩 페이지 구축',
+          bullets: [
+            '조직에서 사용하는 여러 내부 솔루션을 한곳에서 탐색하고 접근할 수 있는 메인 랜딩 페이지 구축',
+            '리버스 프록시를 적용해 개별 솔루션을 하나의 도메인 아래 통합하고 사용자 접근 경로 단순화',
+          ],
+        },
+        {
+          title: 'AX Dashboard 구축',
+          bullets: [
+            '조직 내 AI·AX 도입 현황, 사용 통계 및 관련 정보를 제공하는 대시보드 개발',
+            '분산된 AI 관련 지표와 자료를 시각화하여 활용 현황과 성과를 한눈에 파악할 수 있도록 구성',
+          ],
+        },
+        {
+          title: '내부 도구 로깅·운영 인프라 구축',
+          bullets: [
+            '중앙 집중형 로깅 시스템을 설계·구축해 여러 내부 도구의 상태와 오류를 일관된 방식으로 추적',
+            '분산된 도구의 운영 정보를 통합하여 장애 대응과 유지보수 기반 마련',
+          ],
+        },
       ],
     },
     {
       company: '펜타큐브',
       role: 'Windows Client Software Developer',
       period: '2017.03 ~ 2023.06',
-      description: '전자 CAD/PCB 영역 DRC 시스템, 제조 솔루션, Plugin 아키텍처 개발',
+      description:
+        '전자 CAD·PCB 도메인의 설계 규칙 검증 시스템과 제조 솔루션 개발, 플러그인 아키텍처 설계',
       current: false,
       projects: [
         {
@@ -146,23 +178,24 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
       company: 'DLAB',
       role: 'SW 교육 커리큘럼 개발 / 강사',
       period: '2016.07 ~ 2016.12',
-      description: '중고등학생 대상 소프트웨어 교육 커리큘럼 개발 및 강의',
+      description: '중·고등학생 대상 소프트웨어 교육 커리큘럼을 개발하고 수업 운영',
       current: false,
     },
     {
       company: '아주대학교병원',
       role: '서버 운영',
       period: '2015.06 ~ 2016.02',
-      description: '야간 서버 운영 및 O/A 업무',
+      description: '야간 서버 모니터링과 장애 대응을 포함한 전산 운영 업무 수행',
       current: false,
     },
   ],
   en: [
     {
       company: 'Smilegate',
-      role: 'Windows Client Software Developer',
+      role: 'Developer Productivity & Tooling Engineer',
       period: '2023.07 ~ Present',
-      description: 'Internal tooling and workflow systems to enhance developer productivity',
+      description:
+        'Internal tooling, build and deployment automation, onboarding workflows, and AI/AX platforms that improve engineering productivity',
       current: true,
       projects: [
         {
@@ -180,10 +213,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'Excel-like Data Editing Tool',
+          title: 'VSTO-based Excel Data Editing Plugin',
           bullets: [
-            'Built an Excel-like data editing tool using DevExpress SpreadsheetControl',
-            'Reduced learning curve for end users while enforcing domain logic and input rules internally',
+            'Extended a standalone DevExpress SpreadsheetControl-based editor into a VSTO plugin that runs directly in Excel',
+            'Preserved the familiar Excel experience while adding input validation, domain rules, and internal data integration',
           ],
         },
         {
@@ -201,10 +234,11 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'Onboarding, Logging & Operations Infrastructure',
+          title: 'Slack-based New Hire Onboarding Automation',
           bullets: [
-            'Built wizard-based onboarding automation to eliminate dev environment setup burden',
-            'Designed centralized logging system to systematize internal tool ecosystem operations',
+            'Integrated Slack Workflow with internal systems to automate new-hire guidance, initial development environment setup, and Perforce account provisioning',
+            'Built a single-action workflow that starts the entire onboarding process when a new employee is invited to a designated Slack channel',
+            'Standardized previously manual account and environment setup, reducing repetitive work and setup omissions',
           ],
         },
         {
@@ -215,10 +249,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'Internal Work Widgets',
+          title: 'Integrated Workflow Widget',
           bullets: [
-            'Developed internal widgets to reduce repetitive tasks for engineering team members',
-            'Improved accessibility and adoption by fitting naturally into existing work patterns',
+            'Built a desktop widget connecting internal tools including Perforce, Hansoft, and UnrealGameSync',
+            'Unified key actions and information from separate tools in one interface, reducing repetitive work and context switching',
           ],
         },
         {
@@ -230,10 +264,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           ],
         },
         {
-          title: 'UnSync-based Cook Build & Deploy Pipeline',
+          title: 'UnSync-based Cook Build Download System',
           bullets: [
-            'Designed and built an internal Cook build distribution pipeline using Unreal Engine UnSync',
-            'Automated build artifact sync and deployment flow, improving team productivity',
+            'Built an internal system using Unreal Engine UnSync for selecting and downloading deployed Cook build versions',
+            'Standardized build artifact distribution and synchronization, improving build accessibility and team efficiency',
           ],
         },
         {
@@ -243,13 +277,35 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
             'Integrated Hansoft to connect task management with actual development flow',
           ],
         },
+        {
+          title: 'Internal Solutions Landing Page',
+          bullets: [
+            'Built a central landing page for discovering and accessing internal solutions across the organization',
+            'Used a reverse proxy to consolidate separate solutions under a single domain and simplify access paths',
+          ],
+        },
+        {
+          title: 'AX Dashboard',
+          bullets: [
+            'Developed a dashboard presenting organizational AI/AX adoption, usage statistics, and related information',
+            'Visualized distributed AI metrics and resources so adoption and outcomes could be understood at a glance',
+          ],
+        },
+        {
+          title: 'Internal Tool Logging & Operations Infrastructure',
+          bullets: [
+            'Designed and built centralized logging to track status and errors consistently across internal tools',
+            'Consolidated operational information from distributed tools to support incident response and maintenance',
+          ],
+        },
       ],
     },
     {
       company: 'Pentacube',
       role: 'Windows Client Software Developer',
       period: '2017.03 ~ 2023.06',
-      description: 'DRC systems, manufacturing solutions, and Plugin architecture for EDA/PCB domain',
+      description:
+        'Design rule verification systems, manufacturing solutions, and plugin architecture for the EDA/PCB domain',
       current: false,
       projects: [
         {
@@ -287,14 +343,14 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
       company: 'DLAB',
       role: 'SW Education Curriculum Developer / Instructor',
       period: '2016.07 ~ 2016.12',
-      description: 'Developed and taught software curriculum for middle and high school students',
+      description: 'Developed software curricula and taught middle and high school students',
       current: false,
     },
     {
       company: 'Ajou University Hospital',
       role: 'Server Operator',
       period: '2015.06 ~ 2016.02',
-      description: 'Night server operations and O/A work',
+      description: 'Handled overnight server monitoring, incident response, and IT operations',
       current: false,
     },
   ],
@@ -303,6 +359,67 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
 export const educationData = {
   ko: [{ school: '아주대학교', major: '소프트웨어학과', period: '2010.03 ~ 2017.02' }],
   en: [{ school: 'Ajou University', major: 'Software Engineering', period: '2010.03 ~ 2017.02' }],
+};
+
+export const featuredProjects: Record<Locale, FeaturedProject[]> = {
+  ko: [
+    {
+      name: 'Claude Buffett',
+      category: 'AI Automation',
+      description:
+        'Claude를 활용해 종목 분석, 시장 동향, 포트폴리오 리뷰를 자동으로 작성하고 웹에서 탐색할 수 있게 만든 투자 분석 시스템입니다.',
+      highlight: '일간·주간·요청형 리포트 자동화',
+      href: 'https://github.com/jaywapp/claude-buffett',
+      technologies: ['Claude', 'Python', 'GitHub Pages'],
+    },
+    {
+      name: 'AI Debate',
+      category: 'Agent Workflow',
+      description:
+        'Claude와 Codex가 멀티라운드로 논쟁하고, 독립된 판정자가 결론을 내리는 과정을 재사용 가능한 워크플로우로 구성했습니다.',
+      highlight: '멀티모델 토론·판정 기록 체계',
+      href: 'https://github.com/jaywapp/ai-debate',
+      technologies: ['Claude', 'Codex', 'Markdown'],
+    },
+    {
+      name: 'CardRadar',
+      category: 'Mobile Product',
+      description:
+        '보유 카드와 결제 카테고리를 기준으로 혜택을 비교해, 결제 순간 가장 유리한 카드를 찾도록 돕는 모바일 앱입니다.',
+      highlight: '19개 카드·8개 소비 카테고리 지원',
+      href: 'https://github.com/jaywapp/card-radar',
+      technologies: ['Flutter', 'Riverpod', 'Hive'],
+    },
+  ],
+  en: [
+    {
+      name: 'Claude Buffett',
+      category: 'AI Automation',
+      description:
+        'An investment research system that uses Claude to generate stock analysis, market briefs, and portfolio reviews with a web-based report viewer.',
+      highlight: 'Automated daily, weekly, and on-demand reports',
+      href: 'https://github.com/jaywapp/claude-buffett',
+      technologies: ['Claude', 'Python', 'GitHub Pages'],
+    },
+    {
+      name: 'AI Debate',
+      category: 'Agent Workflow',
+      description:
+        'A reusable workflow where Claude and Codex debate across multiple rounds and an independent judge delivers a structured verdict.',
+      highlight: 'Multi-model debate and evaluation records',
+      href: 'https://github.com/jaywapp/ai-debate',
+      technologies: ['Claude', 'Codex', 'Markdown'],
+    },
+    {
+      name: 'CardRadar',
+      category: 'Mobile Product',
+      description:
+        'A mobile app that compares benefits across a user\'s cards and spending category to recommend the best card at checkout.',
+      highlight: '19 cards across 8 spending categories',
+      href: 'https://github.com/jaywapp/card-radar',
+      technologies: ['Flutter', 'Riverpod', 'Hive'],
+    },
+  ],
 };
 
 export const certifications = {

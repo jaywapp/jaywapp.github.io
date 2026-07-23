@@ -6,13 +6,13 @@ import { routing } from '@/i18n/routing';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Junyoung Park — Software Developer',
+  title: 'Junyoung Park — Dev Productivity & Tooling Engineer',
   description:
-    'Software developer focused on algorithm performance, software architecture, and code readability.',
+    'Dev Productivity and Tooling Engineer building internal tools, automation, AI workflows, and developer platforms.',
   openGraph: {
-    title: 'Junyoung Park — Software Developer',
+    title: 'Junyoung Park — Dev Productivity & Tooling Engineer',
     description:
-      'Software developer focused on algorithm performance, software architecture, and code readability.',
+      'Dev Productivity and Tooling Engineer building internal tools, automation, AI workflows, and developer platforms.',
     url: 'https://jaywapp.github.io',
     siteName: 'Junyoung Park',
     locale: 'ko_KR',

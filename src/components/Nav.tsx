@@ -42,7 +42,7 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a
           href="#"
-          className="text-white font-semibold text-lg tracking-tight hover:text-zinc-300 transition-colors"
+          className="flex min-h-11 items-center text-lg font-semibold tracking-tight text-white transition-colors hover:text-zinc-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
         >
           jaywapp
         </a>
@@ -53,7 +53,7 @@ export default function Nav() {
             <a
               key={item.key}
               href={item.href}
-              className="text-zinc-400 hover:text-white text-sm transition-colors"
+              className="flex min-h-11 items-center text-sm text-zinc-400 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
             >
               {t(item.key)}
             </a>
@@ -63,15 +63,19 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           <button
             onClick={toggleLocale}
-            className="text-xs font-medium text-zinc-400 hover:text-white border border-[#2a2a2a] hover:border-zinc-500 rounded-full px-3 py-1.5 transition-all"
+            aria-label={t('switchLanguage')}
+            className="min-h-11 rounded-full border border-[#2a2a2a] px-4 text-xs font-medium text-zinc-400 transition-all hover:border-zinc-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
           >
             {locale === 'ko' ? 'EN' : '한국어'}
           </button>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-zinc-400 hover:text-white"
+            className="grid h-11 w-11 place-items-center rounded-full text-zinc-400 hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {menuOpen ? (
@@ -86,12 +90,12 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 flex flex-col gap-4">
+        <div id="mobile-navigation" className="flex flex-col gap-1 border-b border-[#2a2a2a] bg-[#111111] px-6 py-4 md:hidden">
           {navItems.map((item) => (
             <a
               key={item.key}
               href={item.href}
-              className="text-zinc-400 hover:text-white text-sm transition-colors"
+              className="flex min-h-11 items-center rounded-lg px-3 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-400"
               onClick={() => setMenuOpen(false)}
             >
               {t(item.key)}
