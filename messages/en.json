@@ -44,17 +44,12 @@
   "projects": {
     "title": "Projects",
     "viewAll": "View All on GitHub",
-    "stars": "stars",
-    "forks": "forks",
-    "loading": "Loading...",
-    "noDescription": "No description",
     "featured": "Featured work",
     "openProject": "Open project"
   },
   "github": {
     "title": "GitHub Activity",
-    "contributions": "Contributions",
-    "topRepos": "Top Repositories"
+    "contributions": "Contributions"
   },
   "contact": {
     "title": "Contact",

@@ -8,7 +8,7 @@ export default function Projects() {
   const projects = featuredProjects[locale];
 
   return (
-    <section id="projects" className="border-t border-[#2a2a2a] px-6 py-24">
+    <section id="projects" className="border-t border-border px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 flex items-center justify-between gap-6">
           <h2 className="text-2xl font-semibold text-white">{t('title')}</h2>
@@ -35,7 +35,7 @@ export default function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${project.name}: ${t('openProject')}`}
-              className={`group relative overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111111] p-6 transition-all hover:-translate-y-0.5 hover:border-blue-500/40 hover:bg-[#141414] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400 sm:p-8 ${index === 0 ? 'lg:col-span-2' : ''}`}
+              className={`group relative overflow-hidden rounded-2xl border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-blue-500/40 hover:bg-surface-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400 sm:p-8 ${index === 0 ? 'lg:col-span-2' : ''}`}
             >
               {index === 0 && (
                 <div
@@ -73,7 +73,7 @@ export default function Projects() {
                 {project.technologies.map((technology) => (
                   <span
                     key={technology}
-                    className="rounded-full border border-[#303030] bg-black/20 px-3 py-1 text-xs text-zinc-400"
+                    className="rounded-full border border-border-strong bg-black/20 px-3 py-1 text-xs text-zinc-400"
                   >
                     {technology}
                   </span>

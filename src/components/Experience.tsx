@@ -8,7 +8,7 @@ interface ProjectItemProps {
 
 function ProjectItem({ project }: ProjectItemProps) {
   return (
-    <article className="border-t border-[#242424] px-5 py-5 sm:px-6">
+    <article className="border-t border-divider px-5 py-5 sm:px-6">
       <h4 className="text-sm font-medium text-zinc-200">{project.title}</h4>
       <ul className="mt-3 space-y-2">
         {project.bullets.map((bullet) => (
@@ -28,7 +28,7 @@ export default function Experience() {
   const items = experienceData[locale];
 
   return (
-    <section id="experience" className="border-t border-[#2a2a2a] px-6 py-24">
+    <section id="experience" className="border-t border-border px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12 flex flex-wrap items-baseline gap-4">
           <h2 className="text-2xl font-semibold text-white">{t('title')}</h2>
@@ -36,7 +36,7 @@ export default function Experience() {
         </div>
 
         <div className="relative">
-          <div className="absolute bottom-0 left-[7px] top-0 hidden w-px bg-[#2a2a2a] sm:block" />
+          <div className="absolute bottom-0 left-[7px] top-0 hidden w-px bg-border sm:block" />
 
           <div className="space-y-6">
             {items.map((item) => {
@@ -51,15 +51,15 @@ export default function Experience() {
                     className={`absolute left-0 top-7 hidden h-3.5 w-3.5 rounded-full border-2 sm:block ${
                       item.current
                         ? 'border-blue-400 bg-blue-500 shadow-[0_0_0_5px_rgba(59,130,246,0.08)]'
-                        : 'border-[#3a3a3a] bg-[#0a0a0a]'
+                        : 'border-border-strong bg-background'
                     }`}
                   />
 
                   <div
                     className={`overflow-hidden rounded-2xl border transition-colors ${
                       item.current
-                        ? 'border-blue-500/25 bg-gradient-to-b from-blue-500/[0.06] to-[#111111]'
-                        : 'border-[#2a2a2a] bg-[#111111] hover:border-[#3a3a3a]'
+                        ? 'border-blue-500/25 bg-gradient-to-b from-blue-500/[0.06] to-surface'
+                        : 'border-border bg-surface hover:border-border-strong'
                     }`}
                   >
                     <header className="flex flex-wrap items-start justify-between gap-4 p-5 sm:p-6">
@@ -83,7 +83,7 @@ export default function Experience() {
 
                     {selectedProjects.length > 0 && (
                       <div>
-                        <p className="border-t border-[#242424] px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-600 sm:px-6">
+                        <p className="border-t border-divider px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-600 sm:px-6">
                           {t('selectedWork')}
                         </p>
                         {selectedProjects.map((project) => (
@@ -93,7 +93,7 @@ export default function Experience() {
                     )}
 
                     {additionalProjects.length > 0 && (
-                      <details className="group border-t border-[#242424]">
+                      <details className="group border-t border-divider">
                         <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between px-5 text-sm text-zinc-400 transition-colors hover:bg-white/[0.02] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-blue-400 sm:px-6">
                           {t('moreProjects', { count: additionalProjects.length })}
                           <ChevronDown

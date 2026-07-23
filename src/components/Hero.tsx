@@ -1,14 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Github, Linkedin, Mail, BookOpen } from 'lucide-react';
-
-const socialLinks = [
-  { icon: Github, href: 'https://github.com/jaywapp', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/jaywapp16/', label: 'LinkedIn' },
-  { icon: BookOpen, href: 'https://jaywapp.tistory.com/', label: 'Blog' },
-  { icon: Mail, href: 'mailto:jaywapp16@gmail.com', label: 'Email' },
-];
+import { socialLinks } from '@/data/content';
 
 export default function Hero() {
   const t = useTranslations('hero');
@@ -29,13 +22,11 @@ export default function Hero() {
         <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-blue-400">
           {t('eyebrow')}
         </p>
-        {/* Subtle top badge */}
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#111111]/80 px-4 py-1.5 backdrop-blur-sm">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 backdrop-blur-sm">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
           <span className="text-xs text-zinc-400">Smilegate RPG</span>
         </div>
 
-        {/* Name */}
         <h1 className="mb-5 text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="block">{t('greeting')}</span>
           <span className="block">
@@ -47,16 +38,12 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Title */}
         <p className="mb-6 text-lg font-medium text-zinc-300 sm:text-xl">{t('title')}</p>
-
-        {/* Description */}
         <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
           {t('description')}
         </p>
 
-        {/* CTA buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+        <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
           <a
             href="#experience"
             className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
@@ -65,13 +52,12 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="rounded-lg border border-[#2a2a2a] bg-[#111111] px-6 py-3 text-sm font-medium text-white transition-colors hover:border-zinc-600 hover:bg-[#1a1a1a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+            className="rounded-lg border border-border bg-surface px-6 py-3 text-sm font-medium text-white transition-colors hover:border-zinc-600 hover:bg-surface-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
           >
             {t('contact')}
           </a>
         </div>
 
-        {/* Social links */}
         <div className="flex items-center justify-center gap-5">
           {socialLinks.map(({ icon: Icon, href, label }) => (
             <a
@@ -87,9 +73,9 @@ export default function Hero() {
           ))}
         </div>
 
-        <dl className="mt-14 grid w-full max-w-3xl grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#2a2a2a] text-left sm:grid-cols-3">
+        <dl className="mt-14 grid w-full max-w-3xl grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border text-left sm:grid-cols-3">
           {impact.map((item) => (
-            <div key={item.label} className="bg-[#101010] px-6 py-5">
+            <div key={item.label} className="bg-surface px-6 py-5">
               <dt className="text-sm text-zinc-500">{item.label}</dt>
               <dd className="mt-1 font-mono text-2xl font-semibold text-white">{item.value}</dd>
             </div>

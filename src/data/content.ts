@@ -1,3 +1,5 @@
+import { Github, Linkedin, Mail, BookOpen, type LucideIcon } from 'lucide-react';
+
 export type Locale = 'ko' | 'en';
 
 export interface Project {
@@ -432,9 +434,36 @@ export const skills = {
   minor: ['Perforce', 'TeamCity', 'React', 'JavaScript', 'Node.js'],
 };
 
-export const contacts = [
-  { label: 'GitHub', href: 'https://github.com/jaywapp', icon: 'github' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jaywapp16/', icon: 'linkedin' },
-  { label: 'Blog', href: 'https://jaywapp.tistory.com/', icon: 'blog' },
-  { label: 'Email', href: 'mailto:jaywapp16@gmail.com', icon: 'email' },
+export interface SocialLink {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href: string;
+}
+
+export const socialLinks: SocialLink[] = [
+  {
+    icon: Github,
+    label: 'GitHub',
+    value: 'github.com/jaywapp',
+    href: 'https://github.com/jaywapp',
+  },
+  {
+    icon: Linkedin,
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/jaywapp16',
+    href: 'https://www.linkedin.com/in/jaywapp16/',
+  },
+  {
+    icon: BookOpen,
+    label: 'Blog',
+    value: 'jaywapp.tistory.com',
+    href: 'https://jaywapp.tistory.com/',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'jaywapp16@gmail.com',
+    href: 'mailto:jaywapp16@gmail.com',
+  },
 ];

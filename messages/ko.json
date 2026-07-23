@@ -44,17 +44,12 @@
   "projects": {
     "title": "프로젝트",
     "viewAll": "GitHub에서 모두 보기",
-    "stars": "스타",
-    "forks": "포크",
-    "loading": "불러오는 중...",
-    "noDescription": "설명 없음",
     "featured": "대표 프로젝트",
     "openProject": "프로젝트 열기"
   },
   "github": {
     "title": "GitHub 활동",
-    "contributions": "기여 현황",
-    "topRepos": "주요 저장소"
+    "contributions": "기여 현황"
   },
   "contact": {
     "title": "연락처",
