@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jaywapp.github.io'),
+  metadataBase: new URL('https://jaywapp.com'),
   title: 'Junyoung Park',
   description: 'Software developer focused on algorithm performance and software architecture.',
   icons: { icon: '/favicon.svg' },

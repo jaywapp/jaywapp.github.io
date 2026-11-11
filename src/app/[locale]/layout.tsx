@@ -32,7 +32,7 @@ export function generateMetadata({
   const { title, description } = siteMeta[locale];
 
   return {
-    metadataBase: new URL('https://jaywapp.github.io'),
+    metadataBase: new URL('https://jaywapp.com'),
     title,
     description,
     icons: { icon: '/favicon.svg' },

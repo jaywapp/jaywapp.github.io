@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jaywapp.github.io/ko/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://jaywapp.github.io/ko/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jaywapp.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaywapp.github.io/ko/"/>
+    <loc>https://jaywapp.com/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://jaywapp.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaywapp.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaywapp.com/ko/"/>
   </url>
   <url>
-    <loc>https://jaywapp.github.io/en/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://jaywapp.github.io/ko/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jaywapp.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaywapp.github.io/ko/"/>
+    <loc>https://jaywapp.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://jaywapp.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jaywapp.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jaywapp.com/ko/"/>
   </url>
 </urlset>

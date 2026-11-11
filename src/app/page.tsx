@@ -7,7 +7,7 @@ export default function RootPage() {
         dangerouslySetInnerHTML={{ __html: "window.location.replace('/ko/');" }}
       />
       <p style={{ padding: '2rem', textAlign: 'center' }}>
-        <a href="/ko/">jaywapp.github.io/ko/</a>
+        <a href="/ko/">jaywapp.com/ko/</a>
       </p>
     </>
   );
