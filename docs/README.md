@@ -17,3 +17,4 @@
 
 - 성능·안정성 점검: [분석](runtime-hardening-analysis.md), [설계](runtime-hardening-design.md), [검증 결과](runtime-hardening-tasks.md)
 - 빌드 검증: [분석](build-verification-analysis.md), [설계](build-verification-design.md), [결과](build-verification-tasks.md)
+- 커스텀 도메인: [분석](custom-domain-analysis.md), [설계](custom-domain-design.md), [작업](custom-domain-tasks.md)

@@ -2,7 +2,7 @@
 
 Personal portfolio site for Junyoung Park (jaywapp) — built with Next.js 14 and deployed on GitHub Pages.
 
-**Live:** https://jaywapp.github.io
+**Live:** https://jaywapp.com
 
 ## Tech Stack
 

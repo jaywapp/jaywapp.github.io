@@ -11,7 +11,7 @@ for (const locale of ['ko', 'en']) {
     const html = readPage(`${locale}/index.html`);
     assert.match(html, new RegExp(`<html[^>]+lang="${locale}"`));
     assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
-    assert.match(html, new RegExp(`rel="canonical" href="https://jaywapp.github.io/${locale}/"`));
+    assert.match(html, new RegExp(`rel="canonical" href="https://jaywapp.com/${locale}/"`));
     const targets = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
     for (const section of ['about', 'experience', 'projects', 'github', 'contact']) {
       assert.ok(targets.has(section), `missing section ${section}`);
