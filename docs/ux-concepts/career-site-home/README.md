@@ -92,7 +92,7 @@ M 시안(`concept-03`)에 반영한 것
 사용자 추가 결정 (2026-11-14, 세 번째)
 
 - 구획 제목은 짝이 맞아야 한다("회사안에서 회사밖에서 / 출근후 퇴근후 이런 라임"). **출근 후 / 퇴근 후**로 바꿨다. 메뉴도 같다. 소개 둘째 문단도 "출근 후에는 ..., 퇴근 후에는 ..."으로 맞췄다.
-- 영문 직무: 사용자는 DX(Developer Experience)를 선호하고 게임 개발 업무 환경이 드러나길 원한다. 시안에는 후보로 `Developer Experience Engineer, Game Development`를 넣었다. 확정 전이다.
+- 영문 직무: 사용자는 DX(Developer Experience)를 선호하고 게임 개발 업무 환경이 드러나길 원한다. 후보로 `Developer Experience Engineer, Game Development`를 넣어 봤으나, 사용자가 "영문명은 처음에 만들었던 내용으로 되돌려"라고 해서 **`Developer Productivity & Tooling Engineer`로 확정**했다.
 - 로고: 사용자가 찾아 달라고 했다. 스마일게이트 공식 사이트(`https://www.smilegate.com/assets/img/common/logo_black.svg`, `logo_white.svg`)에서 2026-11-14에 받은 워드마크를 `shared/smilegate-logo-*.svg`에 두고 고치지 않은 채 쓴다. 상표 사용 허락은 확인하지 못했다.
 - "퇴근 후" 첫 문장("내가 쓰고 싶은 서비스와 일할 때 필요한 도구를 직접 만듭니다.")과 "출근 후" 문장의 "게임 개발 조직"은 내가 쓴 문구다. 사용자 확인이 필요하다.
 

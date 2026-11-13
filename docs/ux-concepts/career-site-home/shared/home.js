@@ -7,8 +7,8 @@ window.REVIEW_CONCEPTS = [
 
 window.HOME = {
   name: '박준영',
-  // Candidate English title (2026-11-14): the owner prefers DX and wants the game development context in it.
-  role: 'Developer Experience Engineer, Game Development',
+  // English title kept as originally written (owner's call, 2026-11-14, after trying a DX variant).
+  role: 'Developer Productivity & Tooling Engineer',
   // The page title is the slogan, not the name (owner's call, 2026-11-14). From messages/ko.json hero.eyebrow.
   slogan: '업무의 마찰을 시스템으로 해결합니다',
   // Written for these drafts from facts already on the site. To be confirmed by the owner.
