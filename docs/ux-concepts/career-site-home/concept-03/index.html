@@ -25,7 +25,9 @@
     .lead { max-width: 30em; font-size: clamp(1.25rem, 2.4vw, 1.625rem); font-weight: 700; line-height: 1.45; letter-spacing: -0.025em; }
     .employer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
     .employer .more { margin-top: 0; }
-    .logo-slot { display: inline-grid; place-items: center; width: 176px; height: 44px; font-size: 13px; color: var(--ink-2); border: 1px dashed var(--ink-2); }
+    .employer-logo img { display: block; width: 132px; height: auto; }
+    .employer-logo .on-dark, :root[data-theme="dark"] .employer-logo .on-light { display: none; }
+    :root[data-theme="dark"] .employer-logo .on-dark { display: block; }
     /* Work: four fields side by side. */
     .fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 36px; }
     .fields > div { display: grid; grid-template-rows: subgrid; grid-row: span 3; gap: 0; } /* headings, blurbs and lists line up across fields */
@@ -57,8 +59,8 @@
     <p class="role" id="who"></p>
     <div class="intro" id="intro"></div>
     <nav class="nav" aria-label="주요 메뉴">
-      <a href="#work-title">하는 일</a>
-      <a href="#made-title">만든 것</a>
+      <a href="#work-title">출근 후</a>
+      <a href="#made-title">퇴근 후</a>
       <a href="#posts-title">글</a>
       <a href="../../career-site-simple/concept-04/index.html">이력서</a>
       <a href="https://github.com/jaywapp" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -67,18 +69,22 @@
   </header>
   <main class="rest">
     <section>
-      <h2 id="work-title">회사에서 하는 일</h2>
+      <h2 id="work-title">출근 후</h2>
       <p class="lead" id="work-lead"></p>
       <div class="fields" id="fields"></div>
       <div class="employer">
-        <!-- TODO: official horizontal Smilegate logo, about 160x40, light and dark versions. Supplied by the owner. -->
-        <span class="logo-slot" role="img" aria-label="스마일게이트 가로 로고가 들어갈 자리">가로 로고 자리</span>
+        <!-- Official wordmark from https://www.smilegate.com/assets/img/common/ (fetched 2026-11-14). Trademark of Smilegate; not redrawn or recolored. -->
+        <span class="employer-logo">
+          <img class="on-light" src="../shared/smilegate-logo-black.svg" alt="Smilegate" width="160" height="32">
+          <img class="on-dark" src="../shared/smilegate-logo-white.svg" alt="Smilegate" width="160" height="32">
+        </span>
         <a class="more" href="../../career-site-simple/concept-04/index.html">이력서에서 자세히 보기</a>
       </div>
     </section>
     <section>
-      <h2 id="made-title">회사 밖에서 만든 것</h2>
-      <div class="group"><h3>서비스와 앱</h3><ul class="made" id="made-service"></ul></div>
+      <h2 id="made-title">퇴근 후</h2>
+      <p class="lead">내가 쓰고 싶은 서비스와 일할 때 필요한 도구를 직접 만듭니다.</p>
+      <div class="group" style="margin-top: 36px"><h3>서비스와 앱</h3><ul class="made" id="made-service"></ul></div>
       <div class="group"><h3>개발자 도구와 AI</h3><ul class="made" id="made-tool"></ul></div>
     </section>
     <section>
@@ -101,7 +107,7 @@
       // What I do at work: the current employer's work grouped by field (same data as the resume).
       const now = C.companies.find((c) => !c.end);
       // No employer name in the text (owner's call, 2026-11-14). The employer shows as a logo under the fields.
-      H.set('work-lead', '개발 조직의 생산성을 높이는 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우, AI·AX 플랫폼을 만듭니다.');
+      H.set('work-lead', '게임 개발 조직의 생산성을 높이는 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우, AI·AX 플랫폼을 만듭니다.');
       H.set('fields', C.themes
         .map((t) => ({ t: t, list: now.projects.filter((p) => p.theme === t.id) }))
         .filter((x) => x.list.length)

@@ -7,13 +7,14 @@ window.REVIEW_CONCEPTS = [
 
 window.HOME = {
   name: '박준영',
-  role: 'Developer Productivity & Tooling Engineer',
+  // Candidate English title (2026-11-14): the owner prefers DX and wants the game development context in it.
+  role: 'Developer Experience Engineer, Game Development',
   // The page title is the slogan, not the name (owner's call, 2026-11-14). From messages/ko.json hero.eyebrow.
   slogan: '업무의 마찰을 시스템으로 해결합니다',
   // Written for these drafts from facts already on the site. To be confirmed by the owner.
   intro: [
-    '개발 조직이 덜 번거롭게 일하도록 도구를 만드는 엔지니어입니다. 회사에서는 내부 도구와 AI·AX 플랫폼을 만듭니다.',
-    '회사 밖에서는 축구·풋살 전술 앱, 모임 장부 서비스, Claude Code용 도구를 만듭니다.',
+    '개발 조직이 덜 번거롭게 일하도록 도구를 만드는 엔지니어입니다.',
+    '출근 후에는 게임 개발 조직의 내부 도구와 AI·AX 플랫폼을, 퇴근 후에는 축구·풋살 전술 앱과 모임 장부 서비스, Claude Code용 도구를 만듭니다.',
   ],
   // Picked by the owner on 2026-11-14. Link rule (owner's): a deployed project links to the finished thing,
   // a public project also links to GitHub, a private one gets a description only.
