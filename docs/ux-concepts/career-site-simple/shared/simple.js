@@ -9,7 +9,9 @@
     projects
       .map(
         (p) =>
-          '<li><details class="item"><summary><i class="ph ph-plus" aria-hidden="true"></i><span>' + esc(p.title) + '</span></summary>' +
+          !p.bullets.length
+            ? '<li class="item-plain"><span>' + esc(p.title) + '</span></li>'
+            : '<li><details class="item"><summary><i class="ph ph-plus" aria-hidden="true"></i><span>' + esc(p.title) + '</span></summary>' +
           '<ul class="bul">' + p.bullets.map((b) => '<li>' + esc(b) + '</li>').join('') + '</ul></details></li>'
       )
       .join('') +

@@ -23,13 +23,15 @@
     .rest > section + section { margin-top: 88px; }
     h2 { padding: 16px 0 14px; font-size: 1rem; font-weight: 800; border-top: 2px solid var(--ink); }
     .lead { max-width: 30em; font-size: clamp(1.25rem, 2.4vw, 1.625rem); font-weight: 700; line-height: 1.45; letter-spacing: -0.025em; }
-    .lead span { color: var(--ink-2); font-weight: 500; }
+    .employer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--rule); }
+    .employer .more { margin-top: 0; }
+    .logo-slot { display: inline-grid; place-items: center; width: 176px; height: 44px; font-size: 13px; color: var(--ink-2); border: 1px dashed var(--ink-2); }
     /* Work: four fields side by side. */
     .fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 36px; }
     .fields > div { display: grid; grid-template-rows: subgrid; grid-row: span 3; gap: 0; } /* headings, blurbs and lists line up across fields */
     .fields h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; }
     .fields .blurb { margin-top: 4px; font-size: 15.5px; color: var(--ink-2); }
-    .fields ul { display: grid; gap: 4px; margin-top: 14px; padding-top: 12px; font-size: 15.5px; border-top: 1px solid var(--rule); }
+    .fields ul { display: grid; align-content: start; gap: 4px; margin-top: 14px; padding-top: 12px; font-size: 15.5px; border-top: 1px solid var(--rule); }
     /* Made: two groups, each a two-column list. */
     .group + .group { margin-top: 44px; }
     .group h3 { font-size: 15px; font-weight: 600; color: var(--ink-2); }
@@ -68,7 +70,11 @@
       <h2 id="work-title">회사에서 하는 일</h2>
       <p class="lead" id="work-lead"></p>
       <div class="fields" id="fields"></div>
-      <a class="more" href="../../career-site-simple/concept-04/index.html" style="margin-top: 24px">이력서에서 자세히 보기</a>
+      <div class="employer">
+        <!-- TODO: official horizontal Smilegate logo, about 160x40, light and dark versions. Supplied by the owner. -->
+        <span class="logo-slot" role="img" aria-label="스마일게이트 가로 로고가 들어갈 자리">가로 로고 자리</span>
+        <a class="more" href="../../career-site-simple/concept-04/index.html">이력서에서 자세히 보기</a>
+      </div>
     </section>
     <section>
       <h2 id="made-title">회사 밖에서 만든 것</h2>
@@ -94,7 +100,8 @@
       H.fill();
       // What I do at work: the current employer's work grouped by field (same data as the resume).
       const now = C.companies.find((c) => !c.end);
-      H.set('work-lead', esc(now.name) + '에서 ' + esc(now.role) + '로 일합니다. <span>' + esc(now.description) + '을 맡고 있습니다.</span>');
+      // No employer name in the text (owner's call, 2026-11-14). The employer shows as a logo under the fields.
+      H.set('work-lead', '개발 조직의 생산성을 높이는 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우, AI·AX 플랫폼을 만듭니다.');
       H.set('fields', C.themes
         .map((t) => ({ t: t, list: now.projects.filter((p) => p.theme === t.id) }))
         .filter((x) => x.list.length)

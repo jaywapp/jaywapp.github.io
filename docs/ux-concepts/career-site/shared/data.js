@@ -36,6 +36,10 @@ window.CAREER = {
       description:
         '개발 조직의 생산성을 높이는 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우, AI·AX 플랫폼 개발',
       projects: [
+        // Added 2026-11-14 from the owner's message. Titles only until the owner writes the detail.
+        { short: '작업 관리 솔루션', theme: 'tools', title: '작업 관리 솔루션(웹) 개편 및 운영', bullets: [] },
+        { short: '대사 작업 툴', theme: 'tools', title: '대사 작업을 위한 툴 개발', bullets: [] },
+        { short: 'Slack 알림 봇', theme: 'ops', title: 'Slack 봇을 통한 알림 체계 확립', bullets: [] },
         { short: 'AX 대시보드', theme: 'ai', title: 'AX Dashboard 구축', bullets: [
           '조직 내 AI·AX 도입 현황, 사용 통계 및 관련 정보를 제공하는 대시보드 개발',
           '분산된 AI 관련 지표와 자료를 시각화하여 활용 현황과 성과를 한눈에 파악할 수 있도록 구성',

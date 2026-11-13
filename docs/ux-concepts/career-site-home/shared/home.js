@@ -12,7 +12,7 @@ window.HOME = {
   slogan: '업무의 마찰을 시스템으로 해결합니다',
   // Written for these drafts from facts already on the site. To be confirmed by the owner.
   intro: [
-    '개발 조직이 덜 번거롭게 일하도록 도구를 만드는 엔지니어입니다. 지금은 스마일게이트에서 내부 도구와 AI·AX 플랫폼을 만듭니다.',
+    '개발 조직이 덜 번거롭게 일하도록 도구를 만드는 엔지니어입니다. 회사에서는 내부 도구와 AI·AX 플랫폼을 만듭니다.',
     '회사 밖에서는 축구·풋살 전술 앱, 모임 장부 서비스, Claude Code용 도구를 만듭니다.',
   ],
   // Picked by the owner on 2026-11-14. Link rule (owner's): a deployed project links to the finished thing,
