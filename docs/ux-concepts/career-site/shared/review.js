@@ -16,7 +16,7 @@
 
   if (params.get('embed') === '1') return;
 
-  const concepts = [
+  const concepts = window.REVIEW_CONCEPTS || [
     { dir: 'concept-01', label: '01 기판' },
     { dir: 'concept-02', label: '02 문서' },
     { dir: 'concept-03', label: '03 색인' },

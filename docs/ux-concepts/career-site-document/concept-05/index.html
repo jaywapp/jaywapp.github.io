@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 문서 E 보기 전환</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../shared/doc.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../shared/concepts.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+</head>
+<body>
+  <!-- Document variant E: one resume, two readings. The same work regroups by employer or by field. -->
+  <a class="skip" href="#experience">경력으로 건너뛰기</a>
+  <div class="page">
+    <header class="head">
+      <div>
+        <h1 id="name"></h1>
+        <p class="role" id="role"></p>
+      </div>
+      <button type="button" class="print" data-print><i class="ph ph-printer" aria-hidden="true"></i> PDF로 저장</button>
+    </header>
+
+    <section class="lead">
+      <p class="statement" id="statement"></p>
+      <p id="about"></p>
+      <p class="facts" id="facts"></p>
+    </section>
+
+    <aside class="strip" aria-label="연락처와 기본 정보">
+      <section><h2>연락처</h2><ul class="contact" id="contact"></ul></section>
+      <section><h2>기술</h2><dl class="kv" id="skills"></dl></section>
+      <section><h2>학력</h2><div id="education"></div></section>
+      <section><h2>자격</h2><div id="certs"></div></section>
+    </aside>
+
+    <main>
+      <div class="switch-bar" id="experience">
+        <h2>경력</h2>
+        <div class="switch no-print" role="group" aria-label="경력 묶는 기준">
+          <button type="button" data-mode="company" aria-pressed="true">회사별</button>
+          <button type="button" data-mode="field" aria-pressed="false">분야별</button>
+        </div>
+      </div>
+      <div id="groups" aria-live="polite"></div>
+
+      <h2 class="part">개인 프로젝트</h2>
+      <ul class="sides" id="side"></ul>
+    </main>
+    <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
+  </div>
+
+  <script src="../../career-site/shared/data.js"></script>
+  <script src="../shared/doc.js"></script>
+  <script>
+    (function () {
+      const C = window.CAREER, D = window.DOC, esc = C.esc;
+      const all = C.allProjects();
+      D.fillCommon();
+
+      const byCompany = () => C.companies.map((co) =>
+        '<article class="group"><header><p class="date">' + esc(co.period) + '</p><h3>' + esc(co.name) + '</h3>' +
+        '<p class="group-sub">' + esc(co.role) + '</p></header><div class="group-body"><p class="group-desc">' + esc(co.description) + '</p>' +
+        (co.projects.length ? D.works(co.projects) : '') + '</div></article>').join('');
+
+      const byField = () => C.themes.map((t) => {
+        const list = all.filter((p) => p.theme === t.id);
+        return '<article class="group"><header><p class="date">작업 ' + list.length + '개</p><h3>' + esc(t.name) + '</h3></header>' +
+          '<div class="group-body"><p class="group-desc">' + esc(t.blurb) + '</p>' + D.works(list, true) + '</div></article>';
+      }).join('') +
+        '<article class="group"><header><h3>재직 이력</h3></header><div class="group-body"><ul class="history">' +
+        C.companies.map((co) => '<li><span class="date">' + esc(co.period) + '</span><strong>' + esc(co.name) + '</strong><span>' + esc(co.role) + '</span></li>').join('') +
+        '</ul></div></article>';
+
+      function render(mode, animate) {
+        const groups = document.getElementById('groups');
+        groups.innerHTML = mode === 'field' ? byField() : byCompany();
+        document.querySelectorAll('.switch button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
+        if (animate && !window.REVIEW.still) {
+          groups.classList.remove('enter');
+          void groups.offsetWidth; // restart the entrance for the regrouped list
+          groups.classList.add('enter');
+        }
+      }
+      const fromHash = () => (location.hash === '#by-field' ? 'field' : 'company');
+      document.querySelector('.switch').addEventListener('click', (e) => {
+        const b = e.target.closest('button[data-mode]');
+        if (!b) return;
+        history.replaceState(null, '', '#by-' + b.dataset.mode);
+        render(b.dataset.mode, true);
+      });
+      window.addEventListener('hashchange', () => render(fromHash(), true));
+      render(fromHash(), false);
+    })();
+  </script>
+</body>
+</html>

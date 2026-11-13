@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 문서 A 요약</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../shared/doc.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../shared/concepts.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+</head>
+<body>
+  <!-- Document variant A: the first screen is a complete one-page summary; the detail follows below it. -->
+  <a class="skip" href="#detail">상세 경력으로 건너뛰기</a>
+  <div class="page">
+    <header class="head">
+      <div>
+        <h1 id="name"></h1>
+        <p class="role" id="role"></p>
+      </div>
+      <button type="button" class="print" data-print><i class="ph ph-printer" aria-hidden="true"></i> PDF로 저장</button>
+    </header>
+
+    <section class="sheet" aria-label="요약">
+      <div class="sheet-main">
+        <p class="statement" id="statement"></p>
+        <p class="sheet-about" id="about"></p>
+        <p class="facts" id="facts"></p>
+        <table class="career">
+          <caption class="sr-only">경력 요약</caption>
+          <thead><tr><th scope="col">기간</th><th scope="col">회사</th><th scope="col">직무</th><th scope="col">재직</th></tr></thead>
+          <tbody id="career"></tbody>
+        </table>
+      </div>
+      <aside class="sheet-side" aria-label="연락처와 기본 정보">
+        <section><h2>연락처</h2><ul class="contact" id="contact"></ul></section>
+        <section><h2>기술</h2><dl class="kv" id="skills"></dl></section>
+        <section><h2>학력</h2><div id="education"></div></section>
+        <section><h2>자격</h2><div id="certs"></div></section>
+      </aside>
+    </section>
+
+    <main id="detail">
+      <h2 class="part">상세 경력</h2>
+      <div id="jobs"></div>
+      <h2 class="part">개인 프로젝트</h2>
+      <ul class="sides" id="side"></ul>
+    </main>
+    <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
+  </div>
+
+  <script src="../../career-site/shared/data.js"></script>
+  <script src="../shared/doc.js"></script>
+  <script>
+    (function () {
+      const C = window.CAREER, D = window.DOC, esc = C.esc;
+      D.fillCommon();
+      D.set('career', C.companies.map((co) =>
+        '<tr><td class="date">' + esc(co.period) + '</td><th scope="row"><a href="#job-' + co.id + '">' + esc(co.name) + '</a></th>' +
+        '<td>' + esc(co.role) + '</td><td class="date">' + D.duration(co) + '</td></tr>').join(''));
+      D.set('jobs', C.companies.map((co) =>
+        '<article class="job" id="job-' + co.id + '"><header><h3>' + esc(co.name) + '</h3><p class="job-role">' + esc(co.role) + '</p>' +
+        '<p class="date">' + esc(co.period) + '</p></header><div><p class="job-desc">' + esc(co.description) + '</p>' +
+        (co.projects.length ? D.works(co.projects) : '') + '</div></article>').join(''));
+    })();
+  </script>
+</body>
+</html>

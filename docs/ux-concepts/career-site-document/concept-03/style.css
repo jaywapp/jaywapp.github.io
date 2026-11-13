@@ -1,0 +1,350 @@
+/* C: the resume set large on a wide page. */
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 16px 40px;
+}
+
+.bar-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 12px;
+  margin-right: auto;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.bar-name strong {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.bar nav {
+  display: flex;
+  gap: 4px;
+}
+
+.bar nav a {
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.bar nav a:hover {
+  background: var(--wash);
+}
+
+.page {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px 120px;
+}
+
+.open {
+  padding: 40px 0 72px;
+}
+
+.open h1 {
+  max-width: 13em;
+  font-size: clamp(2.75rem, 7.4vw, 6rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.open-text {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+  font-size: 18px;
+  color: var(--ink-2);
+}
+
+.open-text p {
+  max-width: 56ch;
+}
+
+/* Employers */
+.job {
+  padding: 28px 0 72px;
+  border-top: 3px solid var(--rule-strong);
+}
+
+.job header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 32px;
+}
+
+.job h2 {
+  font-size: clamp(2.25rem, 5.4vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.job-meta {
+  padding-bottom: 6px;
+  text-align: right;
+}
+
+.job-role {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.job-meta .date {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cobalt);
+}
+
+.job-meta .date span {
+  margin-left: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.job-desc {
+  margin-top: 16px;
+  max-width: 60ch;
+  font-size: 18px;
+  color: var(--ink-2);
+}
+
+.job .works {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px 36px;
+  margin-top: 40px;
+}
+
+.job .work {
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+
+.job .work h4 {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* Lower sections share the large-heading row. */
+.basics,
+.side-wrap,
+.reach {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 24px 36px;
+  padding: 28px 0 72px;
+  border-top: 3px solid var(--rule-strong);
+}
+
+.basics > h2,
+.side-wrap > h2,
+.reach > h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.basics dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 36px;
+}
+
+.basics dt {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.basics dd {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.basics .date {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink-2);
+}
+
+.sides {
+  display: grid;
+  gap: 28px;
+}
+
+.reach ul {
+  display: grid;
+}
+
+.reach a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 24px;
+  padding: 12px 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.reach-label {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.reach-value {
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.reach a:hover .reach-value {
+  color: var(--cobalt);
+}
+
+.foot {
+  margin-top: 0;
+}
+
+@media (max-width: 1099px) {
+  .job .works {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 719px) {
+  .bar {
+    padding: 12px 20px;
+    gap: 8px;
+  }
+  .bar nav {
+    display: none;
+  }
+  .bar-name span {
+    display: none;
+  }
+  .print {
+    width: 44px;
+    padding: 0;
+    justify-content: center;
+    font-size: 0;
+    gap: 0;
+  }
+  .page {
+    padding: 0 20px 96px;
+  }
+  .open {
+    padding: 20px 0 48px;
+  }
+  .open-text {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+    font-size: 17px;
+  }
+  .job {
+    padding: 20px 0 52px;
+  }
+  .job-meta {
+    text-align: left;
+  }
+  .job-meta .date span {
+    display: block;
+    margin-left: 0;
+  }
+  .job-desc {
+    font-size: 16.5px;
+  }
+  .job .works {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 28px;
+  }
+  .basics,
+  .side-wrap,
+  .reach {
+    grid-template-columns: 1fr;
+    padding: 20px 0 52px;
+  }
+  .basics dl {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media print {
+  .bar {
+    padding: 0 0 3mm;
+  }
+  .bar nav {
+    display: none;
+  }
+  .page {
+    max-width: none;
+    padding: 0;
+  }
+  .open {
+    padding: 2mm 0 6mm;
+  }
+  .open h1 {
+    font-size: 24pt;
+  }
+  .open-text {
+    gap: 6mm;
+    margin-top: 4mm;
+    font-size: 10pt;
+  }
+  .job {
+    padding: 3mm 0 6mm;
+    border-top-width: 1.5pt;
+  }
+  .job h2 {
+    font-size: 18pt;
+  }
+  .job-role,
+  .job-meta .date,
+  .job-desc {
+    font-size: 10pt;
+  }
+  .job .works {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4mm 6mm;
+    margin-top: 4mm;
+  }
+  .job .work {
+    padding-top: 2mm;
+  }
+  .basics,
+  .side-wrap,
+  .reach {
+    padding: 3mm 0 6mm;
+    border-top-width: 1.5pt;
+  }
+  .basics > h2,
+  .side-wrap > h2,
+  .reach > h2 {
+    font-size: 13pt;
+  }
+  .basics dd,
+  .reach-value {
+    font-size: 11pt;
+  }
+}
