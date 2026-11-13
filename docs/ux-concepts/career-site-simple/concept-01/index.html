@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 심플 F 한 열</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../shared/simple.css">
+  <script src="../shared/concepts.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+  <style>
+    /* F: one narrow column, one text size, nothing but the words. */
+    .page { max-width: 680px; margin: 0 auto; padding: 88px 24px 120px; }
+    .top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; }
+    .role { color: var(--ink-2); }
+    .summary { margin-top: 28px; }
+    .links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 16px; }
+    .links a { display: inline-flex; align-items: center; min-height: 36px; }
+    h2 { margin: 72px 0 12px; font-size: 1rem; font-weight: 800; }
+    .job + .job { margin-top: 36px; }
+    .job-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 16px; }
+    .job-head h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; }
+    .job-role { color: var(--ink-2); }
+    .job .items { margin-top: 10px; }
+    .lines { display: grid; gap: 6px; }
+    .lines li { display: grid; grid-template-columns: 5.5em minmax(0, 1fr); gap: 12px; }
+    .lines li > span:first-child { color: var(--ink-2); }
+    .side { display: grid; gap: 6px; }
+    .side li { display: flex; flex-wrap: wrap; gap: 0 12px; }
+    .side span { color: var(--ink-2); }
+    .foot { margin-top: 88px; }
+    @media (max-width: 479px) {
+      .page { padding: 40px 20px 96px; }
+      h2 { margin-top: 56px; }
+    }
+    @media print {
+      .page { max-width: none; padding: 0; }
+      h1 { font-size: 22pt; }
+      h2 { margin: 7mm 0 2mm; font-size: 11pt; }
+      .job + .job { margin-top: 5mm; }
+      .job-head h3 { font-size: 12pt; }
+      .foot { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#experience">경력으로 건너뛰기</a>
+  <div class="page">
+    <header>
+      <div class="top">
+        <div>
+          <h1 id="name"></h1>
+          <p class="role" id="role"></p>
+        </div>
+        <button type="button" class="pdf" data-print>PDF로 저장</button>
+      </div>
+      <p class="summary" id="summary"></p>
+      <ul class="links" id="links"></ul>
+    </header>
+    <main>
+      <h2 id="experience">경력</h2>
+      <div id="jobs"></div>
+      <h2>기본 정보</h2>
+      <ul class="lines" id="lines"></ul>
+      <h2>개인 프로젝트</h2>
+      <ul class="side" id="side"></ul>
+    </main>
+    <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
+  </div>
+  <script src="../../career-site/shared/data.js"></script>
+  <script src="../shared/simple.js"></script>
+  <script>
+    (function () {
+      const C = window.CAREER, S = window.SIMPLE, esc = C.esc;
+      const set = (id, html) => (document.getElementById(id).innerHTML = html);
+      set('name', esc(C.profile.name));
+      set('role', esc(C.profile.role));
+      set('summary', esc(C.profile.summary));
+      set('links', S.links());
+      set('jobs', C.companies.map((co) =>
+        '<article class="job"><div class="job-head"><h3>' + esc(co.name) + '</h3><p class="date">' + esc(co.period) + '</p></div>' +
+        '<p class="job-role">' + esc(co.role) + '</p>' + (co.projects.length ? S.items(co.projects) : '') + '</article>').join(''));
+      set('lines',
+        '<li><span>기술</span><span>' + S.skillsLine() + '</span></li>' +
+        '<li><span>학력</span><span>' + S.eduLine() + ' <span class="date">' + S.eduPeriod() + '</span></span></li>' +
+        '<li><span>자격</span><span>' + S.certLine() + '</span></li>');
+      set('side', S.side());
+      S.init();
+    })();
+  </script>
+</body>
+</html>

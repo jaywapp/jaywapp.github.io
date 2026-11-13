@@ -1,0 +1,178 @@
+/* Shared by the simple round: the paper, ink and cobalt of the document direction, with as few parts as possible. */
+:root {
+  --paper: #fbfbfc;
+  --ink: #14161a;
+  --ink-2: #555a63;
+  --rule: #dddfe4;
+  --cobalt: #1d3fd0;
+  --focus: #1d3fd0;
+}
+
+:root[data-theme="dark"] {
+  --paper: #101216;
+  --ink: #eceef2;
+  --ink-2: #a3a8b3;
+  --rule: #2a2e36;
+  --cobalt: #93a7ff;
+  --focus: #93a7ff;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 30;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+a:hover {
+  color: var(--cobalt);
+  text-decoration-color: var(--cobalt);
+}
+
+.date {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+/* Understated print control */
+.pdf {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 15px;
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.pdf:hover {
+  color: var(--cobalt);
+  text-decoration-color: var(--cobalt);
+}
+
+/* Work titles that open */
+.items {
+  display: grid;
+}
+
+.item summary {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 5px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.item summary::-webkit-details-marker {
+  display: none;
+}
+
+.item summary i {
+  flex: none;
+  font-size: 13px;
+  color: var(--ink-2);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.item[open] summary i {
+  transform: rotate(45deg);
+}
+
+.item summary:hover span {
+  color: var(--cobalt);
+}
+
+.item[open] summary span {
+  font-weight: 700;
+}
+
+.bul {
+  display: grid;
+  gap: 4px;
+  padding: 2px 0 12px 23px;
+  max-width: 64ch;
+  font-size: 15.5px;
+  color: var(--ink-2);
+}
+
+.bul li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.bul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--ink-2);
+}
+
+.foot {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+@page {
+  size: A4;
+  margin: 16mm;
+}
+
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    --paper: #fff;
+    --ink: #000;
+    --ink-2: #333;
+    --rule: #bbb;
+    --cobalt: #000;
+  }
+  body {
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .pdf,
+  .skip,
+  .no-print,
+  .item summary i {
+    display: none !important;
+  }
+  .item summary span {
+    font-weight: 700;
+  }
+  .item {
+    break-inside: avoid;
+  }
+  .bul {
+    padding-left: 0;
+    font-size: 10pt;
+  }
+}

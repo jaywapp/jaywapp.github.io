@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 심플 J 문장</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../shared/simple.css">
+  <script src="../shared/concepts.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+  <style>
+    /* J: the resume told as four sentences. No accent color; the list of work follows in small type. */
+    :root, :root[data-theme="dark"] { --cobalt: var(--ink); }
+    .page { max-width: 860px; margin: 0 auto; padding: 96px 40px 120px; }
+    .say { display: grid; gap: 1.1em; font-size: clamp(1.375rem, 3vw, 2rem); font-weight: 500; line-height: 1.55; letter-spacing: -0.025em; }
+    .say h1 { font-size: inherit; font-weight: 800; line-height: inherit; letter-spacing: inherit; }
+    .say strong { font-weight: 800; }
+    .say p { color: var(--ink-2); }
+    .say p strong { color: var(--ink); }
+    .links { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 40px; }
+    .links a, .links button { display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; }
+    .links a { text-decoration-color: var(--ink-2); }
+    .list { margin-top: 96px; }
+    .list h2 { padding-top: 16px; font-size: 1rem; font-weight: 800; border-top: 2px solid var(--ink); }
+    .group { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+    .group h3 { font-size: 1.0625rem; font-weight: 800; }
+    .group .date { display: block; font-size: 15px; }
+    .group p { color: var(--ink-2); }
+    .foot { margin-top: 56px; }
+    @media (max-width: 719px) {
+      .page { padding: 48px 20px 96px; }
+      .list { margin-top: 64px; }
+      .group { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media print {
+      .page { max-width: none; padding: 0; }
+      .say { gap: 3mm; font-size: 13pt; }
+      .links { margin-top: 4mm; }
+      .links a { min-height: 0; font-size: 10pt; }
+      .list { margin-top: 8mm; }
+      .group { grid-template-columns: 40mm minmax(0, 1fr); gap: 4mm; padding: 3mm 0; }
+      .foot { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#list">작업 목록으로 건너뛰기</a>
+  <div class="page">
+    <header>
+      <div class="say" id="say"></div>
+      <ul class="links" id="links"></ul>
+    </header>
+    <main class="list" id="list">
+      <h2>한 일</h2>
+      <div id="groups"></div>
+    </main>
+    <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
+  </div>
+  <script src="../../career-site/shared/data.js"></script>
+  <script src="../../career-site-document/shared/doc.js"></script>
+  <script src="../shared/simple.js"></script>
+  <script>
+    (function () {
+      const C = window.CAREER, S = window.SIMPLE, D = window.DOC, esc = C.esc;
+      const set = (id, html) => (document.getElementById(id).innerHTML = html);
+      const co = (id) => C.companies.find((x) => x.id === id);
+      const now = co('smilegate'), before = co('pentacube'), edu = C.education[0];
+      // Sentences assembled from the same facts as the other concepts. No new claims.
+      set('say',
+        '<h1>박준영입니다. 개발 조직과 실무 사용자의 생산성을 높이는 도구와 시스템을 설계하고 구현합니다.</h1>' +
+        '<p>지금은 <strong>' + esc(now.name) + '</strong>에서 ' + esc(now.role) + '로 일합니다. ' +
+        '2023년 7월부터 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우, AI·AX 플랫폼을 만들고 있습니다.</p>' +
+        '<p>그 전에는 <strong>' + esc(before.name) + '</strong>에서 ' + D.duration(before) + ' 동안 ' + esc(before.role) + '로 일하며 ' +
+        '전자 CAD·PCB 도메인의 설계 규칙 검증 시스템과 제조 솔루션을 만들었습니다.</p>' +
+        '<p><strong>' + esc(edu.school) + '</strong> ' + esc(edu.major) + ' 출신이고, 주로 ' + C.skills.major.map(esc).join(', ') + '를 씁니다.</p>');
+      set('links', S.links() + '<li><button type="button" class="pdf" data-print>PDF로 저장</button></li>');
+      const group = (head, body) => '<section class="group"><div>' + head + '</div><div>' + body + '</div></section>';
+      set('groups',
+        C.companies.map((c) => group(
+          '<h3>' + esc(c.name) + '</h3><span class="date">' + esc(c.period) + '</span>',
+          c.projects.length ? S.items(c.projects) : '<p>' + esc(c.role) + '. ' + esc(c.description) + '</p>')).join('') +
+        group('<h3>기술</h3>', '<p>' + S.skillsLine() + '</p>') +
+        group('<h3>학력과 자격</h3>', '<p>' + S.eduLine() + ' <span class="date" style="display:inline">' + S.eduPeriod() + '</span>, ' + S.certLine() + '</p>') +
+        group('<h3>개인 프로젝트</h3>', '<p>' + C.sideProjects.map((s) => '<a href="' + s.href + '" target="_blank" rel="noopener noreferrer">' + esc(s.name) + '</a>').join(', ') + '</p>'));
+      S.init();
+    })();
+  </script>
+</body>
+</html>

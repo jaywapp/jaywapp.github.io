@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 심플 H 명함</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../shared/simple.css">
+  <script src="../shared/concepts.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+  <style>
+    /* H: the first screen is a calling card. Name, role, one sentence, where to reach. The resume waits below. */
+    .card { min-height: 100dvh; display: grid; align-content: center; max-width: 1080px; margin: 0 auto; padding: 48px 40px; }
+    h1 { font-size: clamp(3rem, 9vw, 6rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.04em; }
+    .role { margin-top: 16px; font-size: clamp(1.125rem, 2.2vw, 1.5rem); font-weight: 600; color: var(--cobalt); }
+    .line { margin-top: 28px; max-width: 30em; font-size: clamp(1.0625rem, 1.8vw, 1.25rem); color: var(--ink-2); }
+    .links { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 36px; }
+    .links a, .links button { display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; }
+    .links .pdf { color: var(--ink); }
+    .rest { max-width: 1080px; margin: 0 auto; padding: 0 40px 120px; }
+    h2 { padding: 16px 0 12px; font-size: 1rem; font-weight: 800; border-top: 2px solid var(--ink); }
+    .rest section + section { margin-top: 64px; }
+    .job { display: grid; grid-template-columns: 168px 200px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid var(--rule); }
+    .job:first-of-type { border-top: 0; }
+    .job h3 { font-size: 1.1875rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.5; }
+    .job-role { color: var(--ink-2); }
+    .job .items { margin-top: 6px; }
+    .pairs { display: grid; gap: 4px; }
+    .pairs li { display: flex; flex-wrap: wrap; gap: 0 12px; }
+    .pairs li > span:first-child { min-width: 4.5em; color: var(--ink-2); }
+    .foot { margin-top: 72px; }
+    @media (max-width: 819px) {
+      .card { padding: 32px 20px; }
+      .rest { padding: 0 20px 96px; }
+      .job { grid-template-columns: 1fr; gap: 0; }
+    }
+    @media print {
+      .card { min-height: 0; padding: 0 0 6mm; }
+      h1 { font-size: 26pt; }
+      .line { margin-top: 3mm; font-size: 10.5pt; }
+      .links { margin-top: 3mm; }
+      .links a { min-height: 0; font-size: 10pt; }
+      .links li:first-child { display: none; }
+      .rest { padding: 0; }
+      .rest section + section { margin-top: 6mm; }
+      .job { grid-template-columns: 30mm 34mm minmax(0, 1fr); gap: 3mm; padding: 2mm 0; }
+      .foot { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="card">
+    <h1 id="name"></h1>
+    <p class="role" id="role"></p>
+    <p class="line" id="line"></p>
+    <ul class="links" id="links"></ul>
+  </header>
+  <main class="rest">
+    <section id="experience"><h2>경력</h2><div id="jobs"></div></section>
+    <section><h2>기본 정보</h2><ul class="pairs" id="basics"></ul></section>
+    <section><h2>개인 프로젝트</h2><ul class="pairs" id="side"></ul></section>
+    <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
+  </main>
+  <script src="../../career-site/shared/data.js"></script>
+  <script src="../shared/simple.js"></script>
+  <script>
+    (function () {
+      const C = window.CAREER, S = window.SIMPLE, esc = C.esc;
+      const set = (id, html) => (document.getElementById(id).innerHTML = html);
+      set('name', esc(C.profile.name));
+      set('role', esc(C.profile.role));
+      set('line', esc(C.profile.summary));
+      set('links', '<li><a href="#experience">경력</a></li>' + S.links() + '<li><button type="button" class="pdf" data-print>PDF로 저장</button></li>');
+      set('jobs', C.companies.map((co) =>
+        '<article class="job"><p class="date">' + esc(co.period) + '</p><h3>' + esc(co.name) + '</h3><div><p class="job-role">' + esc(co.role) + '</p>' +
+        (co.projects.length ? S.items(co.projects) : '') + '</div></article>').join(''));
+      set('basics',
+        '<li><span>기술</span><span>' + S.skillsLine() + '</span></li>' +
+        '<li><span>학력</span><span>' + S.eduLine() + ' <span class="date">' + S.eduPeriod() + '</span></span></li>' +
+        '<li><span>자격</span><span>' + S.certLine() + '</span></li>');
+      set('side', S.side());
+      S.init();
+    })();
+  </script>
+</body>
+</html>
