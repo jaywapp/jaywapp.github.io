@@ -29,16 +29,23 @@
   gap: 18px;
 }
 
-.made a {
+.made .made-name {
   font-size: 1.125rem;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-.made .kind {
-  margin-left: 10px;
-  font-size: 14px;
-  color: var(--ink-2);
+.made-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  font-size: 14.5px;
+}
+
+.made-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
 }
 
 .made p {

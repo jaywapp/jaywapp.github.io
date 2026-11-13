@@ -11,7 +11,7 @@
   <script src="../shared/home.js"></script>
   <script src="../../career-site/shared/review.js"></script>
   <style>
-    /* M: a calling card first, then two columns side by side: what I made and what I wrote. */
+    /* M: a calling card first. Then what I do at work, what I made outside it, what I wrote, and the way to the resume. */
     .card { min-height: 82dvh; display: grid; align-content: center; max-width: 1120px; margin: 0 auto; padding: 48px 40px; }
     h1 { max-width: 11em; font-size: clamp(2.5rem, 7.2vw, 5.25rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.04em; }
     .role { margin-top: 20px; font-size: clamp(1.125rem, 2.2vw, 1.5rem); font-weight: 600; color: var(--cobalt); }
@@ -20,24 +20,42 @@
     .card .nav { margin-top: 32px; gap: 4px 24px; }
     .card .nav a { min-height: 44px; font-size: 17px; font-weight: 700; }
     .rest { max-width: 1120px; margin: 0 auto; padding: 0 40px 120px; }
-    .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+    .rest > section + section { margin-top: 88px; }
     h2 { padding: 16px 0 14px; font-size: 1rem; font-weight: 800; border-top: 2px solid var(--ink); }
-    .resume { margin-top: 72px; }
+    .lead { max-width: 30em; font-size: clamp(1.25rem, 2.4vw, 1.625rem); font-weight: 700; line-height: 1.45; letter-spacing: -0.025em; }
+    .lead span { color: var(--ink-2); font-weight: 500; }
+    /* Work: four fields side by side. */
+    .fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 36px; }
+    .fields > div { display: grid; grid-template-rows: subgrid; grid-row: span 3; gap: 0; } /* headings, blurbs and lists line up across fields */
+    .fields h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; }
+    .fields .blurb { margin-top: 4px; font-size: 15.5px; color: var(--ink-2); }
+    .fields ul { display: grid; gap: 4px; margin-top: 14px; padding-top: 12px; font-size: 15.5px; border-top: 1px solid var(--rule); }
+    /* Made: two groups, each a two-column list. */
+    .group + .group { margin-top: 44px; }
+    .group h3 { font-size: 15px; font-weight: 600; color: var(--ink-2); }
+    .group .made { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 56px; margin-top: 14px; }
+    .posts { max-width: 760px; }
     .foot { margin-top: 72px; }
-    @media (max-width: 819px) {
+    @media (max-width: 1023px) {
+      .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 32px; }
+    }
+    @media (max-width: 719px) {
       .card { min-height: 0; padding: 56px 20px 64px; }
       .rest { padding: 0 20px 96px; }
-      .cols { grid-template-columns: 1fr; gap: 56px; }
+      .rest > section + section { margin-top: 64px; }
+      .fields, .group .made { grid-template-columns: 1fr; }
+      .group .made { gap: 22px; }
     }
   </style>
 </head>
 <body>
-  <a class="skip" href="#made-title">본문으로 건너뛰기</a>
+  <a class="skip" href="#work-title">본문으로 건너뛰기</a>
   <header class="card">
     <h1 id="slogan"></h1>
     <p class="role" id="who"></p>
     <div class="intro" id="intro"></div>
     <nav class="nav" aria-label="주요 메뉴">
+      <a href="#work-title">하는 일</a>
       <a href="#made-title">만든 것</a>
       <a href="#posts-title">글</a>
       <a href="../../career-site-simple/concept-04/index.html">이력서</a>
@@ -46,24 +64,44 @@
     </nav>
   </header>
   <main class="rest">
-    <div class="cols">
-      <section>
-        <h2 id="made-title">만든 것</h2>
-        <ul class="made" id="made"></ul>
-      </section>
-      <section>
-        <h2 id="posts-title">글</h2>
-        <ul class="posts" id="posts"></ul>
-        <a class="more" href="https://jaywapp.tistory.com/" target="_blank" rel="noopener noreferrer">블로그에서 모두 보기</a>
-      </section>
-    </div>
-    <section class="resume">
+    <section>
+      <h2 id="work-title">회사에서 하는 일</h2>
+      <p class="lead" id="work-lead"></p>
+      <div class="fields" id="fields"></div>
+      <a class="more" href="../../career-site-simple/concept-04/index.html" style="margin-top: 24px">이력서에서 자세히 보기</a>
+    </section>
+    <section>
+      <h2 id="made-title">회사 밖에서 만든 것</h2>
+      <div class="group"><h3>서비스와 앱</h3><ul class="made" id="made-service"></ul></div>
+      <div class="group"><h3>개발자 도구와 AI</h3><ul class="made" id="made-tool"></ul></div>
+    </section>
+    <section>
+      <h2 id="posts-title">글</h2>
+      <ul class="posts" id="posts"></ul>
+      <a class="more" href="https://jaywapp.tistory.com/" target="_blank" rel="noopener noreferrer">블로그에서 모두 보기</a>
+    </section>
+    <section>
       <h2>이력</h2>
       <ul class="career" id="career"></ul>
       <a class="more" href="../../career-site-simple/concept-04/index.html">이력서 전체 보기</a>
     </section>
     <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
   </main>
-  <script>window.HOME.fill();</script>
+  <script src="../../career-site/shared/data.js"></script>
+  <script>
+    (function () {
+      const H = window.HOME, C = window.CAREER, esc = H.esc;
+      H.fill();
+      // What I do at work: the current employer's work grouped by field (same data as the resume).
+      const now = C.companies.find((c) => !c.end);
+      H.set('work-lead', esc(now.name) + '에서 ' + esc(now.role) + '로 일합니다. <span>' + esc(now.description) + '을 맡고 있습니다.</span>');
+      H.set('fields', C.themes
+        .map((t) => ({ t: t, list: now.projects.filter((p) => p.theme === t.id) }))
+        .filter((x) => x.list.length)
+        .map((x) => '<div><h3>' + esc(x.t.name) + '</h3><p class="blurb">' + esc(x.t.blurb) + '</p><ul>' +
+          x.list.map((p) => '<li>' + esc(p.short) + '</li>').join('') + '</ul></div>')
+        .join(''));
+    })();
+  </script>
 </body>
 </html>
