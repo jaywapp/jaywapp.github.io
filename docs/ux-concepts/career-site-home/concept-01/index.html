@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 홈 K 한 열</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../../career-site-simple/shared/simple.css">
+  <link rel="stylesheet" href="../shared/home.css">
+  <script src="../shared/home.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+  <style>
+    /* K: a personal page in one narrow column. Who I am, what I made, what I wrote, then the way to the resume. */
+    .page { max-width: 680px; margin: 0 auto; padding: 40px 24px 120px; }
+    .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px; }
+    .bar .home { font-weight: 800; text-decoration: none; }
+    .hello { margin-top: 72px; }
+    h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; }
+    .role { margin-top: 10px; color: var(--ink-2); }
+    .role strong { display: none; } /* the name is already in the bar above */
+    .intro { display: grid; gap: 12px; margin-top: 28px; }
+    h2 { margin: 72px 0 14px; font-size: 1rem; font-weight: 800; }
+    @media (max-width: 479px) {
+      .page { padding: 20px 20px 96px; }
+      .hello { margin-top: 44px; }
+      h2 { margin-top: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#made-title">본문으로 건너뛰기</a>
+  <div class="page">
+    <header class="bar">
+      <a class="home" href="index.html">박준영</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="index.html" aria-current="page">홈</a>
+        <a href="#made-title">만든 것</a>
+        <a href="#posts-title">글</a>
+        <a href="../../career-site-simple/concept-01/index.html">이력서</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hello">
+        <h1 id="slogan"></h1>
+        <p class="role" id="who"></p>
+        <div class="intro" id="intro"></div>
+        <ul class="inline-links" id="links" style="margin-top: 16px"></ul>
+      </section>
+      <h2 id="made-title">만든 것</h2>
+      <ul class="made" id="made"></ul>
+      <h2 id="posts-title">글</h2>
+      <ul class="posts" id="posts"></ul>
+      <a class="more" href="https://jaywapp.tistory.com/" target="_blank" rel="noopener noreferrer">블로그에서 모두 보기</a>
+      <h2>이력</h2>
+      <ul class="career" id="career"></ul>
+      <a class="more" href="../../career-site-simple/concept-01/index.html">이력서 전체 보기</a>
+    </main>
+    <footer class="foot" style="margin-top: 88px"><p>© 2026 Junyoung Park</p></footer>
+  </div>
+  <script>window.HOME.fill();</script>
+</body>
+</html>

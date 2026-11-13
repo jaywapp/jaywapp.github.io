@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 시안 01 기판</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../shared/review.js"></script>
+</head>
+<body>
+  <!--
+  THESIS: A career drawn as one circuit board. Time is the copper trace, employers are the packages on it,
+    every project is a pin you can probe. Refuses the dark hero with a centered greeting and stat cards.
+  OWN-WORLD: Solder-mask green ground, ENIG gold copper, white silkscreen lettering, black packages,
+    2px corners, reference designators set in mono. Light theme is a white-mask board with bare copper.
+  STORY: The reader sees ten years on one board, probes a pin to read what was built, then reads the parts list.
+  FIRST VIEWPORT: Statement and two actions at the left, the full-width board directly under it with the
+    newest package at the right edge and one pin already probed.
+  FORM: Printed circuit board and its parts list, candidate 7 of 7, seed 6aba1929.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <a class="skip" href="#parts">본문으로 건너뛰기</a>
+
+  <header class="top">
+    <a class="mark" href="#top" aria-label="박준영, 처음으로">
+      <span class="mark-name">박준영</span>
+      <span class="mark-en">JUNYOUNG PARK</span>
+    </a>
+    <nav aria-label="주요 메뉴">
+      <a href="#board">기판</a>
+      <a href="#parts">경력</a>
+      <a href="#spec">사양</a>
+      <a href="#contact">연락</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="intro">
+      <h1 id="statement"></h1>
+      <p class="lede" id="lede"></p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#parts">경력 읽기</a>
+        <a class="btn" href="#contact">연락하기</a>
+      </div>
+    </section>
+
+    <section id="board" class="board" aria-labelledby="board-title">
+      <div class="board-head">
+        <h2 id="board-title">2015년부터 지금까지, 기판 한 장</h2>
+        <p>핀 하나가 작업 하나입니다. 핀을 고르면 아래에 내용이 나옵니다.</p>
+      </div>
+      <div class="layers" role="group" aria-label="분야로 걸러 보기" id="layers"></div>
+      <div class="board-canvas">
+        <svg id="pcb" viewBox="30 60 1110 370" role="group" aria-label="경력 기판. 왼쪽이 2015년, 오른쪽이 현재입니다."></svg>
+      </div>
+      <article class="probe" id="probe" aria-live="polite"></article>
+    </section>
+
+    <section id="parts" class="parts" aria-labelledby="parts-title">
+      <h2 id="parts-title">경력과 작업 전체</h2>
+      <div id="parts-list"></div>
+    </section>
+
+    <section id="spec" class="spec" aria-labelledby="spec-title">
+      <h2 id="spec-title">사양</h2>
+      <dl class="titleblock" id="titleblock"></dl>
+      <h3>회사 밖에서 만든 것</h3>
+      <ul class="modules" id="modules"></ul>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">새로운 기회나 협업 제안을 환영합니다</h2>
+      <ul class="links" id="links"></ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>© 2026 Junyoung Park</p>
+  </footer>
+
+  <script src="../shared/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

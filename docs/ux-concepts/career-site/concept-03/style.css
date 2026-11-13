@@ -1,0 +1,543 @@
+/* Concept 03: the career indexed by field, on a tool-yellow panel. */
+:root {
+  --yellow: #ffd60a;
+  --on-yellow: #121212;
+  --pane: #f5f5f3;
+  --ink: #121212;
+  --ink-2: #51514d;
+  --rule: #121212;
+  --hair: #d8d8d3;
+  --mark: #ffd60a;
+  --meta: #121212;
+  --focus: #121212;
+}
+
+:root[data-theme="dark"] {
+  --pane: #131312;
+  --ink: #f4f4ef;
+  --ink-2: #b1b1a8;
+  --rule: #f4f4ef;
+  --hair: #33332f;
+  --mark: transparent;
+  --meta: #ffd60a;
+  --focus: #ffd60a;
+}
+
+body {
+  background: var(--pane);
+  color: var(--ink);
+}
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 20;
+  padding: 8px 12px;
+  background: #121212;
+  color: #fff;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+.period,
+.field-count {
+  font-variant-numeric: tabular-nums;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(400px, 40%) minmax(0, 1fr);
+  min-height: 100dvh;
+}
+
+/* ---- Yellow panel ---- */
+.side {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 36px 40px 28px;
+  overflow-y: auto;
+  background: var(--yellow);
+  color: var(--on-yellow);
+  --focus: #121212;
+}
+
+.who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+  font-size: 15px;
+}
+
+.who strong {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.panel h1 {
+  margin-top: 36px;
+  max-width: 9em;
+  font-size: clamp(2.5rem, 4.4vw, 4.25rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.themes {
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.themes ul {
+  border-top: 3px solid var(--on-yellow);
+}
+
+.themes a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 12px 10px;
+  margin: 0 -12px;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.28);
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+.field-name {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.themes a:hover:not([aria-current]) .field-name {
+  transform: translateX(10px);
+}
+
+.themes a[aria-current] {
+  padding-left: 22px;
+  background: var(--on-yellow);
+  color: var(--yellow);
+  border-bottom-color: var(--on-yellow);
+}
+
+.field-count {
+  font-size: 0.7em;
+  font-weight: 700;
+}
+
+.panel-links {
+  display: flex;
+  gap: 4px;
+  margin: 20px -10px 0;
+}
+
+.panel-links a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+.panel-links a:hover {
+  background: var(--on-yellow);
+  color: var(--yellow);
+}
+
+/* ---- Reading pane ---- */
+.pane {
+  min-width: 0;
+  padding: 44px clamp(24px, 4.5vw, 72px) 120px;
+}
+
+.pane > * {
+  max-width: 860px;
+}
+
+.summary {
+  max-width: 62ch;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.pane h2 {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.career {
+  margin-top: 40px;
+}
+
+.career-rows {
+  margin-top: 10px;
+  border-top: 3px solid var(--rule);
+}
+
+.career-rows li {
+  display: grid;
+  grid-template-columns: 150px 150px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+.career-rows .period {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.career-rows strong {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.career-role {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+/* ---- Field view ---- */
+.view {
+  margin-top: 72px;
+  outline: none;
+}
+
+.view-head h2 {
+  font-size: clamp(2.25rem, 4.6vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.view-head h2 span {
+  background: linear-gradient(transparent 58%, var(--mark) 58%, var(--mark) 92%, transparent 92%);
+  padding: 0 0.08em;
+  margin: 0 -0.08em;
+}
+
+.view-head p {
+  margin-top: 12px;
+  max-width: 52ch;
+  font-size: 18px;
+  color: var(--ink-2);
+}
+
+.entries {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 44px 40px;
+  margin-top: 36px;
+}
+
+.entry {
+  padding-top: 16px;
+  border-top: 3px solid var(--rule);
+}
+
+.entry h3 {
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.entry-meta {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--meta);
+}
+
+.entry ul {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 15.5px;
+  color: var(--ink-2);
+}
+
+.entry li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.entry li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  background: var(--ink);
+}
+
+/* The one motion: a new field's work is laid out on the bench, piece by piece. */
+.view.enter .view-head {
+  animation: lay 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.view.enter .entry {
+  animation: lay 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(60ms + var(--i) * 45ms);
+}
+
+@keyframes lay {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0);
+  }
+}
+
+/* ---- Lower sections ---- */
+.basics,
+.side-work,
+.contact {
+  margin-top: 88px;
+}
+
+.basics dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+  margin-top: 10px;
+  border-top: 3px solid var(--rule);
+}
+
+.basics dl > div {
+  padding: 14px 0 16px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.basics dt {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.basics dd {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.basics .period {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.side-work ul {
+  margin-top: 10px;
+  border-top: 3px solid var(--rule);
+}
+
+.side-work a {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 4px 24px;
+  padding: 18px 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--hair);
+}
+
+.side-name {
+  grid-row: span 2;
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.side-work a:hover .side-name {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.side-meta {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--meta);
+}
+
+.side-desc {
+  font-size: 15.5px;
+  color: var(--ink-2);
+}
+
+.contact h2 {
+  max-width: 14em;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.contact ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+  margin-top: 24px;
+  border-top: 3px solid var(--rule);
+}
+
+.contact a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--hair);
+}
+
+.contact i {
+  font-size: 24px;
+}
+
+.contact span {
+  display: grid;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.contact strong {
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.contact a:hover strong {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.foot {
+  margin-top: 64px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+/* ---- Medium: single column of work ---- */
+@media (max-width: 1239px) {
+  .entries {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .career-rows li {
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0 20px;
+  }
+  .career-rows .period {
+    white-space: nowrap;
+  }
+  .career-role {
+    grid-column: 2;
+  }
+}
+
+/* ---- Narrow: panel on top, the field index sticks as a strip ---- */
+@media (max-width: 899px) {
+  .split {
+    display: block;
+  }
+  .side {
+    display: contents;
+  }
+  .panel {
+    padding: 22px 20px 28px;
+    background: var(--yellow);
+    color: var(--on-yellow);
+  }
+  .panel h1 {
+    margin-top: 22px;
+    font-size: clamp(2.25rem, 11vw, 3.25rem);
+  }
+  .themes {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    background: var(--yellow);
+    color: var(--on-yellow);
+    border-top: 3px solid var(--on-yellow);
+    border-bottom: 3px solid var(--on-yellow);
+    overflow-x: auto;
+    scrollbar-width: none;
+    --focus: #121212;
+  }
+  .themes::-webkit-scrollbar {
+    display: none;
+  }
+  .themes ul {
+    display: flex;
+    border: 0;
+    width: max-content;
+  }
+  .themes a {
+    gap: 8px;
+    align-items: center;
+    height: 48px;
+    margin: 0;
+    padding: 0 16px;
+    font-size: 16px;
+    border-bottom: 0;
+    border-right: 1px solid rgba(18, 18, 18, 0.28);
+    white-space: nowrap;
+  }
+  .themes a:hover,
+  .themes a[aria-current] {
+    padding-left: 16px;
+  }
+  .themes a:focus-visible {
+    outline-offset: -4px;
+  }
+  .field-count {
+    font-size: 13px;
+  }
+  .panel-links {
+    display: none;
+  }
+  .pane {
+    padding: 28px 20px 96px;
+  }
+  .summary {
+    font-size: 17px;
+  }
+  .view {
+    margin-top: 56px;
+    scroll-margin-top: 72px;
+  }
+  .basics,
+  .side-work,
+  .contact {
+    margin-top: 64px;
+  }
+  .basics dl,
+  .contact ul {
+    grid-template-columns: 1fr;
+  }
+  .side-work a {
+    grid-template-columns: 1fr;
+  }
+  .side-name {
+    grid-row: auto;
+  }
+}

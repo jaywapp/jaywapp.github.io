@@ -1,0 +1,819 @@
+/* Concept 01: the career as a circuit board. */
+:root {
+  --mask: #f3f4f1;
+  --mask-deep: #e7e9e4;
+  --silk: #13201a;
+  --silk-dim: #47574f;
+  --copper: #b56a17;
+  --copper-text: #8f5010;
+  --on-copper: #ffffff;
+  --part: #17241e;
+  --part-ink: #f1f5ee;
+  --part-dim: #b4c6b9;
+  --line: rgba(19, 32, 26, 0.18);
+  --focus: #13201a;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root[data-theme="dark"] {
+  --mask: #0c382a;
+  --mask-deep: #0a2f23;
+  --silk: #f1f5ee;
+  --silk-dim: #b4c6b9;
+  --copper: #e6bb5c;
+  --copper-text: #e6bb5c;
+  --on-copper: #07211a;
+  --part: #061c15;
+  --line: rgba(241, 245, 238, 0.2);
+  --focus: #f1f5ee;
+}
+
+body {
+  background: var(--mask);
+  color: var(--silk);
+}
+
+.num,
+.ref {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  padding: 8px 12px;
+  background: var(--silk);
+  color: var(--mask);
+  z-index: 10;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+/* ---- Top bar ---- */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+
+.mark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.mark-name {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.mark-en {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--silk-dim);
+}
+
+.top nav {
+  display: flex;
+  gap: 4px;
+}
+
+.top nav a {
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.top nav a:hover {
+  background: var(--mask-deep);
+}
+
+/* ---- Intro ---- */
+.intro {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 40px 28px;
+}
+
+.intro h1 {
+  max-width: 16ch;
+  font-size: clamp(2.5rem, 4.4vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.lede {
+  max-width: 58ch;
+  margin-top: 14px;
+  font-size: 18px;
+  color: var(--silk-dim);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 22px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1.5px solid var(--silk);
+  border-radius: 2px;
+  transition: transform 0.15s ease-out, background-color 0.15s ease-out;
+}
+
+.btn:hover {
+  background: var(--mask-deep);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--copper);
+  border-color: var(--copper);
+  color: var(--on-copper);
+}
+
+.btn-primary:hover {
+  background: var(--copper);
+  filter: brightness(1.08);
+}
+
+/* ---- Board ---- */
+.board {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4px 40px 72px;
+}
+
+.board-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 20px;
+  padding-top: 18px;
+  border-top: 1.5px solid var(--silk);
+}
+
+.board-head h2 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.board-head p {
+  font-size: 15px;
+  color: var(--silk-dim);
+}
+
+.layers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.layer {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: background-color 0.15s ease-out;
+}
+
+.layer .num {
+  margin-left: 4px;
+  font-size: 12px;
+  color: var(--silk-dim);
+}
+
+.layer:hover {
+  background: var(--mask-deep);
+}
+
+.layer[aria-pressed="true"] {
+  background: var(--silk);
+  border-color: var(--silk);
+  color: var(--mask);
+}
+
+.layer[aria-pressed="true"] .num {
+  color: inherit;
+}
+
+.board-canvas {
+  margin-top: 8px;
+}
+
+#pcb {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+#pcb text {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  fill: var(--silk);
+}
+
+.ruler line {
+  stroke: var(--silk-dim);
+  stroke-width: 1;
+}
+
+.ruler text {
+  font-family: var(--mono) !important;
+  font-size: 12px;
+  text-anchor: middle;
+  fill: var(--silk-dim) !important;
+}
+
+.ruler .ruler-now {
+  font-family: "Pretendard Variable", Pretendard, sans-serif !important;
+  font-weight: 700;
+  fill: var(--copper-text) !important;
+}
+
+.trace-under {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trace {
+  fill: none;
+  stroke: var(--copper);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.routed .trace {
+  stroke-dashoffset: 0 !important;
+}
+
+.via {
+  fill: var(--mask);
+  stroke: var(--copper);
+  stroke-width: 5;
+}
+
+.part,
+.pin {
+  cursor: pointer;
+  outline: none;
+}
+
+.part .body {
+  fill: var(--part);
+  stroke: var(--part);
+  stroke-width: 2;
+}
+
+.part:hover .body,
+.part.is-on .body,
+.part:focus-visible .body {
+  stroke: var(--copper);
+}
+
+.part:focus-visible .body {
+  stroke-width: 4;
+}
+
+.part .notch {
+  fill: var(--part-dim);
+}
+
+#pcb .part .ref {
+  font-family: var(--mono);
+  font-size: 12px;
+  fill: var(--part-dim);
+}
+
+#pcb .co-name {
+  font-size: 19px;
+  font-weight: 800;
+  fill: var(--part-ink);
+}
+
+#pcb .co-role {
+  font-size: 11.5px;
+  fill: var(--part-dim);
+}
+
+#pcb .co-period {
+  font-family: var(--mono);
+  font-size: 12px;
+  fill: var(--part-dim);
+}
+
+.part-small .pad,
+.pin .pad {
+  fill: var(--copper);
+}
+
+.part-small .leader {
+  stroke: var(--silk-dim);
+  stroke-width: 1;
+}
+
+#pcb .small-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+#pcb .small-label .ref {
+  font-family: var(--mono);
+  fill: var(--silk-dim);
+}
+
+.pin .hit {
+  fill: transparent;
+}
+
+#pcb .pin-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--silk-dim);
+  transition: fill 0.15s ease-out;
+}
+
+.pin .pad {
+  transition: fill 0.15s ease-out;
+}
+
+.pin:hover .pin-label,
+.pin:focus-visible .pin-label,
+.pin[aria-pressed="true"] .pin-label {
+  fill: var(--silk);
+}
+
+.pin[aria-pressed="true"] .pin-label {
+  font-weight: 800;
+}
+
+.pin[aria-pressed="true"] .pad,
+.pin:focus-visible .pad {
+  fill: var(--silk);
+  stroke: var(--silk);
+  stroke-width: 3;
+}
+
+.pin.dim {
+  opacity: 0.22;
+}
+
+/* ---- Probe card ---- */
+.probe {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 20px;
+  padding: 28px 32px;
+  background: var(--part);
+  color: var(--part-ink);
+  border-radius: 2px;
+}
+
+.probe-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--part-dim);
+}
+
+.probe-meta .ref {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e6bb5c;
+}
+
+.probe-meta .tag {
+  margin-top: 6px;
+  padding: 2px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--part-ink);
+  border: 1px solid rgba(241, 245, 238, 0.35);
+  border-radius: 2px;
+}
+
+.probe-body h3 {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.probe-body ul {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+  max-width: 72ch;
+}
+
+.probe-body li,
+.entry li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.probe-body li::before,
+.entry li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.probe-role {
+  margin-top: 4px;
+  color: var(--part-dim);
+}
+
+.probe-body p + p {
+  margin-top: 12px;
+  max-width: 72ch;
+}
+
+.probe-hint {
+  color: var(--part-dim);
+  font-size: 15px;
+}
+
+/* ---- Parts list ---- */
+.parts,
+.spec,
+.contact {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px 88px;
+}
+
+.parts > h2,
+.spec > h2 {
+  padding-top: 28px;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  border-top: 1.5px solid var(--silk);
+}
+
+.company {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.company header {
+  align-self: start;
+  position: sticky;
+  top: 24px;
+}
+
+.company header .num {
+  font-size: 14px;
+  color: var(--copper-text);
+  font-weight: 700;
+}
+
+.company h3 {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.company-role {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.company-desc {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--silk-dim);
+}
+
+.entries {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px 40px;
+}
+
+.entry-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--silk-dim);
+}
+
+.entry-head .tag {
+  font-weight: 600;
+}
+
+.entry h4 {
+  margin: 6px 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.entry ul {
+  display: grid;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--silk-dim);
+}
+
+/* ---- Title block ---- */
+.titleblock {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 32px;
+  border: 1.5px solid var(--silk);
+}
+
+.titleblock > div {
+  padding: 14px 18px 16px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.titleblock > .wide {
+  grid-column: span 2;
+}
+
+.titleblock dt {
+  font-size: 13px;
+  color: var(--silk-dim);
+}
+
+.titleblock dd {
+  margin-top: 2px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.titleblock .en {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--silk-dim);
+}
+
+.titleblock .num {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--silk-dim);
+}
+
+.titleblock .fact {
+  font-family: var(--mono);
+  font-size: 22px;
+}
+
+.spec h3 {
+  margin-top: 56px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.modules {
+  margin-top: 8px;
+}
+
+.modules a {
+  display: grid;
+  grid-template-columns: 220px 170px minmax(0, 1fr) 200px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 18px 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modules a:hover {
+  transform: translateX(10px);
+}
+
+.module-name {
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.module-cat,
+.module-tech {
+  font-size: 14px;
+  color: var(--silk-dim);
+}
+
+.module-desc {
+  font-size: 15px;
+}
+
+/* ---- Contact ---- */
+.contact h2 {
+  padding-top: 28px;
+  max-width: 18ch;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  border-top: 1.5px solid var(--silk);
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.links a {
+  display: grid;
+  gap: 2px;
+  padding: 16px 18px;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: background-color 0.15s ease-out;
+}
+
+.links a:hover {
+  background: var(--mask-deep);
+}
+
+.links i {
+  font-size: 22px;
+  color: var(--copper-text);
+}
+
+.link-label {
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.link-value {
+  font-size: 14px;
+  color: var(--silk-dim);
+}
+
+.foot {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px 96px;
+  font-size: 14px;
+  color: var(--silk-dim);
+}
+
+/* ---- Narrow screens: the board gives way to the parts list on a vertical trace ---- */
+@media (max-width: 1023px) {
+  .company {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .company header {
+    position: static;
+  }
+  .modules a {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .probe {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 819px) {
+  .top,
+  .intro,
+  .parts,
+  .spec,
+  .contact,
+  .foot {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .top {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .mark-en,
+  .top nav a[href="#board"] {
+    display: none;
+  }
+  .top nav a {
+    padding: 10px 8px;
+  }
+  .intro {
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+  .lede {
+    font-size: 17px;
+  }
+  .board {
+    display: none;
+  }
+  .parts > h2 {
+    font-size: 1.75rem;
+  }
+  /* Vertical copper trace with a via per employer. */
+  #parts-list {
+    position: relative;
+    margin-top: 8px;
+    padding-left: 28px;
+  }
+  #parts-list::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 52px;
+    bottom: 0;
+    width: 6px;
+    border-radius: 3px;
+    background: var(--copper);
+  }
+  .company {
+    position: relative;
+    margin-top: 40px;
+  }
+  .company::before {
+    content: "";
+    position: absolute;
+    left: -31px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--mask);
+    border: 4px solid var(--copper);
+  }
+  .company h3 {
+    font-size: 24px;
+  }
+  .entries {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .titleblock {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 359px) {
+  .titleblock {
+    grid-template-columns: 1fr;
+  }
+  .titleblock > .wide {
+    grid-column: auto;
+  }
+}

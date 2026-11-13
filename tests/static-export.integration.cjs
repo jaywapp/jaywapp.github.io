@@ -41,3 +41,15 @@ test('static hosting includes a real 404 document and metadata assets', () => {
     assert.ok(existsSync(join(output, asset)), `missing metadata asset ${asset}`);
   }
 });
+
+test('export keeps the custom domain and the pages published outside the portfolio', () => {
+  // The deploy replaces the whole gh-pages branch, so anything missing here goes offline.
+  assert.equal(readPage('CNAME').trim(), 'jaywapp.com');
+  for (const page of ['app-ads.txt', 'iam-headcoach/index.html', 'iam-headcoach/privacy/index.html']) {
+    assert.ok(existsSync(join(output, page)), `missing published page ${page}`);
+  }
+  assert.match(
+    readPage('iam-headcoach/privacy/index.html'),
+    /rel="canonical" href="https:\/\/jaywapp\.com\/iam-headcoach\/privacy\/"/,
+  );
+});
