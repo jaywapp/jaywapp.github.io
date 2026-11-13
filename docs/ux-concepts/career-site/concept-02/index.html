@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 시안 02 문서</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../shared/review.js"></script>
+</head>
+<body>
+  <!--
+  THESIS: The site is the resume itself. One document that reads top to bottom in a minute and prints to
+    A4 as-is. Refuses the portfolio landing page: no hero, no cards, no sections that only decorate.
+  OWN-WORLD: Neutral white sheet, near-black ink, one cobalt for links and dates, hairline rules,
+    a fixed left margin column that holds dates and reference facts. No boxes around anything.
+  STORY: The reader gets name, role and three facts, scans the employers in the margin, opens more work
+    only if they want it, then saves the page as a PDF.
+  FIRST VIEWPORT: Name at display size, role under it, statement and facts as plain sentences, the
+    reference column (contact, skills, education) at the left and the first employer already visible.
+  FORM: The resume document, the category standard played straight.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <a class="skip" href="#experience">경력으로 건너뛰기</a>
+
+  <div class="sheet">
+    <header class="head">
+      <div class="head-name">
+        <h1 id="name"></h1>
+        <p class="role" id="role"></p>
+      </div>
+      <button type="button" class="print" id="print">
+        <i class="ph ph-printer" aria-hidden="true"></i> PDF로 저장
+      </button>
+    </header>
+
+    <div class="body">
+      <aside class="ref" aria-label="연락처와 기본 정보">
+        <section>
+          <h2>연락처</h2>
+          <ul class="contact" id="contact"></ul>
+        </section>
+        <section>
+          <h2>기술</h2>
+          <dl class="kv" id="skills"></dl>
+        </section>
+        <section>
+          <h2>학력</h2>
+          <div id="education"></div>
+        </section>
+        <section>
+          <h2>자격</h2>
+          <div id="certs"></div>
+        </section>
+      </aside>
+
+      <main>
+        <section class="lead">
+          <p class="statement" id="statement"></p>
+          <p id="about"></p>
+          <p class="facts" id="facts"></p>
+        </section>
+
+        <section id="experience" aria-labelledby="exp-title">
+          <h2 id="exp-title">경력</h2>
+          <div id="jobs"></div>
+        </section>
+
+        <section aria-labelledby="side-title">
+          <h2 id="side-title">개인 프로젝트</h2>
+          <div id="side"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="foot">
+      <p>© 2026 Junyoung Park</p>
+    </footer>
+  </div>
+
+  <script src="../shared/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

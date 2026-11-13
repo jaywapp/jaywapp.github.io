@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 문서 C 큰 글자</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../shared/doc.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../shared/concepts.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+</head>
+<body>
+  <!-- Document variant C: the same resume set large. Wide page, the statement and employer names at display size. -->
+  <a class="skip" href="#experience">경력으로 건너뛰기</a>
+  <header class="bar">
+    <p class="bar-name"><strong>박준영</strong><span id="role"></span></p>
+    <nav aria-label="주요 메뉴">
+      <a href="#experience">경력</a>
+      <a href="#basics">기본 정보</a>
+      <a href="#contact-section">연락</a>
+    </nav>
+    <button type="button" class="print" data-print><i class="ph ph-printer" aria-hidden="true"></i> PDF로 저장</button>
+  </header>
+
+  <main class="page">
+    <section class="open">
+      <h1 id="statement"></h1>
+      <div class="open-text">
+        <p id="about"></p>
+        <p class="facts" id="facts"></p>
+      </div>
+    </section>
+
+    <section id="experience" aria-label="경력">
+      <div id="jobs"></div>
+    </section>
+
+    <section id="basics" class="basics" aria-labelledby="basics-title">
+      <h2 id="basics-title">기본 정보</h2>
+      <dl id="basics-list"></dl>
+    </section>
+
+    <section class="side-wrap" aria-labelledby="side-title">
+      <h2 id="side-title">개인 프로젝트</h2>
+      <ul class="sides" id="side"></ul>
+    </section>
+
+    <section id="contact-section" class="reach" aria-labelledby="reach-title">
+      <h2 id="reach-title">연락처</h2>
+      <ul id="reach"></ul>
+    </section>
+    <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
+  </main>
+
+  <script src="../../career-site/shared/data.js"></script>
+  <script src="../shared/doc.js"></script>
+  <script>
+    (function () {
+      const C = window.CAREER, D = window.DOC, esc = C.esc;
+      D.fillCommon();
+      D.text('statement', C.profile.statement);
+      D.set('jobs', C.companies.map((co) =>
+        '<article class="job"><header><h2>' + esc(co.name) + '</h2><div class="job-meta"><p class="job-role">' + esc(co.role) + '</p>' +
+        '<p class="date">' + esc(co.period) + '<span>' + D.duration(co) + '</span></p></div></header>' +
+        '<p class="job-desc">' + esc(co.description) + '</p>' + (co.projects.length ? D.works(co.projects) : '') + '</article>').join(''));
+      D.set('basics-list',
+        '<div><dt>주요 기술</dt><dd>' + C.skills.major.map(esc).join(', ') + '</dd></div>' +
+        '<div><dt>보조 기술</dt><dd>' + C.skills.minor.map(esc).join(', ') + '</dd></div>' +
+        '<div><dt>학력</dt><dd>' + C.education.map((e) => esc(e.school + ' ' + e.major) + '<span class="date">' + esc(e.period) + '</span>').join('') + '</dd></div>' +
+        '<div><dt>자격</dt><dd>' + C.certifications.map((c) => esc(c.name)).join(', ') + '</dd></div>');
+      D.set('reach', C.links.map((l) =>
+        '<li><a href="' + l.href + '"' + (l.href.startsWith('mailto') ? '' : ' target="_blank" rel="noopener noreferrer"') + '><span class="reach-label">' +
+        esc(l.label) + '</span><span class="reach-value">' + esc(l.value) + '</span></a></li>').join(''));
+    })();
+  </script>
+</body>
+</html>

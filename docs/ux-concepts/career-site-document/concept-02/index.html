@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 문서 B 연표</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../shared/doc.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../shared/concepts.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+</head>
+<body>
+  <!-- Document variant B: one column on a time rail. The period of the entry being read stays pinned in the margin. -->
+  <a class="skip" href="#rail">경력으로 건너뛰기</a>
+  <div class="page">
+    <header class="head">
+      <div class="head-top">
+        <div>
+          <h1 id="name"></h1>
+          <p class="role" id="role"></p>
+        </div>
+        <button type="button" class="print" data-print><i class="ph ph-printer" aria-hidden="true"></i> PDF로 저장</button>
+      </div>
+      <ul class="contact" id="contact"></ul>
+    </header>
+
+    <main>
+      <section class="lead">
+        <p class="statement" id="statement"></p>
+        <p id="about"></p>
+        <p class="facts" id="facts"></p>
+      </section>
+
+      <h2 class="part">경력과 학력</h2>
+      <ol class="rail" id="rail"></ol>
+
+      <h2 class="part">기술과 자격</h2>
+      <div class="basics">
+        <dl class="kv" id="skills"></dl>
+        <div><p class="basics-label">자격</p><div id="certs"></div></div>
+      </div>
+
+      <h2 class="part">개인 프로젝트</h2>
+      <ul class="sides" id="side"></ul>
+    </main>
+    <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
+  </div>
+
+  <script src="../../career-site/shared/data.js"></script>
+  <script src="../shared/doc.js"></script>
+  <script>
+    (function () {
+      const C = window.CAREER, D = window.DOC, esc = C.esc;
+      const VISIBLE = 5;
+      D.fillCommon();
+      const when = (period, sub) => {
+        const parts = period.split(' ~ ');
+        return '<div class="when"><p class="date"><span>' + esc(parts[0]) + '</span><span class="to">~ ' + esc(parts[1]) + '</span></p>' +
+          (sub ? '<p class="span">' + esc(sub) + '</p>' : '') + '</div>';
+      };
+      const rows = C.companies.map((co) => {
+        const first = co.projects.slice(0, VISIBLE), rest = co.projects.slice(VISIBLE);
+        return '<li class="row' + (co.end ? '' : ' is-now') + '">' + when(co.period, D.duration(co)) + '<div class="what"><h3>' + esc(co.name) + '</h3>' +
+          '<p class="job-role">' + esc(co.role) + '</p><p class="job-desc">' + esc(co.description) + '</p>' +
+          (first.length ? D.works(first) : '') +
+          (rest.length ? '<details class="more"><summary><i class="ph ph-plus" aria-hidden="true"></i> 작업 ' + rest.length + '개 더 보기</summary>' + D.works(rest) + '</details>' : '') +
+          '</div></li>';
+      });
+      C.education.forEach((e) => {
+        rows.push('<li class="row">' + when(e.period, '') + '<div class="what"><h3>' + esc(e.school) + '</h3><p class="job-role">' + esc(e.major) + '</p></div></li>');
+      });
+      D.set('rail', rows.join(''));
+    })();
+  </script>
+</body>
+</html>

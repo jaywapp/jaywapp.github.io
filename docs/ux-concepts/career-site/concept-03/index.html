@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 시안 03 색인</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../shared/review.js"></script>
+</head>
+<body>
+  <!--
+  THESIS: A career indexed by the kind of problem solved, not by date. Five fields of work on a
+    tool-yellow panel; pick one and the work from every employer in that field lines up beside it.
+    Refuses the chronological scroll and the neutral dark portfolio.
+  OWN-WORLD: Tool yellow holding two fifths of the screen, black ink, heavy grotesque lettering, thick
+    black rules above each piece of work, square corners. The yellow panel survives both themes.
+  STORY: The reader learns what this person does in five words, sees the four employers at a glance,
+    then reads the work in the field they care about.
+  FIRST VIEWPORT: Left, the yellow panel with the statement and the field index as large rows with
+    counts. Right, a one-paragraph summary, the four-row career table and the first field already open.
+  FORM: A tool catalogue index, candidate 5 of 7.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <a class="skip" href="#view">작업 목록으로 건너뛰기</a>
+
+  <div class="split">
+    <div class="side">
+      <header class="panel">
+        <p class="who"><strong id="name"></strong><span id="role"></span></p>
+        <h1 id="statement"></h1>
+      </header>
+      <nav class="themes" id="themes" aria-label="분야별 작업"></nav>
+      <ul class="panel-links" id="panel-links"></ul>
+    </div>
+
+    <main class="pane">
+      <p class="summary" id="summary"></p>
+
+      <section class="career" aria-labelledby="career-title">
+        <h2 id="career-title">경력</h2>
+        <ol class="career-rows" id="career-rows"></ol>
+      </section>
+
+      <section class="view" id="view" aria-live="polite" tabindex="-1"></section>
+
+      <section class="basics" aria-labelledby="basics-title">
+        <h2 id="basics-title">기본 정보</h2>
+        <dl id="basics"></dl>
+      </section>
+
+      <section class="side-work" aria-labelledby="side-title">
+        <h2 id="side-title">회사 밖에서 만든 것</h2>
+        <ul id="side"></ul>
+      </section>
+
+      <section class="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">새로운 기회나 협업 제안을 환영합니다</h2>
+        <ul id="contact"></ul>
+      </section>
+
+      <footer class="foot"><p>© 2026 Junyoung Park</p></footer>
+    </main>
+  </div>
+
+  <script src="../shared/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
