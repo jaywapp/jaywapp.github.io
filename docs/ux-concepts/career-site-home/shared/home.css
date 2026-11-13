@@ -1,0 +1,104 @@
+/* Parts the three home drafts share. Colors and links come from ../../career-site-simple/shared/simple.css. */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+}
+
+.nav a,
+.inline-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.nav a[aria-current="page"] {
+  font-weight: 800;
+  text-decoration-color: var(--ink);
+}
+
+.inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+}
+
+/* Things made: name, kind, one line. */
+.made {
+  display: grid;
+  gap: 18px;
+}
+
+.made a {
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.made .kind {
+  margin-left: 10px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.made p {
+  max-width: 60ch;
+  color: var(--ink-2);
+}
+
+/* Posts: title and date on one line. */
+.posts {
+  display: grid;
+}
+
+.posts li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+}
+
+.posts .date {
+  font-size: 15px;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* Career teaser */
+.career {
+  display: grid;
+}
+
+.career li {
+  display: grid;
+  grid-template-columns: 150px 130px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  padding: 6px 0;
+}
+
+.career strong {
+  font-weight: 800;
+}
+
+.career-role {
+  color: var(--ink-2);
+}
+
+@media (max-width: 599px) {
+  .posts li {
+    display: grid;
+    gap: 0;
+  }
+  .career li {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

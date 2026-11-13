@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>박준영 | 홈 L 라벨</title>
+  <link rel="stylesheet" href="../../career-site/shared/base.css">
+  <link rel="stylesheet" href="../../career-site-simple/shared/simple.css">
+  <link rel="stylesheet" href="../shared/home.css">
+  <script src="../shared/home.js"></script>
+  <script src="../../career-site/shared/review.js"></script>
+  <style>
+    /* L: the home page as labelled rows. The label column doubles as the table of contents. */
+    .page { max-width: 980px; margin: 0 auto; padding: 72px 40px 120px; }
+    .row { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 24px; padding: 32px 0; border-top: 1px solid var(--rule); }
+    .row:first-child { border-top: 0; padding-top: 0; }
+    .label { font-size: 15px; color: var(--ink-2); }
+    h1 { font-size: clamp(2.25rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; }
+    .role { margin-top: 4px; font-weight: 600; color: var(--cobalt); }
+    .intro { display: grid; gap: 12px; max-width: 60ch; }
+    .side-nav { display: grid; gap: 0; }
+    .side-nav a { display: inline-flex; align-items: center; min-height: 36px; font-size: 15px; }
+    @media (max-width: 719px) {
+      .page { padding: 28px 20px 96px; }
+      .row { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; }
+      .side-nav { display: flex; flex-wrap: wrap; gap: 0 18px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#made-row">본문으로 건너뛰기</a>
+  <main class="page">
+    <section class="row">
+      <nav class="side-nav" aria-label="주요 메뉴">
+        <a href="#made-row">만든 것</a>
+        <a href="#posts-row">글</a>
+        <a href="../../career-site-simple/concept-02/index.html">이력서</a>
+      </nav>
+      <div>
+        <h1 id="name"></h1>
+        <p class="role" id="role"></p>
+      </div>
+    </section>
+    <section class="row"><h2 class="label">소개</h2><div class="intro" id="intro"></div></section>
+    <section class="row" id="made-row"><h2 class="label">만든 것</h2><ul class="made" id="made"></ul></section>
+    <section class="row" id="posts-row">
+      <h2 class="label">글</h2>
+      <div>
+        <ul class="posts" id="posts"></ul>
+        <a class="more" href="https://jaywapp.tistory.com/" target="_blank" rel="noopener noreferrer">블로그에서 모두 보기</a>
+      </div>
+    </section>
+    <section class="row">
+      <h2 class="label">이력</h2>
+      <div>
+        <ul class="career" id="career"></ul>
+        <a class="more" href="../../career-site-simple/concept-02/index.html">이력서 전체 보기</a>
+      </div>
+    </section>
+    <section class="row"><h2 class="label">연락처</h2><ul class="inline-links" id="links"></ul></section>
+    <footer class="foot" style="padding-top: 28px; border-top: 1px solid var(--rule)"><p>© 2026 Junyoung Park</p></footer>
+  </main>
+  <script>window.HOME.fill();</script>
+</body>
+</html>
