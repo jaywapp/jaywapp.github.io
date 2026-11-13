@@ -8,6 +8,8 @@ window.REVIEW_CONCEPTS = [
 window.HOME = {
   name: '박준영',
   role: 'Developer Productivity & Tooling Engineer',
+  // The page title is the slogan, not the name (owner's call, 2026-11-14). From messages/ko.json hero.eyebrow.
+  slogan: '업무의 마찰을 시스템으로 해결합니다',
   // Written for these drafts from facts already on the site. To be confirmed by the owner.
   intro: [
     '개발 조직이 덜 번거롭게 일하도록 도구를 만드는 엔지니어입니다. 지금은 스마일게이트에서 내부 도구와 AI·AX 플랫폼을 만듭니다.',
@@ -63,8 +65,8 @@ window.HOME = {
     if (el) el.innerHTML = html;
   };
   H.fill = () => {
-    H.set('name', esc(H.name));
-    H.set('role', esc(H.role));
+    H.set('slogan', esc(H.slogan));
+    H.set('who', '<strong>' + esc(H.name) + '</strong>' + esc(H.role));
     H.set('intro', H.introHtml());
     H.set('made', H.madeItems());
     H.set('posts', H.postItems());

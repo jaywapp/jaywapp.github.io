@@ -13,8 +13,9 @@
   <style>
     /* M: a calling card first, then two columns side by side: what I made and what I wrote. */
     .card { min-height: 82dvh; display: grid; align-content: center; max-width: 1120px; margin: 0 auto; padding: 48px 40px; }
-    h1 { font-size: clamp(3rem, 9vw, 6rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.04em; }
-    .role { margin-top: 16px; font-size: clamp(1.125rem, 2.2vw, 1.5rem); font-weight: 600; color: var(--cobalt); }
+    h1 { max-width: 11em; font-size: clamp(2.5rem, 7.2vw, 5.25rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.04em; }
+    .role { margin-top: 20px; font-size: clamp(1.125rem, 2.2vw, 1.5rem); font-weight: 600; color: var(--cobalt); }
+    .role strong { margin-right: 12px; font-weight: 800; color: var(--ink); }
     .intro { display: grid; gap: 10px; margin-top: 28px; max-width: 34em; font-size: clamp(1.0625rem, 1.8vw, 1.25rem); color: var(--ink-2); }
     .card .nav { margin-top: 32px; gap: 4px 24px; }
     .card .nav a { min-height: 44px; font-size: 17px; font-weight: 700; }
@@ -33,8 +34,8 @@
 <body>
   <a class="skip" href="#made-title">본문으로 건너뛰기</a>
   <header class="card">
-    <h1 id="name"></h1>
-    <p class="role" id="role"></p>
+    <h1 id="slogan"></h1>
+    <p class="role" id="who"></p>
     <div class="intro" id="intro"></div>
     <nav class="nav" aria-label="주요 메뉴">
       <a href="#made-title">만든 것</a>

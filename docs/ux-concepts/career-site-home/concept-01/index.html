@@ -17,7 +17,8 @@
     .bar .home { font-weight: 800; text-decoration: none; }
     .hello { margin-top: 72px; }
     h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; }
-    .role { color: var(--ink-2); }
+    .role { margin-top: 10px; color: var(--ink-2); }
+    .role strong { display: none; } /* the name is already in the bar above */
     .intro { display: grid; gap: 12px; margin-top: 28px; }
     h2 { margin: 72px 0 14px; font-size: 1rem; font-weight: 800; }
     @media (max-width: 479px) {
@@ -31,7 +32,7 @@
   <a class="skip" href="#made-title">본문으로 건너뛰기</a>
   <div class="page">
     <header class="bar">
-      <a class="home" href="index.html">jaywapp.com</a>
+      <a class="home" href="index.html">박준영</a>
       <nav class="nav" aria-label="주요 메뉴">
         <a href="index.html" aria-current="page">홈</a>
         <a href="#made-title">만든 것</a>
@@ -41,8 +42,8 @@
     </header>
     <main>
       <section class="hello">
-        <h1 id="name"></h1>
-        <p class="role" id="role"></p>
+        <h1 id="slogan"></h1>
+        <p class="role" id="who"></p>
         <div class="intro" id="intro"></div>
         <ul class="inline-links" id="links" style="margin-top: 16px"></ul>
       </section>
