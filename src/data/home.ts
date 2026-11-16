@@ -88,7 +88,7 @@ function madeGroups(locale: Locale): MadeGroup[] {
         },
         {
           name: 'Marvelog',
-          live: { label: site(ko), href: 'https://marvelog.vercel.app/' },
+          live: { label: site(ko), href: 'https://marvelog.kr/' },
           line: ko
             ? '마블 영상물의 감상 상태를 가입 없이 기록하고 정주행 진행률을 확인하는 웹 앱'
             : 'A web app for tracking which Marvel titles you have watched, with no sign-up',
