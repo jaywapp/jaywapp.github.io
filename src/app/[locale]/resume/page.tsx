@@ -6,12 +6,11 @@ import {
   certifications,
   educationData,
   experienceData,
-  featuredProjects,
   skills,
   socialLinks,
   type Locale,
 } from '@/data/content';
-import { profile } from '@/data/home';
+import { homeContent, profile } from '@/data/home';
 import { pageMetadata } from '@/app/metadata';
 import ExtLink from '@/components/ExtLink';
 import PrintButton from '@/components/PrintButton';
@@ -130,12 +129,18 @@ export default async function ResumePage({ params }: { params: { locale: string 
           </summary>
           <div className="co-body">
             <ul className="pairs">
-              {featuredProjects[locale].map((s) => (
-                <li key={s.name}>
-                  <ExtLink href={s.href}>{s.name}</ExtLink>
-                  <span>{s.highlight}</span>
-                </li>
-              ))}
+              {/* Same projects as the home page, so the two lists cannot drift apart. */}
+              {homeContent[locale].madeGroups
+                .flatMap((g) => g.items)
+                .map((m) => {
+                  const href = m.live?.href ?? m.repo;
+                  return (
+                    <li key={m.name}>
+                      {href ? <ExtLink href={href}>{m.name}</ExtLink> : <strong>{m.name}</strong>}
+                      <span>{m.line}</span>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
         </details>
