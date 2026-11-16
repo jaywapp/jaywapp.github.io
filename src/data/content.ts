@@ -33,10 +33,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         '개발 조직의 생산성을 높이는 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우 및 AI·AX 플랫폼 개발',
       current: true,
       projects: [
-        // Added 2026-11-14 from the owner's message. Titles only until the owner writes the detail.
-        { title: '작업 관리 솔루션(웹) 개편 및 운영', bullets: [] },
-        { title: '대사 작업을 위한 툴 개발', bullets: [] },
-        { title: 'Slack 봇을 통한 알림 체계 확립', bullets: [] },
+        // Titles added 2026-11-14, one-line details 2026-11-16, both from the owner's messages.
+        { title: '작업 관리 솔루션(웹) 개편 및 운영', bullets: ['한소프트 기반으로 작업 관리 시스템 웹 / 서버 구축'] },
+        { title: '대사 작업을 위한 툴 개발', bullets: ['게임 대사 데이터 작업을 위한 스크립트 툴 개발'] },
+        { title: 'Slack 봇을 통한 알림 체계 확립', bullets: ['사내 업무 편의성을 위한 슬랙 봇 클라이언트/서버 개발 및 운영'] },
         {
           title: 'AX Dashboard 구축',
           bullets: [
@@ -202,9 +202,9 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         'Internal tooling, build and deployment automation, onboarding workflows, and AI/AX platforms that improve engineering productivity',
       current: true,
       projects: [
-        { title: 'Task Management Web Solution Revamp & Operations', bullets: [] },
-        { title: 'Tooling for Dialogue Script Work', bullets: [] },
-        { title: 'Slack Bot Notification System', bullets: [] },
+        { title: 'Task Management Web Solution Revamp & Operations', bullets: ['Built the web client and server of a task management system based on Hansoft'] },
+        { title: 'Tooling for Dialogue Script Work', bullets: ['Built a script tool for working on game dialogue data'] },
+        { title: 'Slack Bot Notification System', bullets: ['Built and operate the Slack bot client and server that make internal work easier'] },
         {
           title: 'AX Dashboard',
           bullets: [
