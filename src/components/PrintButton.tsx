@@ -7,8 +7,10 @@ export default function PrintButton({ label }: { label: string }) {
   useEffect(() => {
     let reopened: HTMLDetailsElement[] = [];
     const open = () => {
-      reopened = Array.from(document.querySelectorAll<HTMLDetailsElement>('details:not([open])'));
-      reopened.forEach((d) => (d.open = true));
+      // beforeprint can fire twice before afterprint, so add to the list instead of replacing it.
+      const closed = Array.from(document.querySelectorAll<HTMLDetailsElement>('details:not([open])'));
+      closed.forEach((d) => (d.open = true));
+      reopened.push(...closed);
     };
     const close = () => {
       reopened.forEach((d) => (d.open = false));

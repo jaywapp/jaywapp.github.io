@@ -50,6 +50,10 @@ for (const locale of ['ko', 'en']) {
     assert.equal([...html.matchAll(/<details class="co"/g)].length, 6);
     assert.match(html, /\bid="rows"/);
     assert.match(html, new RegExp(`href="/${locale}/"`));
+    assert.match(html, new RegExp(`href="/${locale === 'ko' ? 'en' : 'ko'}/resume/"`), 'language switch keeps the page');
+    for (const [link] of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) {
+      assert.match(link, /rel="noopener noreferrer"/, `unsafe external link ${link}`);
+    }
     assertInternalLinks(html);
     assertBundledAssets(html);
     assert.doesNotMatch(html, /Application error:|MISSING_MESSAGE|NEXT_NOT_FOUND/);

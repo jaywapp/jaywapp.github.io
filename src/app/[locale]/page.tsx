@@ -75,7 +75,8 @@ export default async function HomePage({ params }: { params: { locale: string } 
           </a>
         </nav>
       </header>
-      <main className="rest">
+      <div className="rest">
+        <main>
         <section aria-labelledby="work">
           <h2 id="work">{t('work')}</h2>
           <p className="lead">{home.workLead}</p>
@@ -94,12 +95,11 @@ export default async function HomePage({ params }: { params: { locale: string } 
           </div>
           <div className="employer">
             {/* Official wordmark from https://www.smilegate.com/assets/img/common/ (fetched 2026-11-14). Trademark of Smilegate; not redrawn or recolored. */}
-            <span className="employer-logo">
+            <picture className="employer-logo">
+              <source media="(prefers-color-scheme: dark)" srcSet="/smilegate-logo-white.svg" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="on-light" src="/smilegate-logo-black.svg" alt="Smilegate" width={160} height={32} />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="on-dark" src="/smilegate-logo-white.svg" alt="Smilegate" width={160} height={32} />
-            </span>
+              <img src="/smilegate-logo-black.svg" alt="Smilegate" width={160} height={32} />
+            </picture>
             <a className="more" href={resume}>
               {t('workMore')}
             </a>
@@ -150,10 +150,11 @@ export default async function HomePage({ params }: { params: { locale: string } 
             {t('careerMore')}
           </a>
         </section>
+        </main>
         <footer className="foot">
           <p>© {new Date().getFullYear()} Junyoung Park</p>
         </footer>
-      </main>
+      </div>
     </div>
   );
 }

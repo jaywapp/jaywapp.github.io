@@ -8,7 +8,7 @@ orchestrator: Claude. 모든 작업의 owner는 Claude다. 파일이 서로 얽�
 | T2 | 홈과 이력서 페이지, 스타일 | fable | high | T1 | - | `src/app/**`, `src/components/**`, `public/smilegate-logo-*.svg` | lint, build | done |
 | T3 | 테스트와 사이트맵 | fable | medium | T2 | - | `tests/static-export.integration.cjs`, `public/sitemap.xml` | 테스트 11개 통과 | done |
 | T4 | 화면 확인 | fable | medium | T3 | - | - | 아래 결과 | done |
-| T5 | 분리된 리뷰 | opus | high | T4 | - | - | 리뷰 결과 반영 | done |
+| T5 | 분리된 리뷰 | opus | high | T4 | - | - | Critical·High 없음. 인쇄 목록 덮어쓰기, 로고 중복 내려받기, 홈 footer 위치, 인쇄 시 링크 주소, 테스트 공백 2건을 고쳤다. `summary` 안의 h2가 일부 스크린 리더의 제목 목록에서 빠질 수 있다는 지적은 실기기 확인이 필요해 남겼다 | done |
 
 모델 선택 이유: 세션 모델(Fable)이 시안을 만든 맥락을 갖고 있어 구현을 직접 했다. 리뷰만 작성자와 분리했다.
 

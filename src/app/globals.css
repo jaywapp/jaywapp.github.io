@@ -208,7 +208,7 @@ a:hover {
   padding: 0 40px 120px;
 }
 
-.home .rest > section + section {
+.home .rest section + section {
   margin-top: 88px;
 }
 
@@ -283,19 +283,6 @@ a:hover {
   display: block;
   width: 132px;
   height: auto;
-}
-
-.employer-logo .on-dark {
-  display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  .employer-logo .on-light {
-    display: none;
-  }
-  .employer-logo .on-dark {
-    display: block;
-  }
 }
 
 /* Made: two groups, each a two-column list. */
@@ -401,7 +388,7 @@ a:hover {
   .home .rest {
     padding: 0 20px 96px;
   }
-  .home .rest > section + section {
+  .home .rest section + section {
     margin-top: 64px;
   }
   .fields,
@@ -683,6 +670,17 @@ a:hover {
   }
   .bul {
     font-size: 10pt;
+  }
+  /* On paper a link label alone is useless, so print the address after it. */
+  .resume .links a[href^='http']::after {
+    content: ' (' attr(href) ')';
+  }
+  .resume .links a[href^='mailto:'] {
+    font-size: 0;
+  }
+  .resume .links a[href^='mailto:']::after {
+    content: 'jaywapp16@gmail.com';
+    font-size: 10.5pt;
   }
 }
 
