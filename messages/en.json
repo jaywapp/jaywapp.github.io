@@ -1,58 +1,34 @@
 {
-  "nav": {
-    "about": "About",
-    "experience": "Experience",
-    "projects": "Projects",
+  "meta": {
+    "homeTitle": "Junyoung Park | Developer Productivity & Tooling Engineer",
+    "homeDescription": "Developer Productivity and Tooling Engineer building internal tools, automation, AI workflows, and developer platforms.",
+    "resumeTitle": "Junyoung Park Résumé | Developer Productivity & Tooling Engineer",
+    "resumeDescription": "The résumé of Junyoung Park: experience, work, skills, education, and certification on one page."
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "resume": "Résumé",
+    "home": "Home",
+    "switchLanguage": "한국어",
+    "mainMenu": "Main menu"
+  },
+  "home": {
+    "work": "At work",
+    "made": "After work",
+    "posts": "Writing",
+    "career": "Experience",
     "github": "GitHub",
-    "contact": "Contact",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "switchLanguage": "Switch to Korean"
+    "email": "Email",
+    "workMore": "See the detail on the résumé",
+    "postsMore": "All posts on the blog",
+    "careerMore": "Full résumé"
   },
-  "hero": {
-    "greeting": "Hi there 👋",
-    "subGreeting": "I'm",
-    "name": "Junyoung Park",
-    "suffix": ".",
-    "title": "Dev Productivity / Tooling Engineer",
-    "description": "I design and build tools and systems that improve the productivity of engineering teams and end users. For 9+ years, I've been identifying inefficiencies in workflows and turning them into tools, automation, and platforms.",
-    "viewWork": "View Experience",
-    "contact": "Get in Touch",
-    "eyebrow": "Turning workflow friction into systems",
-    "impact": {
-      "years": "Engineering experience",
-      "engineers": "Engineers using AI tools",
-      "analyses": "Crash analysis records"
-    }
-  },
-  "about": {
-    "title": "About",
-    "description": "Rather than a feature developer in a specific domain, I'm an engineer who designs and implements tools and systems that enhance productivity for development teams and end users. From DRC systems in the EDA/PCB domain to CI/CD pipelines, AI code review PoCs, and onboarding automation — I design tools that fit real usage flows and complete them at production-ready quality.",
+  "resume": {
+    "savePdf": "Save as PDF",
+    "basics": "Skills, education, certification",
     "skills": "Skills",
-    "major": "Major",
-    "minor": "Minor",
     "education": "Education",
-    "certifications": "Certifications"
-  },
-  "experience": {
-    "title": "Experience",
-    "present": "Present",
-    "totalCareer": "9 years 4 months total",
-    "selectedWork": "Selected impact",
-    "moreProjects": "View {count} more projects"
-  },
-  "projects": {
-    "title": "Projects",
-    "viewAll": "View All on GitHub",
-    "featured": "Featured work",
-    "openProject": "Open project"
-  },
-  "github": {
-    "title": "GitHub Activity",
-    "contributions": "Contributions"
-  },
-  "contact": {
-    "title": "Contact",
-    "description": "Open to new opportunities and collaborations. Feel free to reach out."
+    "certifications": "Certification",
+    "sideProjects": "Side projects"
   }
 }

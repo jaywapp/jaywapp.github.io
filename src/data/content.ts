@@ -1,5 +1,3 @@
-import { Github, Linkedin, Mail, BookOpen, type LucideIcon } from 'lucide-react';
-
 export type Locale = 'ko' | 'en';
 
 export interface Project {
@@ -35,6 +33,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         '개발 조직의 생산성을 높이는 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우 및 AI·AX 플랫폼 개발',
       current: true,
       projects: [
+        // Added 2026-11-14 from the owner's message. Titles only until the owner writes the detail.
+        { title: '작업 관리 솔루션(웹) 개편 및 운영', bullets: [] },
+        { title: '대사 작업을 위한 툴 개발', bullets: [] },
+        { title: 'Slack 봇을 통한 알림 체계 확립', bullets: [] },
         {
           title: 'AX Dashboard 구축',
           bullets: [
@@ -200,6 +202,9 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         'Internal tooling, build and deployment automation, onboarding workflows, and AI/AX platforms that improve engineering productivity',
       current: true,
       projects: [
+        { title: 'Task Management Web Solution Revamp & Operations', bullets: [] },
+        { title: 'Tooling for Dialogue Script Work', bullets: [] },
+        { title: 'Slack Bot Notification System', bullets: [] },
         {
           title: 'AX Dashboard',
           bullets: [
@@ -315,7 +320,7 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           bullets: [
             'Designed a CAD data pipeline handling ODB++, Gerber, and Neutral PCB formats',
             'Built and delivered design rule verification systems for Samsung Electronics Network Division, SK hynix, Hyundai Mobis, Hyundai Motor, and Kyungshin',
-            'Architected for scale — handling complex network equipment PCB designs across a broad range of customer domains',
+            'Architected for scale, handling complex network equipment PCB designs across a broad range of customer domains',
           ],
         },
         {
@@ -435,35 +440,18 @@ export const skills = {
 };
 
 export interface SocialLink {
-  icon: LucideIcon;
-  label: string;
+  label: Record<Locale, string>;
   value: string;
   href: string;
 }
 
 export const socialLinks: SocialLink[] = [
+  { label: { ko: 'GitHub', en: 'GitHub' }, value: 'github.com/jaywapp', href: 'https://github.com/jaywapp' },
   {
-    icon: Github,
-    label: 'GitHub',
-    value: 'github.com/jaywapp',
-    href: 'https://github.com/jaywapp',
-  },
-  {
-    icon: Linkedin,
-    label: 'LinkedIn',
+    label: { ko: 'LinkedIn', en: 'LinkedIn' },
     value: 'linkedin.com/in/jaywapp16',
     href: 'https://www.linkedin.com/in/jaywapp16/',
   },
-  {
-    icon: BookOpen,
-    label: 'Blog',
-    value: 'jaywapp.tistory.com',
-    href: 'https://jaywapp.tistory.com/',
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'jaywapp16@gmail.com',
-    href: 'mailto:jaywapp16@gmail.com',
-  },
+  { label: { ko: '블로그', en: 'Blog' }, value: 'jaywapp.tistory.com', href: 'https://jaywapp.tistory.com/' },
+  { label: { ko: '이메일', en: 'Email' }, value: 'jaywapp16@gmail.com', href: 'mailto:jaywapp16@gmail.com' },
 ];
