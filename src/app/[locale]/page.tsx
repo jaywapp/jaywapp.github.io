@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { experienceData, type Locale } from '@/data/content';
-import { blogUrl, homeContent, posts, type MadeItem } from '@/data/home';
+import { homeContent, type MadeItem } from '@/data/home';
 import { pageMetadata } from '@/app/metadata';
 import ExtLink from '@/components/ExtLink';
 
@@ -66,7 +66,6 @@ export default async function HomePage({ params }: { params: { locale: string } 
         <nav className="nav" aria-label={c('mainMenu')}>
           <a href="#work">{t('work')}</a>
           <a href="#made">{t('made')}</a>
-          <a href="#posts">{t('posts')}</a>
           <a href={resume}>{c('resume')}</a>
           <ExtLink href="https://github.com/jaywapp">{t('github')}</ExtLink>
           <a href="mailto:jaywapp16@gmail.com">{t('email')}</a>
@@ -118,22 +117,6 @@ export default async function HomePage({ params }: { params: { locale: string } 
               </ul>
             </div>
           ))}
-        </section>
-        <section aria-labelledby="posts">
-          <h2 id="posts">{t('posts')}</h2>
-          <ul className="posts">
-            {posts.map((p) => (
-              <li key={p.href}>
-                <ExtLink href={p.href}>
-                  <span lang="ko">{p.title}</span>
-                </ExtLink>
-                <span className="date">{p.date}</span>
-              </li>
-            ))}
-          </ul>
-          <ExtLink className="more" href={blogUrl}>
-            {t('postsMore')}
-          </ExtLink>
         </section>
         <section aria-labelledby="career">
           <h2 id="career">{t('career')}</h2>

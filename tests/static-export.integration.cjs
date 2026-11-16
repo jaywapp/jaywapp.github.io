@@ -28,7 +28,7 @@ for (const locale of ['ko', 'en']) {
     assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
     assert.match(html, new RegExp(`rel="canonical" href="https://jaywapp.com/${locale}/"`));
     const targets = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
-    for (const section of ['work', 'made', 'posts', 'career']) {
+    for (const section of ['work', 'made', 'career']) {
       assert.ok(targets.has(section), `missing section ${section}`);
     }
     for (const match of html.matchAll(/\bhref="#([^"]+)"/g)) {

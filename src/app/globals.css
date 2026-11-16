@@ -331,24 +331,6 @@ a:hover {
   min-height: 32px;
 }
 
-/* Posts: title and date on one line. */
-.posts {
-  display: grid;
-  max-width: 760px;
-}
-
-.posts li {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 7px 0;
-}
-
-.posts .date {
-  font-size: 15px;
-}
-
 .career {
   display: grid;
 }
@@ -401,10 +383,6 @@ a:hover {
 }
 
 @media (max-width: 599px) {
-  .posts li {
-    display: grid;
-    gap: 0;
-  }
   .career li {
     grid-template-columns: 1fr;
     gap: 0;

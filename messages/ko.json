@@ -15,12 +15,10 @@
   "home": {
     "work": "출근 후",
     "made": "퇴근 후",
-    "posts": "글",
     "career": "이력",
     "github": "GitHub",
     "email": "이메일",
     "workMore": "이력서에서 자세히 보기",
-    "postsMore": "블로그에서 모두 보기",
     "careerMore": "이력서 전체 보기"
   },
   "resume": {

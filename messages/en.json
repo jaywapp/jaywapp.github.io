@@ -15,12 +15,10 @@
   "home": {
     "work": "At work",
     "made": "After work",
-    "posts": "Writing",
     "career": "Experience",
     "github": "GitHub",
     "email": "Email",
     "workMore": "See the detail on the résumé",
-    "postsMore": "All posts on the blog",
     "careerMore": "Full résumé"
   },
   "resume": {

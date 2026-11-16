@@ -254,26 +254,3 @@ export const homeContent: Record<Locale, HomeContent> = {
     madeGroups: madeGroups('en'),
   },
 };
-
-// Latest posts read from the blog feed on 2026-11-14. The blog is written in Korean.
-export const posts = [
-  { title: '[API] 공공데이터 API 사용하기', date: '2023.03.08', href: 'https://jaywapp.tistory.com/42' },
-  {
-    title: '[React] github pages를 활용하여 React 프로젝트 배포하기',
-    date: '2023.03.08',
-    href: 'https://jaywapp.tistory.com/41',
-  },
-  {
-    title: 'private, protected method 단위 테스트 코드 작성하기',
-    date: '2023.02.07',
-    href: 'https://jaywapp.tistory.com/39',
-  },
-  { title: 'Adonis UI 사용기', date: '2023.02.07', href: 'https://jaywapp.tistory.com/37' },
-  {
-    title: '[C#] DataGrid로 DataTable 출력시 일부 cell이 없어지는 경우',
-    date: '2023.01.30',
-    href: 'https://jaywapp.tistory.com/36',
-  },
-];
-
-export const blogUrl = 'https://jaywapp.tistory.com/';
