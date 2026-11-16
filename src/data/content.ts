@@ -1,5 +1,3 @@
-import { Github, Linkedin, Mail, BookOpen, type LucideIcon } from 'lucide-react';
-
 export type Locale = 'ko' | 'en';
 
 export interface Project {
@@ -16,15 +14,6 @@ export interface ExperienceItem {
   projects?: Project[];
 }
 
-export interface FeaturedProject {
-  name: string;
-  category: string;
-  description: string;
-  highlight: string;
-  href: string;
-  technologies: string[];
-}
-
 export const experienceData: Record<Locale, ExperienceItem[]> = {
   ko: [
     {
@@ -35,6 +24,10 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         '개발 조직의 생산성을 높이는 내부 도구, 빌드·배포 자동화, 온보딩 워크플로우 및 AI·AX 플랫폼 개발',
       current: true,
       projects: [
+        // Titles added 2026-11-14, one-line details 2026-11-16, both from the owner's messages.
+        { title: '작업 관리 솔루션(웹) 개편 및 운영', bullets: ['한소프트 기반으로 작업 관리 시스템 웹 / 서버 구축'] },
+        { title: '대사 작업을 위한 툴 개발', bullets: ['게임 대사 데이터 작업을 위한 스크립트 툴 개발'] },
+        { title: 'Slack 봇을 통한 알림 체계 확립', bullets: ['사내 업무 편의성을 위한 슬랙 봇 클라이언트/서버 개발 및 운영'] },
         {
           title: 'AX Dashboard 구축',
           bullets: [
@@ -200,6 +193,9 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
         'Internal tooling, build and deployment automation, onboarding workflows, and AI/AX platforms that improve engineering productivity',
       current: true,
       projects: [
+        { title: 'Task Management Web Solution Revamp & Operations', bullets: ['Built the web client and server of a task management system based on Hansoft'] },
+        { title: 'Tooling for Dialogue Script Work', bullets: ['Built a script tool for working on game dialogue data'] },
+        { title: 'Slack Bot Notification System', bullets: ['Built and operate the Slack bot client and server that make internal work easier'] },
         {
           title: 'AX Dashboard',
           bullets: [
@@ -315,7 +311,7 @@ export const experienceData: Record<Locale, ExperienceItem[]> = {
           bullets: [
             'Designed a CAD data pipeline handling ODB++, Gerber, and Neutral PCB formats',
             'Built and delivered design rule verification systems for Samsung Electronics Network Division, SK hynix, Hyundai Mobis, Hyundai Motor, and Kyungshin',
-            'Architected for scale — handling complex network equipment PCB designs across a broad range of customer domains',
+            'Architected for scale, handling complex network equipment PCB designs across a broad range of customer domains',
           ],
         },
         {
@@ -363,67 +359,6 @@ export const educationData = {
   en: [{ school: 'Ajou University', major: 'Software Engineering', period: '2010.03 ~ 2017.02' }],
 };
 
-export const featuredProjects: Record<Locale, FeaturedProject[]> = {
-  ko: [
-    {
-      name: 'Claude Buffett',
-      category: 'AI Automation',
-      description:
-        'Claude를 활용해 종목 분석, 시장 동향, 포트폴리오 리뷰를 자동으로 작성하고 웹에서 탐색할 수 있게 만든 투자 분석 시스템입니다.',
-      highlight: '일간·주간·요청형 리포트 자동화',
-      href: 'https://github.com/jaywapp/claude-buffett',
-      technologies: ['Claude', 'Python', 'GitHub Pages'],
-    },
-    {
-      name: 'AI Debate',
-      category: 'Agent Workflow',
-      description:
-        'Claude와 Codex가 멀티라운드로 논쟁하고, 독립된 판정자가 결론을 내리는 과정을 재사용 가능한 워크플로우로 구성했습니다.',
-      highlight: '멀티모델 토론·판정 기록 체계',
-      href: 'https://github.com/jaywapp/ai-debate',
-      technologies: ['Claude', 'Codex', 'Markdown'],
-    },
-    {
-      name: 'CardRadar',
-      category: 'Mobile Product',
-      description:
-        '보유 카드와 결제 카테고리를 기준으로 혜택을 비교해, 결제 순간 가장 유리한 카드를 찾도록 돕는 모바일 앱입니다.',
-      highlight: '19개 카드·8개 소비 카테고리 지원',
-      href: 'https://github.com/jaywapp/card-radar',
-      technologies: ['Flutter', 'Riverpod', 'Hive'],
-    },
-  ],
-  en: [
-    {
-      name: 'Claude Buffett',
-      category: 'AI Automation',
-      description:
-        'An investment research system that uses Claude to generate stock analysis, market briefs, and portfolio reviews with a web-based report viewer.',
-      highlight: 'Automated daily, weekly, and on-demand reports',
-      href: 'https://github.com/jaywapp/claude-buffett',
-      technologies: ['Claude', 'Python', 'GitHub Pages'],
-    },
-    {
-      name: 'AI Debate',
-      category: 'Agent Workflow',
-      description:
-        'A reusable workflow where Claude and Codex debate across multiple rounds and an independent judge delivers a structured verdict.',
-      highlight: 'Multi-model debate and evaluation records',
-      href: 'https://github.com/jaywapp/ai-debate',
-      technologies: ['Claude', 'Codex', 'Markdown'],
-    },
-    {
-      name: 'CardRadar',
-      category: 'Mobile Product',
-      description:
-        'A mobile app that compares benefits across a user\'s cards and spending category to recommend the best card at checkout.',
-      highlight: '19 cards across 8 spending categories',
-      href: 'https://github.com/jaywapp/card-radar',
-      technologies: ['Flutter', 'Riverpod', 'Hive'],
-    },
-  ],
-};
-
 export const certifications = {
   ko: [{ name: '정보처리기사', type: '자격증' }],
   en: [{ name: 'Engineer Information Processing', type: 'Certificate' }],
@@ -435,35 +370,18 @@ export const skills = {
 };
 
 export interface SocialLink {
-  icon: LucideIcon;
-  label: string;
+  label: Record<Locale, string>;
   value: string;
   href: string;
 }
 
 export const socialLinks: SocialLink[] = [
+  { label: { ko: 'GitHub', en: 'GitHub' }, value: 'github.com/jaywapp', href: 'https://github.com/jaywapp' },
   {
-    icon: Github,
-    label: 'GitHub',
-    value: 'github.com/jaywapp',
-    href: 'https://github.com/jaywapp',
-  },
-  {
-    icon: Linkedin,
-    label: 'LinkedIn',
+    label: { ko: 'LinkedIn', en: 'LinkedIn' },
     value: 'linkedin.com/in/jaywapp16',
     href: 'https://www.linkedin.com/in/jaywapp16/',
   },
-  {
-    icon: BookOpen,
-    label: 'Blog',
-    value: 'jaywapp.tistory.com',
-    href: 'https://jaywapp.tistory.com/',
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'jaywapp16@gmail.com',
-    href: 'mailto:jaywapp16@gmail.com',
-  },
+  { label: { ko: '블로그', en: 'Blog' }, value: 'jaywapp.tistory.com', href: 'https://jaywapp.tistory.com/' },
+  { label: { ko: '이메일', en: 'Email' }, value: 'jaywapp16@gmail.com', href: 'mailto:jaywapp16@gmail.com' },
 ];

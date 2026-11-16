@@ -1,58 +1,32 @@
 {
-  "nav": {
-    "about": "소개",
-    "experience": "경력",
-    "projects": "프로젝트",
+  "meta": {
+    "homeTitle": "박준영 | Developer Productivity & Tooling Engineer",
+    "homeDescription": "개발 조직의 생산성을 높이는 내부 도구, 자동화, AI 워크플로우, 개발자 플랫폼을 설계하고 구현합니다.",
+    "resumeTitle": "박준영 이력서 | Developer Productivity & Tooling Engineer",
+    "resumeDescription": "박준영의 이력서. 경력, 작업, 기술, 학력, 자격을 한 페이지에서 봅니다."
+  },
+  "common": {
+    "skipToContent": "본문으로 건너뛰기",
+    "resume": "이력서",
+    "home": "홈",
+    "switchLanguage": "English",
+    "mainMenu": "주요 메뉴"
+  },
+  "home": {
+    "work": "출근 후",
+    "made": "퇴근 후",
+    "career": "이력",
     "github": "GitHub",
-    "contact": "연락처",
-    "openMenu": "메뉴 열기",
-    "closeMenu": "메뉴 닫기",
-    "switchLanguage": "영어로 전환"
+    "email": "이메일",
+    "workMore": "이력서에서 자세히 보기",
+    "careerMore": "이력서 전체 보기"
   },
-  "hero": {
-    "greeting": "안녕하세요 👋",
-    "subGreeting": "저는",
-    "name": "박준영",
-    "suffix": "입니다.",
-    "title": "Dev Productivity / Tooling Engineer",
-    "description": "개발 조직과 실무 사용자의 생산성을 높이는 도구와 시스템을 설계하고 구현합니다. 업무 흐름 안의 비효율을 발견하고, 이를 도구·자동화·플랫폼으로 바꾸는 일을 9년간 해왔습니다.",
-    "viewWork": "경력 보기",
-    "contact": "연락하기",
-    "eyebrow": "업무의 마찰을 시스템으로 해결합니다",
-    "impact": {
-      "years": "개발 경력",
-      "engineers": "AI 도구 사용 조직",
-      "analyses": "크래시 분석 데이터"
-    }
-  },
-  "about": {
-    "title": "소개",
-    "description": "특정 도메인의 기능 개발자보다, 개발 조직과 실무 사용자의 생산성을 높이는 도구와 시스템을 설계하고 구현하는 엔지니어입니다. 전자 CAD/PCB 영역의 DRC 시스템부터 내부 CI/CD, AI 코드 리뷰 PoC, 온보딩 자동화까지 — 실제 사용 흐름에 맞는 형태로 도구를 설계하고 운영 가능한 수준의 구조로 완성해왔습니다.",
-    "skills": "기술 스택",
-    "major": "주요",
-    "minor": "보조",
+  "resume": {
+    "savePdf": "PDF로 저장",
+    "basics": "기술, 학력, 자격",
+    "skills": "기술",
     "education": "학력",
-    "certifications": "자격증"
-  },
-  "experience": {
-    "title": "경력",
-    "present": "현재",
-    "totalCareer": "총 경력 9년 4개월",
-    "selectedWork": "주요 성과",
-    "moreProjects": "추가 프로젝트 {count}개 보기"
-  },
-  "projects": {
-    "title": "프로젝트",
-    "viewAll": "GitHub에서 모두 보기",
-    "featured": "대표 프로젝트",
-    "openProject": "프로젝트 열기"
-  },
-  "github": {
-    "title": "GitHub 활동",
-    "contributions": "기여 현황"
-  },
-  "contact": {
-    "title": "연락처",
-    "description": "새로운 기회나 협업 제안을 환영합니다. 편하게 연락해 주세요."
+    "certifications": "자격",
+    "sideProjects": "개인 프로젝트"
   }
 }

@@ -6,25 +6,58 @@ const { join } = require('node:path');
 const output = join(__dirname, '..', 'out');
 const readPage = (path) => readFileSync(join(output, path), 'utf8');
 
+const assertBundledAssets = (html) => {
+  const assets = new Set([...html.matchAll(/(?:src|href)="(\/_next\/[^"?]+)(?:\?[^"]*)?"/g)].map((match) => match[1]));
+  assert.ok(assets.size > 0, 'no bundled assets exported');
+  for (const asset of assets) {
+    assert.ok(existsSync(join(output, decodeURIComponent(asset.slice(1)))), `missing asset ${asset}`);
+  }
+};
+
+// Every in-site link must lead to a page that was exported.
+const assertInternalLinks = (html) => {
+  for (const match of html.matchAll(/\bhref="(\/(?:ko|en)\/[^"#]*)"/g)) {
+    assert.ok(existsSync(join(output, match[1], 'index.html')), `broken page link ${match[1]}`);
+  }
+};
+
 for (const locale of ['ko', 'en']) {
-  test(`${locale} export preserves navigation targets and serves every bundled asset`, () => {
+  test(`${locale} home export preserves navigation targets and serves every bundled asset`, () => {
     const html = readPage(`${locale}/index.html`);
     assert.match(html, new RegExp(`<html[^>]+lang="${locale}"`));
     assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
     assert.match(html, new RegExp(`rel="canonical" href="https://jaywapp.com/${locale}/"`));
     const targets = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
-    for (const section of ['about', 'experience', 'projects', 'github', 'contact']) {
+    for (const section of ['work', 'made', 'career']) {
       assert.ok(targets.has(section), `missing section ${section}`);
     }
     for (const match of html.matchAll(/\bhref="#([^"]+)"/g)) {
       assert.ok(targets.has(match[1]), `broken section link ${match[1]}`);
     }
-    const assets = new Set([...html.matchAll(/(?:src|href)="(\/_next\/[^"?]+)(?:\?[^"]*)?"/g)].map((match) => match[1]));
-    assert.ok(assets.size > 0, 'no bundled assets exported');
-    for (const asset of assets) {
-      assert.ok(existsSync(join(output, decodeURIComponent(asset.slice(1)))), `missing asset ${asset}`);
-    }
+    assert.match(html, new RegExp(`href="/${locale}/resume/"`));
+    assertInternalLinks(html);
+    assertBundledAssets(html);
+    assert.ok(existsSync(join(output, 'smilegate-logo-black.svg')) && existsSync(join(output, 'smilegate-logo-white.svg')));
     assert.doesNotMatch(html, /Application error:|MISSING_MESSAGE|NEXT_NOT_FOUND/);
+    assert.doesNotMatch(html, /[\u2014\u2013]/, 'dash characters are not used in copy');
+  });
+
+  test(`${locale} resume export has its own canonical and lists every employer`, () => {
+    const html = readPage(`${locale}/resume/index.html`);
+    assert.match(html, new RegExp(`<html[^>]+lang="${locale}"`));
+    assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
+    assert.match(html, new RegExp(`rel="canonical" href="https://jaywapp.com/${locale}/resume/"`));
+    assert.equal([...html.matchAll(/<details class="co"/g)].length, 6);
+    assert.match(html, /\bid="rows"/);
+    assert.match(html, new RegExp(`href="/${locale}/"`));
+    assert.match(html, new RegExp(`href="/${locale === 'ko' ? 'en' : 'ko'}/resume/"`), 'language switch keeps the page');
+    for (const [link] of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) {
+      assert.match(link, /rel="noopener noreferrer"/, `unsafe external link ${link}`);
+    }
+    assertInternalLinks(html);
+    assertBundledAssets(html);
+    assert.doesNotMatch(html, /Application error:|MISSING_MESSAGE|NEXT_NOT_FOUND/);
+    assert.doesNotMatch(html, /[\u2014\u2013]/, 'dash characters are not used in copy');
   });
 }
 
