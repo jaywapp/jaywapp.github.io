@@ -6,14 +6,14 @@
 
 | 경로 | 파일 | 내용 |
 |---|---|---|
-| `/{locale}/` | `src/app/[locale]/page.tsx` | 홈. 명함(슬로건, 이름과 직무, 소개, 메뉴), 출근 후, 퇴근 후, 글, 이력 |
+| `/{locale}/` | `src/app/[locale]/page.tsx` | 홈. 명함(슬로건, 이름과 직무, 소개, 메뉴), 출근 후, 퇴근 후, 이력 |
 | `/{locale}/resume/` | `src/app/[locale]/resume/page.tsx` | 이력서. 회사 4곳과 기술·학력·자격, 개인 프로젝트를 `<details>` 행으로 |
 | 공통 | `src/app/metadata.ts` | 제목, 설명, canonical, hreflang, Open Graph |
 
 ## 데이터
 
 - `src/data/content.ts`: 이력서의 사실(경력, 작업, 학력, 자격, 기술, 링크). 새 작업 3건을 제목만 추가했다.
-- `src/data/home.ts`: 홈에만 쓰는 내용(슬로건, 소개, 분야 4개와 작업의 짧은 이름, 만든 것 13개, 글 5개).
+- `src/data/home.ts`: 홈에만 쓰는 내용(슬로건, 소개, 분야 4개와 작업의 짧은 이름, 만든 것 13개). 이력서의 개인 프로젝트도 이 13개를 쓴다.
 - `messages/*.json`: 버튼과 메뉴 같은 화면 문구.
 
 분야별 짧은 이름은 `home.ts`에 따로 둔다. 이력서의 작업 제목과 자동으로 묶지 않았다. 작업을 추가하면 두 파일을 함께 고친다.
@@ -38,7 +38,7 @@
 
 ## 호환성
 
-- `/ko/`, `/en/` 주소는 그대로다. 기존 앵커(`#about`, `#experience` 등)는 없어지고 `#work`, `#made`, `#posts`, `#career`가 생긴다.
+- `/ko/`, `/en/` 주소는 그대로다. 기존 앵커(`#about`, `#experience` 등)는 없어지고 `#work`, `#made`, `#career`가 생긴다.
 - 사이트맵에 이력서 주소 2개를 더했다.
 
 ## 검증
